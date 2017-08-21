@@ -1,10 +1,14 @@
+*{
+	margin: 0px;
+	padding: 0px;
+}
 body {
 	font-family: -apple-system,SF UI Text,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif;
 	min-width: 768px;
 	font-size: 17px;
 	margin: 0px; padding: 0px;
 }
-	
+
 .navbar-fxied-top {
 	top: 0;
 	border-width: 0 0 1px;
@@ -36,7 +40,7 @@ body {
 }
 
 .logo:hover{
-	background-color: #eee;
+	/*background-color: #eee;*/
 }
 
 .navbar-collapse {
@@ -68,3 +72,110 @@ body {
 	background-color: #f3f3f3;
 }
 	
+.container {
+	position: relative;
+	top: 58px;
+	margin: 0 auto;
+	width: 1180px;
+	/*background-color: cadetblue;*/
+}
+
+/**正在更新的代码*/
+#content-flag {
+	/*background-color: blanchedalmond;*/
+	width: 400px;
+	height: 50px;
+}
+
+.content-content {
+	display: inline-block;
+	vertical-align: top;
+	height: 136px;
+	width: 463px;
+	padding-top: 2px;
+	padding-left: 2px;
+	margin-top: 5px;
+	border:1px solid #eae4e4;
+/*	background-color: saddlebrown;*/
+}
+
+.author {
+	width: 463px;
+	height: 32px;
+	/*background-color: blue;*/
+}
+
+.avater{
+	width: 32px;
+    height: 32px;
+    cursor: pointer;
+    display: inline-block;
+    vertical-align: top;
+}
+
+.avater img {
+	width: 32px;
+	height: 32px;
+	border-radius: 16px;
+}
+
+.name {
+	display: inline-block;
+    vertical-align: top;
+	width: 120px;
+	height: 32px;
+	/*background-color: greenyellow;*/
+	text-align: left;
+}
+
+.blue-link {
+	display: inline-block;
+    vertical-align: top;
+    height: 32px;
+    width: 120px;
+	padding-top: 2px;
+	padding-left: 3px;
+	
+}
+
+.title{
+	display: block;
+	height: 32px;
+	width: inherit;
+	font-size: 18px;
+	font-weight: bold;
+	line-height: 27px;
+	text-align: left;
+	text-decoration: none;
+}
+
+.abstract {
+	display: block;
+	width:463px;
+	height:72px;
+	/*background-color:red;*/
+}
+
+.wrap-img {
+	position: absolute;
+    top: 50%;
+    margin-top: -68px;
+    right: 0;
+    width: 150px;
+    height: 120px
+}
+
+.content-img {
+	margin-top: 5px;
+	display: inline-block;
+	vertical-align: top;
+	height: 136px;
+	width: 463px;
+	/*background-color: saddlebrown;*/
+
+}
+
+.content-img img {
+	width: 100px;
+	height: 136px;
+}
