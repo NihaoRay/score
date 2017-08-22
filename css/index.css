@@ -17,7 +17,7 @@ body {
 .navbar-fxied-top {
 	height: 58px;
 	width: 100%;
-	max-width: 1440px;
+	/*max-width: 1440px;*/
 	position: fixed;
 	right: 0;
 	left: 0;
