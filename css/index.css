@@ -18,6 +18,7 @@ body {
 	height: 58px;
 	width: 100%;
 	/*max-width: 1440px;*/
+	background-color: #fffdfd;
 	position: fixed;
 	right: 0;
 	left: 0;
@@ -176,6 +177,8 @@ body {
 }
 
 .content-img img {
-	width: 100px;
-	height: 136px;
+    border-radius: 4px;
+    width: 100px;
+    height: 136px;
+    border: 1px solid #f0f0f0;
 }
