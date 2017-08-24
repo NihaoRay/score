@@ -122,7 +122,7 @@ body {
 
 .name {
 	display: inline-block;
-    vertical-align: top;
+        vertical-align: top;
 	width: 120px;
 	height: 32px;
 	/*background-color: greenyellow;*/
@@ -130,10 +130,10 @@ body {
 }
 
 .blue-link {
-	display: inline-block;
+    display: inline-block;
     vertical-align: top;
-    height: 32px;
-    width: 120px;
+    height: 26px;
+    width: 117px;
     padding-top: 6px;
     padding-left: 3px;
     font-size: 13px;
