@@ -1,8 +1,9 @@
 /*
 SQLyog Ultimate v11.5 (64 bit)
-MySQL - 5.6.20 : Database - score
+MySQL - 5.6.37 : Database - score
 *********************************************************************
-*/
+*/
+
 
 /*!40101 SET NAMES utf8 */;
 
@@ -12,9 +13,65 @@ MySQL - 5.6.20 : Database - score
 /*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
 /*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
 /*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
-CREATE DATABASE /*!32312 IF NOT EXISTS*/`score` /*!40100 DEFAULT CHARACTER SET utf8 */;
+CREATE DATABASE /*!32312 IF NOT EXISTS*/`score` /*!40100 DEFAULT CHARACTER SET latin1 */;
 
 USE `score`;
+
+/*Table structure for table `cms_article` */
+
+DROP TABLE IF EXISTS `cms_article`;
+
+CREATE TABLE `cms_article` (
+  `id` varchar(64) DEFAULT NULL,
+  `category_id` varchar(64) DEFAULT NULL,
+  `title` varchar(64) DEFAULT NULL COMMENT '标题',
+  `link` varchar(64) DEFAULT NULL COMMENT '文章链接',
+  `color` varchar(32) DEFAULT NULL COMMENT '标题颜色',
+  `image` varchar(64) DEFAULT NULL COMMENT '文章图片',
+  `keywords` varchar(64) DEFAULT NULL COMMENT '关键词',
+  `decription` varchar(128) DEFAULT NULL COMMENT '描述',
+  `hits` int(11) DEFAULT NULL COMMENT '点击次数',
+  `weight` varchar(16) DEFAULT NULL COMMENT '权重',
+  `weight_date` varchar(16) DEFAULT NULL COMMENT '权重权限',
+  `posid` varchar(16) DEFAULT NULL COMMENT '推进位',
+  `create_by` varchar(64) DEFAULT NULL COMMENT '创建人',
+  `create_date` datetime DEFAULT NULL COMMENT '创建时间',
+  `update_by` varchar(64) DEFAULT NULL COMMENT '修改人',
+  `update_date` datetime DEFAULT NULL COMMENT '修改日期',
+  `del_flag` char(1) DEFAULT NULL COMMENT '删除标志位'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `cms_article` */
+
+/*Table structure for table `cms_data` */
+
+DROP TABLE IF EXISTS `cms_data`;
+
+CREATE TABLE `cms_data` (
+  `id` varchar(64) DEFAULT NULL,
+  `copyfrom` varchar(64) DEFAULT NULL COMMENT '文章来源',
+  `relation` varchar(64) DEFAULT NULL,
+  `allow_comment` char(64) DEFAULT NULL COMMENT '是否允许评论',
+  `url_content` varchar(64) DEFAULT NULL COMMENT '地址连接',
+  `one_content` text COMMENT '一级内容',
+  `two_content` text COMMENT '二级内容',
+  `three_content` text COMMENT '三级内容',
+  `four_content` text COMMENT '四级内容'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `cms_data` */
+
+/*Table structure for table `cms_date_role` */
+
+DROP TABLE IF EXISTS `cms_date_role`;
+
+CREATE TABLE `cms_date_role` (
+  `id` varchar(64) DEFAULT NULL,
+  `cms_id` varchar(64) DEFAULT NULL COMMENT '文章表关联到 cms_article',
+  `role_id` varchar(64) DEFAULT NULL COMMENT '角色表关联到sys_role'
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+/*Data for the table `cms_date_role` */
 
 /*Table structure for table `login_log` */
 
@@ -24,9 +81,9 @@ CREATE TABLE `login_log` (
   `id` varchar(64) DEFAULT NULL,
   `user_id` varchar(64) DEFAULT NULL COMMENT '用户id',
   `login_ip` varchar(64) DEFAULT NULL COMMENT '登录的ip',
-  `login_date` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
   `login_flag` char(1) DEFAULT NULL,
-  `del_flag` char(1) DEFAULT NULL
+  `del_flag` char(1) DEFAULT NULL,
+  `login_date` datetime DEFAULT NULL COMMENT '登录日期'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `login_log` */
@@ -66,11 +123,11 @@ CREATE TABLE `sys_role` (
   `data_sope` varchar(64) DEFAULT NULL,
   `is_sys` char(1) DEFAULT NULL COMMENT '是否管理员',
   `create_by` varchar(64) DEFAULT NULL COMMENT '创建人',
-  `create_date` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6) COMMENT '创建日期',
   `update_by` varchar(64) DEFAULT NULL COMMENT '修改人',
-  `update_date` timestamp(6) NOT NULL DEFAULT '0000-00-00 00:00:00.000000' COMMENT '修改日期',
   `remarks` varchar(128) DEFAULT NULL COMMENT '备注',
-  `del_flag` char(1) DEFAULT NULL COMMENT '删除标志位'
+  `del_flag` char(1) DEFAULT NULL COMMENT '删除标志位',
+  `create_date` datetime DEFAULT NULL,
+  `update_date` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8 COMMENT='权限控制表';
 
 /*Data for the table `sys_role` */
@@ -106,11 +163,11 @@ CREATE TABLE `sys_user` (
   `photo_path` varchar(64) DEFAULT NULL COMMENT '用户头像',
   `login_log_id` varchar(64) DEFAULT NULL COMMENT '用户登录记录日志',
   `create_by` varchar(64) DEFAULT NULL COMMENT '创建者',
-  `create_date` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6) COMMENT '创建日期',
   `update_by` varchar(64) DEFAULT NULL COMMENT '修改者',
-  `update_date` timestamp(6) NOT NULL DEFAULT '0000-00-00 00:00:00.000000' COMMENT '修改日期',
   `remarks` varchar(128) DEFAULT NULL COMMENT '备注',
-  `del_flag` char(1) DEFAULT NULL COMMENT '删除标志位'
+  `del_flag` char(1) DEFAULT NULL COMMENT '删除标志位',
+  `create_date` datetime DEFAULT NULL,
+  `update_date` datetime DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 /*Data for the table `sys_user` */
