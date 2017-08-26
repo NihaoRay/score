@@ -9,6 +9,15 @@ body {
 	margin: 0px; padding: 0px;
 }
 
+input, a {
+	margin: 0px;padding: 0px;
+	text-decoration: none;
+}
+
+li {
+	list-style: none;
+}
+
 .navbar-fxied-top {
 	top: 0;
 	border-width: 0 0 1px;
@@ -17,15 +26,23 @@ body {
 .navbar-fxied-top {
 	height: 58px;
 	width: 100%;
-	/*max-width: 1440px;*/
 	background-color: #fffdfd;
 	position: fixed;
 	right: 0;
 	left: 0;
-	z-index: 1030;
-	border-bottom: 1px solid #e7e7e7;				
-}
+	z-index: 2;
+	border-bottom: 1px solid #d8d4d4;
+	/*background-color: #B5D6FD;*/		
 	
+}
+
+.width-limit {
+	/*background-color: #61BD6D;*/
+	height: inherit;
+	max-width: 1440px;
+	margin: 0 auto;		
+}
+
 .side-tool {
 	position: fixed;
 	bottom: 40px;
@@ -34,33 +51,101 @@ body {
 }
 
 .logo {
+	position: relative;
 	display: inline-block;
 	vertical-align: top;
 	height: 58px;
+	width: 100px;
 	padding: 0px 25px 0px 20px
 }
 
 .logo:hover{
-	/*background-color: #eee;*/
+	background-color: #eee;
 }
 
-.navbar-collapse {
+.nav-bar {
+	display: inline-block;
+	height: 58px;
+	width: 600px;
+	/*background-color: #EAE4E4;*/
+}
+
+.nav-bar ul li {
+	float: left;
+	display: inline-block;
+	height: 58px;
+	width: 200px;
+}
+
+.search-input {
 	display: inline-block;
 	vertical-align: top;
-}
-
-.search {
-	border: 1px solid #EEEEEE;
-	height: 30px;
-	width: 300px;	
-	border-radius: 10px;
-}
-
-#serach-input {
 	outline: none;
-	border: 1px solid #F3F3F3;
+	border: 1px solid #fffdfd;
+	/*display: block;*/
+	height: 30px;
+	width: 143px;
+	font-size: 15px;
+	border-radius: 4px;
+	/*background-color: #AAAAAA;*/
 }
 
+.search-btn {
+	padding-top:2px ;
+	display: inline-block;
+	vertical-align: top;
+	width: 30px;
+	height: 32px;
+	border-radius: 4px;
+	/*background-color: royalblue;*/
+}
+
+.search-btn img {
+	height: 27px;
+	width: 30px;
+}
+
+.search-border {
+	padding-left: 2px;
+	margin: 10px 2px;
+	height: 32px;
+	width: 182px;
+	border-radius: 7px;
+	border: 1px solid #d8d4d4;
+}
+
+.btn {
+	display: inline-block;
+	font-weight: 400;
+	text-align: center;
+    vertical-align: middle;
+	cursor: pointer;
+}
+
+nav .sign-up {
+	/*background-color: blue;*/
+	float: right;
+	margin-top: 10px;
+	padding-top:7px ;
+	border-radius: 12px;
+	height: 30px;
+	width: 80px;
+	border:1px solid #d8d4d4;
+	color: black;
+}
+
+nav .log-in {
+	/*background-color: gold;*/
+	float: right;
+	margin-top: 10px;
+	margin-right: 4px;
+	padding-top:7px ;
+	height: 30px;
+	border-radius: 12px;
+	width: 80px;
+	border:1px solid #d8d4d4;
+	color: black;
+}
 
 .side-tool {
 	display: block;
@@ -69,10 +154,7 @@ body {
 	border: 1px solid #EEEEEE;
 }
 
-.side-tool:hover{
-	background-color: #f3f3f3;
-}
-	
+
 .container {
 	position: relative;
 	top: 58px;
