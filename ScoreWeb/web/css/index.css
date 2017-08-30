@@ -33,12 +33,12 @@ li {
     left: 0;
     z-index: 2;
     border-bottom: 1px solid #d8d4d4;
-    /*background-color: #B5D6FD;*/
+    background-color: #B5D6FD;
 
 }
 
 .width-limit {
-    /*background-color: #61BD6D;*/
+    background-color: #61BD6D;
     height: inherit;
     max-width: 1440px;
     margin: 0 auto;
@@ -68,7 +68,7 @@ li {
     display: inline-block;
     height: 58px;
     width: 600px;
-    /*background-color: #EAE4E4;*/
+    background-color: #EAE4E4;
 }
 
 .nav-bar ul li {
@@ -88,7 +88,7 @@ li {
     width: 143px;
     font-size: 15px;
     border-radius: 4px;
-    /*background-color: #AAAAAA;*/
+    background-color: #AAAAAA;
 }
 
 .search-btn {
@@ -98,7 +98,7 @@ li {
     width: 30px;
     height: 32px;
     border-radius: 4px;
-    /*background-color: royalblue;*/
+    background-color: royalblue;
 }
 
 .search-btn img {
@@ -124,7 +124,7 @@ li {
 }
 
 nav .sign-up {
-    /*background-color: blue;*/
+    background-color: blue;
     float: right;
     margin-top: 10px;
     padding-top:7px ;
@@ -136,7 +136,7 @@ nav .sign-up {
 }
 
 nav .log-in {
-    /*background-color: gold;*/
+    background-color: gold;
     float: right;
     margin-top: 10px;
     margin-right: 4px;
@@ -161,19 +161,19 @@ nav .log-in {
     top: 58px;
     margin: 0 auto;
     width: 1100px;
-    /*background-color: cadetblue;*/
+    background-color: cadetblue;
 }
 
 .container-div {
     display: inline-block;
     vertical-align: top;
     width: 580px;
-    /*border: 2px solid green;*/
+    border: 2px solid green;
 }
 
 /**正在更新的代码*/
 #content-flag {
-    /*background-color: blanchedalmond;*/
+    background-color: blanchedalmond;
     width: 400px;
     height: 50px;
 }
@@ -187,13 +187,13 @@ nav .log-in {
     padding-left: 2px;
     margin-top: 5px;
     border:1px solid #eae4e4;
-    /*background-color: saddlebrown;*/
+    background-color: saddlebrown;
 }
 
 .author {
     width: 463px;
     height: 32px;
-    /*background-color: blue;*/
+    background-color: blue;
 }
 
 .avater{
@@ -215,7 +215,7 @@ nav .log-in {
     vertical-align: top;
     width: 120px;
     height: 32px;
-    /*background-color: greenyellow;*/
+    background-color: greenyellow;
     text-align: left;
 }
 
@@ -248,7 +248,7 @@ nav .log-in {
     display: block;
     width:463px;
     height:72px;
-    /*background-color:red;*/
+    background-color:red;
 }
 
 .wrap-img {
@@ -266,7 +266,7 @@ nav .log-in {
     vertical-align: top;
     height: 136px;
     width: 100px;
-    /*background-color: saddlebrown;*/
+    background-color: saddlebrown;
 }
 
 .content-img img {
@@ -282,7 +282,7 @@ nav .log-in {
     margin-top: 5px;
     height: 284px;
     width: 280px;
-    /*background-color: blue;*/
+    background-color: blue;
     margin-left: 20px;
 }
 
