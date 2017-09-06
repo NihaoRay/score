@@ -4,3 +4,4 @@ out/artifacts/ScoreWeb_war_exploded/img/up.png
 out/artifacts/ScoreWeb_war_exploded/js/jquery-1.11.0.min.js
 *.class
 out/artifacts/ScoreWeb_war_exploded/WEB-INF/lib/aopalliance-1.0.jar
+.idea/workspace.xml
