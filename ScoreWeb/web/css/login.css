@@ -1,0 +1,46 @@
+/**登录页面 弹框使用*/
+.log-content {
+	position: relative;
+	top: 58px;
+	margin: 0 auto;
+	height: 450px;
+	width: 350px;
+	/*background-color: #1E9FFF;*/
+}
+
+.log-content input {
+	outline: none;
+	border: solid 1px #c8c8c8;
+	border-radius: 4px;
+	width: 345px;
+	height: 40px;
+}
+
+#inputForm ul li {
+	display: block;
+	margin-bottom: 5px;
+	margin-left: 2px;
+}
+
+.sign-in-button {
+	height: 40px;
+	background-color: #3194d0;
+	padding: 9px 18px;
+	font-size: 18px;
+	outline: none;
+    display: block;
+    outline: none;
+    border: none;
+    color: #FBFBFB;
+    margin-left: 2px;
+}
+
+.tile {
+	padding:10px 30px;
+	/*background-color: #5FB878;*/
+	display: block;
+	height: 30px;
+	width: 50px;
+	margin: 0 auto;
+	font-size: 18px;	
+}
