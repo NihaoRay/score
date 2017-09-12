@@ -4,9 +4,42 @@
 		<meta charset="UTF-8">
 		<title></title>
 		<link rel="stylesheet" href="css/index.css" />
-		<link rel="stylesheet" href="css/layui.css" />
+		<link rel="stylesheet" href="css/login.css" />
 	</head>
 	<body>
+		<!--开头的页面-->
+		<nav class="navbar nav-default navbar-fxied-top">
+			<div class="width-limit">
+				<a href="" class="logo">
+					<img src="img/logon.png" style="width: 64px;height: 58px;" alt="logo"/>
+				</a>
+				
+				<div class="nav-bar">
+					<ul>
+						<li></li>
+						<li></li>
+						<li>
+							<form target="_blank" accept-charset="UTF-8" method="get">
+								<div class="search-border">
+									<input type="text" name="q" id="q" placeholder="搜索" class="search-input" />
+									<a href="#" class="search-btn">
+										<img src="img/search_btn.png" />
+									</a>
+								</div>
+							</form>							
+						</li>
+					</ul>
+				</div>
+				
+				<a class="btn sign-up" href="#">
+					注册
+				</a>
+				
+				<a class="btn log-in" href="#">
+					登录
+				</a>
+			</div>
+		</nav>
 		
 		<!--以弹框的形式弹出页面-->
 		<div class="log-content">
@@ -16,29 +49,37 @@
 			<form id="inputForm">
 				<ul>
 					<li>
-						<input type="text" name="username" placeholder="手机号或邮箱"/>
+						<input type="text" class="username" name="username" placeholder="手机号或邮箱"/>
 					</li>
 					<li>
-						<input type="text" name="password" placeholder="密码"/>
+						<input type="password" class="password" name="password" placeholder="密码"/>
+					</li>
+					<li>
+						验证码
 					</li>
 				</ul>
-				<input type="submit" value="登录" class="sign-in-button"/>
+				<input type="button" value="登录" class="sign-in-button"/>
 			</form>	
 		</div>	
-		
 	</body>
 </html>
-<script type="text/javascript" src="js/layui.js" />
-<script type="text/javascript" src="js/jquery-1.11.0.min.js" />
+<script type="text/javascript" src="js/jquery-1.12.0.min.js" ></script>
 <script type="text/javascript">
-
-	layer.open({
-	  type: 1,
-	  title: false,
-	  closeBtn: 0,
-	  shadeClose: true,
-	  skin: 'yourclass',
-	  content: ''
-	});
-	
+		window.onload = function() {
+			//进行非空验证，校验
+			$("#inputForm .username").change(function() {
+				debugger;
+				/*$(this).css("border", "solid 1px #c8c8c8");*/
+				/*$(this).css({"border":"1px solid red", "color":"red"})*/
+			})
+			
+			$("#inputForm .password").change(function() {
+				
+			})
+			
+			
+			$(".sign-in-button").click(function() {
+				$("#inputForm").serialize();
+			})
+		}
 </script>
