@@ -1,9 +1,11 @@
 /**登录页面 弹框使用*/
 .log-content {
+	position: relative;
+	top: 58px;
 	margin: 0 auto;
 	height: 450px;
 	width: 350px;
-	/*background-color: #1E9FFF;*/
+	background-color: #1E9FFF;
 }
 
 .log-content input {
