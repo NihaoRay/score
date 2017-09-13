@@ -123,8 +123,18 @@
 		<div class="side-tool">
 			<img src="img/up.png"  />
 		</div>
-		
-		<div class="log"></div>
 	</body>
 </html>
 <script type="text/javascript" src="js/jquery-1.12.0.min.js" ></script>
+<script type="text/javascript">
+	$(function() {
+		$(".search-border").click(function(){
+  			$(".search-input").animate({
+  				width:345
+  			}, 800)
+  			$(".search-border").animate({
+  				width:380
+  			}, 800)
+		});
+	})
+</script>
