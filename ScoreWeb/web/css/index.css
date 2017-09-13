@@ -77,12 +77,21 @@ li {
 	vertical-align: top;
 	outline: none;
 	border: 1px solid #fffdfd;
-	width: 345px;
+	width: 145px;
 	height: 34px;
 	font-size: 15px;
 	border-radius: 4px;
 	
 	/*background-color: #AAAAAA;*/
+}
+
+.search-border {
+	padding-left: 2px;
+	margin: 10px 15px;
+	width: 180px;
+	height: 36px;
+	border-radius: 7px;
+	border: 1px solid #d8d4d4;
 }
 
 .search-btn {
@@ -93,15 +102,6 @@ li {
 	height: 31px;
 	border-radius: 4px;
 	/*background-color: royalblue;*/
-}
-
-.search-border {
-	padding-left: 2px;
-	margin: 10px 15px;
-	width: 380px;
-	height: 36px;
-	border-radius: 7px;
-	border: 1px solid #d8d4d4;
 }
 
 .btn {
