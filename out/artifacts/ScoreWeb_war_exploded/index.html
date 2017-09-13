@@ -14,43 +14,36 @@
 				</a>
 				
 				<div class="nav-bar">
-					<ul>
-						<li></li>
-						<li></li>
-						<li>
-							<form target="_blank" accept-charset="UTF-8" method="get">
-								<div class="search-border">
-									<input type="text" name="q" id="q" placeholder="搜索" class="search-input" />
-									<a href="#" class="search-btn">
-										<img src="img/search_btn.png" />
-									</a>
-								</div>
-							</form>							
-						</li>
-					</ul>
+					<form target="_blank" accept-charset="UTF-8" method="get">
+						<div class="search-border">
+							<input type="text" name="q" id="q" placeholder="搜索" class="search-input" />
+							<a href="#" class="search-btn">
+								<img src="img/search_btn.png" />
+							</a>
+						</div>
+					</form>							
 				</div>
 				
-				<a class="btn sign-up" href="#">
-					注册
-				</a>
-				
-				<a class="btn log-in" href="#">
-					登录
-				</a>
+				<div class="login-btn">
+					<a class="btn sign-up" href="#">
+						注册
+					</a>
+					<a class="btn log-in" href="sign/login.html">
+						登录
+					</a>
+				</div>
 			</div>
 		</nav>
 		
 		<div class="container">
 			<!--用于存放banner图-->
 			<!--<div id="container-banner">
-						
 			</div>-->
 			<div id="content-flag">
 				<span class="content-flag">正在更新中...</span>
 			</div>
 				
 			<div class="container-div">
-				
 				<div class="content-content">
 					<div class="author">
 						<a href="#" class="avater" >
@@ -66,11 +59,10 @@
 					<p class="abstract">
 						世界因为技术而变的更美好				
 					</p>
-            </div>
+				</div>
 				<div class="content-img">
 					<img src="img/chenrui2.png" />
 				</div>
-				
 				
 				<div class="content-content">
 					<div class="author">
@@ -85,7 +77,7 @@
 						Web - UI
 					</a>
 					<p class="abstract">
-						自信，独立，坚强
+						自信，独立，坚强			
 					</p>
 				</div>
 				<div class="content-img">
@@ -127,9 +119,22 @@
 				</a>
 			</div>
 		</div>
-
+		
 		<div class="side-tool">
 			<img src="img/up.png"  />
 		</div>
 	</body>
 </html>
+<script type="text/javascript" src="js/jquery-1.12.0.min.js" ></script>
+<script type="text/javascript">
+	$(function() {
+		$(".search-border").click(function(){
+  			$(".search-input").animate({
+  				width:345
+  			}, 800);
+  			$(".search-border").animate({
+  				width:380
+  			}, 800)
+		});
+	})
+</script>
