@@ -44,3 +44,24 @@
 	margin: 0 auto;
 	font-size: 18px;	
 }
+
+.center {
+	margin-top: 180px;
+	text-align: center;	
+}
+
+.center a {
+	display: block;
+}
+
+.center span {
+	display: block;
+	margin-top: 30px;
+	font-size: 25px;
+	color: #97c5de;
+}
+
+#body_404 {
+	background-color: #f9f9f9;
+}
+
