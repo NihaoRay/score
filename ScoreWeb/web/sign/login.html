@@ -3,8 +3,8 @@
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
-		<link rel="stylesheet" href="../css/index.css" />
-		<link rel="stylesheet" href="../css/login.css" />
+		<link rel="stylesheet" href="/css/index.css" />
+		<link rel="stylesheet" href="/css/login.css" />
 	</head>
 	<body>
 		<!--开头的页面-->
@@ -73,8 +73,8 @@
 			})
 
 			$(".sign-in-button").click(function() {
-				$("#inputForm").serialize();
-				alert("chenrui");
+				var formSer = $("#inputForm").serialize();
+				alert(formSer);
 			})
 		}
 		
