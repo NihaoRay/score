@@ -1,7 +1,11 @@
 /**
- * 
+ * @author https://github.com/NihaoRay
+ * @date 2017-09-16
+ * @description jquery animate funtion
  */
 (function($) {
+	
+	/**json数据序列化*/
 	$.fn.serializeJSON = function() {
 		var jsonObj = {};
 		var array = this.serializeArray();
@@ -18,5 +22,15 @@
 					}
 				});
 		return jsonObj;
+	};
+	
+	/**动画延长*/
+	$.fn.animateLength = function(withPic, speedTime) {
+			var $Obj = this;
+			$Obj.click(function() {
+				$Obj.animate({
+	  				width:withPic
+	  			}, speedTime);
+			})
 	};
 })(jQuery);

@@ -59,7 +59,7 @@
 	</body>
 </html>
 <script type="text/javascript" src="../js/jquery-1.12.0.min.js" ></script>
-<script type="text/javascript" src="../js/serializeJSON.js"></script>
+<script type="text/javascript" src="../js/jquery-ruirui.js" ></script>
 <script type="text/javascript">
 		window.onload = function() {
 			//进行非空验证，校验
@@ -85,13 +85,7 @@
 		}
 		
 		$(function() {
-			$(".search-border").click(function(){
-	  			$(".search-input").animate({
-	  				width:345
-	  			}, 800)
-	  			$(".search-border").animate({
-	  				width:380
-	  			}, 800)
-			});
+			$(".search-border").animateLength(380, 800);
+			$(".search-input").animateLength(345, 800);
 		})
 </script>

@@ -81,7 +81,7 @@
 					</p>
 				</div>
 				<div class="content-img">
-					<img src="/img/sun1.png" />
+					<img src="img/sun1.png" />
 				</div>
 				
 				<div class="content-content">
@@ -101,7 +101,7 @@
 					</p>
 				</div>
 				<div class="content-img">
-					<img src="/img/yuan1.png" />
+					<img src="img/yuan1.png" />
 				</div>
 			</div>
 			
@@ -121,20 +121,15 @@
 		</div>
 		
 		<div class="side-tool">
-			<img src="/img/up.png"  />
+			<img src="img/up.png"  />
 		</div>
 	</body>
 </html>
 <script type="text/javascript" src="js/jquery-1.12.0.min.js" ></script>
+<script type="text/javascript" src="js/jquery-ruirui.js" ></script>
 <script type="text/javascript">
 	$(function() {
-		$(".search-border").click(function(){
-  			$(".search-input").animate({
-  				width:345
-  			}, 800);
-  			$(".search-border").animate({
-  				width:380
-  			}, 800)
-		});
+		$(".search-border").animateLength(380, 800);
+		$(".search-input").animateLength(345, 800);
 	})
 </script>
