@@ -26,12 +26,12 @@
 	
 	/**动画延长*/
 	$.fn.animateLength = function(withPic, speedTime) {
-			var $Obj = this;
-			$Obj.click(function() {
-				$Obj.animate({
-	  				width:withPic
-	  			}, speedTime);
-			})
+		var $Obj = this;
+		$Obj.click(function() {
+			$Obj.animate({
+  				width:withPic
+  			}, speedTime);
+		})
 	};
 })(jQuery);
 

@@ -3,15 +3,15 @@
 	<head>
 		<meta charset="UTF-8">
 		<title></title>
-		<link rel="stylesheet" href="../css/index.css" />
-		<link rel="stylesheet" href="../css/login.css" />
+		<link rel="stylesheet" href="/css/index.css" />
+		<link rel="stylesheet" href="/css/login.css" />
 	</head>
 	<body>
 		<!--开头的页面-->
 		<nav class="navbar nav-default navbar-fxied-top">
 			<div class="width-limit">
-				<a href="index.html" class="logo">
-					<img src="../img/logon.png" style="width: 64px;height: 58px;" alt="logo"/>
+				<a href="/index.html" class="logo">
+					<img src="/img/sys/logon.png" style="width: 64px;height: 58px;" alt="logo"/>
 				</a>
 				
 				<div class="nav-bar">
@@ -19,10 +19,10 @@
 						<div class="search-border">
 							<input type="text" name="q" id="q" placeholder="搜索" class="search-input" />
 							<a href="#" class="search-btn">
-								<img src="../img/search_btn.png" />
+								<img src="/img/sys/search_btn.png" />
 							</a>
 						</div>
-					</form>							
+					</form>
 				</div>
 				
 				<div class="login-btn">
@@ -58,19 +58,19 @@
 		</div>	
 	</body>
 </html>
-<script type="text/javascript" src="../js/jquery-1.12.0.min.js" ></script>
-<script type="text/javascript" src="../js/jquery-ruirui.js" ></script>
+<script type="text/javascript" src="/js/jquery-1.12.0.min.js" ></script>
+<script type="text/javascript" src="/js/jquery-ruirui.js" ></script>
 <script type="text/javascript">
 		window.onload = function() {
 			//进行非空验证，校验
-			$("#inputForm .username").change(function() {
+			$("#inputForm").find(".username").change(function() {
 				/*$(this).css("border", "solid 1px #c8c8c8");*/
 				/*$(this).css({"border":"1px solid red", "color":"red"})*/
-			})
+			});
 			
-			$("#inputForm .password").change(function() {
+			$("#inputForm").find(".password").change(function() {
 				
-			})
+			});
 
 			$("#sign-in-button").click(function() {
 				debugger;
@@ -82,7 +82,7 @@
 				var jsonString = JSON.stringify(detail);
 				alert(jsonString);
 			})
-		}
+		};
 		
 		$(function() {
 			$(".search-border").animateLength(380, 800);
