@@ -22,17 +22,17 @@
 	margin-left: 2px;
 }
 
-.sign-in-button {
+#sign-in-button {
+	width: 345px;
 	height: 40px;
-	background-color: #3194d0;
-	padding: 9px 18px;
 	font-size: 18px;
 	outline: none;
-    display: block;
-    outline: none;
-    border: none;
-    color: #FBFBFB;
-    margin-left: 2px;
+    color: black;
+    border: 1px solid #c79efe;
+    border-radius: 4px;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
 }
 
 .tile {
@@ -64,4 +64,3 @@
 #body_404 {
 	background-color: #f9f9f9;
 }
-

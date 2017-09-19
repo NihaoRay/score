@@ -10,6 +10,10 @@ body {
 	margin: 0px; padding: 0px;
 }
 
+img, input {
+	border: none;
+}
+
 input, a {
 	margin: 0px;padding: 0px;
 	text-decoration: none;
@@ -34,7 +38,6 @@ li {
 	z-index: 2;
 	border-bottom: 1px solid #d8d4d4;
 	/*background-color: #B5D6FD;*/		
-	
 }
 
 .width-limit {
