@@ -85,7 +85,24 @@
 		};
 		
 		$(function() {
-			$(".search-border").animateLength(380, 800);
-			$(".search-input").animateLength(345, 800);
+            $(".search-border input").focus(function(){
+                $(".search-border").animate({
+                    width: 380
+                }, 500);
+
+                $(".search-input").animate({
+                    width: 345
+                }, 500);
+            });
+
+            $(".search-border input").blur(function () {
+                $(".search-border").animate({
+                    width: 180
+                }, 500);
+
+                $(".search-input").animate({
+                    width: 145
+                }, 500);
+            })
 		})
 </script>
