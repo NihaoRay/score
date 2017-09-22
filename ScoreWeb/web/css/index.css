@@ -162,7 +162,7 @@ nav .log-in {
 	display: inline-block;
 	vertical-align: top;
 	width: 580px;
-	border: 2px solid green;
+	/*border: 2px solid green;*/
 }
 
 /**正在更新的代码*/
@@ -276,7 +276,7 @@ nav .log-in {
 	margin-top: 5px;
 	height: 284px;
 	width: 280px;
-	background-color: blue;
+	/*background-color: blue;*/
 	margin-left: 20px;
 }
 

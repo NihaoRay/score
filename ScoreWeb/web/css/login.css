@@ -4,7 +4,9 @@
 	display: block;
 	height: 600px;
 	margin-top: 58px;
+    background-image: url(../img/sys/log-back.png);
 	/*background-color: beige;*/
+    background-repeat:no-repeat;
 }
 
 .log-content {
@@ -86,22 +88,6 @@
 	width: 507px;
 	bottom: 40px;
 	left: 40px;
-}
-
-.log-back .img-1{
-	display: inline-block;
-	height: 271px;
-	width: 400px;
-	background-image: url(../img/sys/log_back.png);
-	background-repeat:no-repeat;
-}
-
-.log-back .img-2 {
-	display: inline-block;
-	height: 107px;
-	width: 100px;
-	background-image: url(../img/sys/boy.png);
-	background-repeat:no-repeat;
 }
 
 .log-back img {
