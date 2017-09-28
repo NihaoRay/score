@@ -93,3 +93,14 @@
 .log-back img {
 	display: inline-block;
 }
+
+.footer {
+    position: fixed;
+    height: 0px;
+    border-top: 2px solid #c79efe;
+    left: 0;
+    right: 0;
+    width: 100%;
+   /* background-color:blue;*/
+    bottom: 0;
+}
