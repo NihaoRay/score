@@ -29,6 +29,10 @@
 	height: 40px;
 }
 
+.log-content input:focus {
+    box-shadow: 0 0 6px #c79efe;
+}
+
 #inputForm ul li {
 	display: block;
 	margin-bottom: 5px;
@@ -104,3 +108,4 @@
    /* background-color:blue;*/
     bottom: 0;
 }
+

@@ -12,10 +12,6 @@ body {
 	margin: 0px; padding: 0px;
 }
 
-img, input {
-	border: none;
-}
-
 input, a {
 	margin: 0px;padding: 0px;
 	text-decoration: none;
@@ -163,14 +159,14 @@ nav .log-in {
 	top: 58px;
 	margin: 0 auto;
 	width: 1100px;
-	background-color: cadetblue;
+	/*background-color: cadetblue;*/
 }
 
 .container-div {
 	display: inline-block;
 	vertical-align: top;
 	width: 580px;
-	border: 2px solid green;
+	/*border: 2px solid green;*/
 }
 
 /**正在更新的代码*/
@@ -281,14 +277,12 @@ nav .log-in {
 .board {
 	display: inline-block;
 	vertical-align: top;
-	margin-top: 5px;
+    margin: 5px 20px;
 	height: 284px;
 	width: 280px;
-	background-color: blue;
-	margin-left: 20px;
+	/*background-color: blue;*/
 }
 
 .board img {
 	width: 280px;
-	height: 50px;
 }
