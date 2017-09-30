@@ -52,6 +52,19 @@
     cursor: pointer;
 }
 
+#sign-up-button {
+	width: 345px;
+	height: 40px;
+	font-size: 18px;
+	outline: none;
+    color: black;
+    border: 1px solid #febb50;
+    border-radius: 4px;
+    text-align: center;
+    line-height: 40px;
+    cursor: pointer;
+}
+
 .tile {
 	padding:10px 30px;
 	/*background-color: #5FB878;*/
