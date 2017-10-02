@@ -36,10 +36,68 @@
 .profile-abstract {
     display: block;
     line-height: 32px;
-   /* background-color: #97c5de;*/
+    /*background-color: #97c5de;*/
     border-bottom: 1px solid #d8d4d4;
 }
 
 .profile-abstract span {
     font-size:16px;
+}
+
+/**profile的setting*/
+.board #board-img img{
+    display: block;
+    border-radius: 2px;
+    height:200px;
+    width:200px;
+    margin:0 auto;
+}
+
+.board #board-button input{
+    display: block;
+    background-color: #ffffff;
+    width: 198px;
+    height: 32px;
+    line-height: 32px;
+    text-align: center;
+    border-radius: 2px;
+    margin: 0 auto;
+    border: 1px solid #b7b3b3;
+    cursor:pointer;
+    margin-top:5px;
+}
+
+.board #board-button input:hover {
+    background-color:#b7b3b3;
+}
+
+#inputForm .form-group {
+    height: 80px;
+    width: 484px;
+    /*background-color:blue;*/
+}
+
+#inputForm .form-group input {
+    outline:none;
+    height:34px;
+    width:440px;
+    border:1px solid #d8d4d4;
+    border-radius: 2px;
+    background-color: #fafbfc;
+    padding-left:4px;
+}
+
+#inputForm .form-group textarea {
+    width:440px;
+    height:50px;
+    border:1px solid #d8d4d4;
+    border-radius: 2px;
+    outline:none;
+    background-color: #fafbfc;
+    padding-left:4px;
+}
+
+#inputForm .form-group input:focus,
+#inputForm .form-group textarea:focus {
+    box-shadow: 0 0 6px #2188FF;
 }

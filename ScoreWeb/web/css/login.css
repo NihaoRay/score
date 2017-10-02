@@ -30,7 +30,7 @@
 }
 
 .log-content input:focus {
-    box-shadow: 0 0 6px #c79efe;
+    box-shadow: 0 0 6px #2188FF;
 }
 
 #inputForm ul li {
@@ -129,6 +129,9 @@
     margin: 0 auto;
     height: 20px;
     width: 500px;
-
 }
 
+.footer-content a {
+    font-size:14px;
+    color:#b1b1b1;
+}

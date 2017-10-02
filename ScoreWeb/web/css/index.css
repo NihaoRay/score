@@ -16,7 +16,9 @@ input, a {
 	margin: 0px;padding: 0px;
 	text-decoration: none;
 }
-
+dl, dt {
+    display: block;
+}
 li {
 	list-style: none;
 }
@@ -172,8 +174,18 @@ nav .log-in {
 /**正在更新的代码*/
 #content-flag {
 	/*background-color: blanchedalmond;*/
-	width: 400px;
+	width: 469px;
 	height: 50px;
+    /*border-bottom: 1px solid #d8d4d4;*/
+}
+
+/**针对profile修改的时候，出现下划线*/
+.subhead-heading {
+    /*background-color: red;*/
+    width: 889px;
+    height: 50px;
+    line-height: 80px;
+    border-bottom: 1px solid #d8d4d4;
 }
 
 .content-content {
