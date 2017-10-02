@@ -27,6 +27,7 @@
 	border-radius: 4px;
 	width: 345px;
 	height: 40px;
+    padding-left: 4px;
 }
 
 .log-content input:focus {
@@ -40,7 +41,7 @@
 }
 
 #sign-in-button {
-	width: 345px;
+	width: 351px;
 	height: 40px;
 	font-size: 18px;
 	outline: none;
@@ -51,9 +52,12 @@
     line-height: 40px;
     cursor: pointer;
 }
+#sign-in-button:hover{
+    background-color: #c79efe;
+}
 
 #sign-up-button {
-	width: 345px;
+	width: 351px;
 	height: 40px;
 	font-size: 18px;
 	outline: none;
@@ -63,6 +67,10 @@
     text-align: center;
     line-height: 40px;
     cursor: pointer;
+}
+
+#sign-up-button:hover {
+    background-color: #febb50;
 }
 
 .tile {
