@@ -54,20 +54,20 @@
 
 .signup-button {
     width: 351px;
-    border: 1px solid #c79efe;
+    border: 1px solid #febb50;
 }
 
 .signup-button:hover {
-    background-color: #c79efe;
+    background-color: #febb50;
 }
 
 .signin-button {
     width: 351px;
-    border: 1px solid #febb50;
+    border: 1px solid #c79efe;
 }
 
 .signin-button:hover {
-    background-color: #febb50;
+    background-color: #c79efe;
 }
 
 .update-button {
