@@ -174,8 +174,9 @@ nav .log-in {
 /**正在更新的代码*/
 #content-flag {
 	/*background-color: blanchedalmond;*/
-	width: 469px;
+	width: 500px;
 	height: 50px;
+    line-height: 50px;
     /*border-bottom: 1px solid #d8d4d4;*/
 }
 

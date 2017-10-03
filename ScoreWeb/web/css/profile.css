@@ -72,14 +72,15 @@
 }
 
 #inputForm .form-group {
-    height: 80px;
+    min-height: 80px;
     width: 484px;
-    /*background-color:blue;*/
+    /*background-color:blue;
+    margin-top: 2px;*/
 }
 
 #inputForm .form-group input {
     outline:none;
-    height:34px;
+    height:32px;
     width:440px;
     border:1px solid #d8d4d4;
     border-radius: 2px;
@@ -101,4 +102,10 @@
 #inputForm .form-group input:focus,
 #inputForm .form-group textarea:focus {
     box-shadow: 0 0 6px #2188FF;
+}
+
+#inputForm .form-group .note {
+    min-height: 17px;
+    font-size: 12px;
+    color:#586069;
 }

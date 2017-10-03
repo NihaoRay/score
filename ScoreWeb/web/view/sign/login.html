@@ -69,6 +69,7 @@
 </html>
 <script type="text/javascript" src="/js/jquery-1.12.0.min.js" ></script>
 <script type="text/javascript" src="/js/jquery-ruirui.js" ></script>
+<script type="text/javascript" src="/js/layer.js"></script>
 <script type="text/javascript">
 		window.onload = function() {
 			//进行非空验证，校验
@@ -89,7 +90,7 @@
 				var detail = $("#inputForm").serializeJSON();
 				/*String jsonString = JSON.stringify(detail);*/
 				var jsonString = JSON.stringify(detail);
-				alert(jsonString);
+                layer.msg("后台正在更新中，尽情期待！");
 			})
 		};
 		

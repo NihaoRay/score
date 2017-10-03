@@ -52,44 +52,49 @@
                     <dl class="form-group">
                         <dt>姓名</dt>
                         <dd>
-                            <input type="text" value="" />
+                            <input type="text" value="" name="username"/>
                         </dd>
                     </dl>
 
                     <dl class="form-group">
-                        <dt>姓名</dt>
+                        <dt>昵称</dt>
                         <dd>
-                            <input type="text" value="" />
+                            <input type="text" value="" name="nickname"/>
+                            <p class="note">请选择一个恰当好记的名称</p>
                         </dd>
                     </dl>
 
                     <dl class="form-group">
                         <dt>email</dt>
                         <dd>
-                            <input type="text" value="" />
+                            <input type="text" value="" name="email"/>
                         </dd>
                     </dl>
 
                     <dl class="form-group">
                         <dt>个人简介</dt>
                         <dd>
-                            <textarea type="text" value="" ></textarea>
-                        </dd>
-                    </dl>
-
-                    <dl class="form-group">
-                        <dt>简要地址</dt>
-                        <dd>
-                            <input type="text" value="" />
+                            <textarea type="text" value="" name="bio"></textarea>
+                            <p class="note">个人简介差不多就行了，不要太长哦</p>
                         </dd>
                     </dl>
 
                     <dl class="form-group">
                         <dt>年级</dt>
                         <dd>
-                            <input type="text"  value="" />
+                            <input type="text"  value="" name="grade"/>
                         </dd>
                     </dl>
+                    <dl class="form-group">
+                        <dt>简要地址</dt>
+                        <dd>
+                            <input type="text" value="" name="address"/>
+                            <p class="note">宿舍楼号，除了你别人是看不到的哦</p>
+                        </dd>
+                    </dl>
+                    <p>
+                        <div id="sign-in-button">保存修改</div>
+                    </p>
                 </form>
 			</div>
 			
@@ -113,10 +118,14 @@
 </html>
 <script type="text/javascript" src="/js/jquery-1.12.0.min.js" ></script>
 <script type="text/javascript" src="/js/jquery-ruirui.js" ></script>
+<script type="text/javascript" src="/js/layer.js"></script>
 <script type="text/javascript">
     $(function() {
         $(".search-border").animateLength(380, 400);
         $(".search-input").animateLength(345, 400);
-
+        $("#sign-in-button").click(function() {
+            var param = JSON.stringify($("#inputForm").serializeJSON());
+            layer.msg("后台正在更新中，尽情期待！");
+        })
     })
 </script>
