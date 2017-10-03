@@ -40,37 +40,44 @@
 	margin-left: 2px;
 }
 
-#sign-in-button {
-	width: 351px;
-	height: 40px;
-	font-size: 18px;
-	outline: none;
+.sign {
+    font-size: 18px;
+    height: 40px;
+    line-height: 40px;
+    outline: none;
     color: black;
-    border: 1px solid #c79efe;
     border-radius: 4px;
     text-align: center;
-    line-height: 40px;
     cursor: pointer;
+    border: 1px solid #d8d4d4;
 }
-#sign-in-button:hover{
+
+.signup-button {
+    width: 351px;
+    border: 1px solid #c79efe;
+}
+
+.signup-button:hover {
     background-color: #c79efe;
 }
 
-#sign-up-button {
-	width: 351px;
-	height: 40px;
-	font-size: 18px;
-	outline: none;
-    color: black;
+.signin-button {
+    width: 351px;
     border: 1px solid #febb50;
-    border-radius: 4px;
-    text-align: center;
-    line-height: 40px;
-    cursor: pointer;
 }
 
-#sign-up-button:hover {
+.signin-button:hover {
     background-color: #febb50;
+}
+
+.update-button {
+    width: 300px;
+}
+
+.update-button:hover {
+    color: #ffffff;
+    background-color: #2188FF;
+    box-shadow: 0 0 6px #2188FF;
 }
 
 .tile {

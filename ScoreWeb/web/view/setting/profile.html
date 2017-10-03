@@ -93,7 +93,7 @@
                         </dd>
                     </dl>
                     <p>
-                        <div id="sign-in-button">保存修改</div>
+                        <div class="sign update-button">保存修改</div>
                     </p>
                 </form>
 			</div>
@@ -123,7 +123,7 @@
     $(function() {
         $(".search-border").animateLength(380, 400);
         $(".search-input").animateLength(345, 400);
-        $("#sign-in-button").click(function() {
+        $(".sign").click(function() {
             var param = JSON.stringify($("#inputForm").serializeJSON());
             layer.msg("后台正在更新中，尽情期待！");
         })
