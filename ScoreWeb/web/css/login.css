@@ -143,7 +143,9 @@
     display: block;
     margin: 0 auto;
     height: 20px;
-    width: 500px;
+    width: 810px;
+    /*background-color: blue;*/
+    text-align: center;
 }
 
 .footer-content a {

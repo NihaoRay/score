@@ -198,6 +198,7 @@ nav .log-in {
 	padding-left: 2px;
 	margin-top: 5px;
 	border:1px solid #eae4e4;
+    position: relative;
 	/*background-color: saddlebrown;*/
 }
 
@@ -224,23 +225,28 @@ nav .log-in {
 .name {
 	display: inline-block;
     vertical-align: top;
-	width: 120px;
+	min-width: 120px;
 	height: 32px;
+    line-height: 32px;
 	/*background-color: greenyellow;*/
 	text-align: left;
 }
 
 .blue-link {
-	display: inline-block;
+	display: inline;
     vertical-align: top;
-    height: 26px;
-    width: 117px;
-    padding-top: 6px;
-    padding-left: 3px;
+    /*height: 26px;
+    width: 117px;*/
+   /* padding-top: 6px;
+    padding-left: 3px;*/
     font-size: 13px;
     color: black;
     text-decoration: none;
     font-weight: 100;
+}
+
+.time {
+    color:#b1b1b1;
 }
 
 .title{
@@ -258,8 +264,22 @@ nav .log-in {
 .abstract {
 	display: block;
 	width:463px;
-	height:72px;
+	height:52px;
+    font-size: 13px;
 	/*background-color:red;*/
+}
+
+.meta {
+    height: 20px;
+    width: inherit;
+    position: absolute;
+    bottom: 0px;
+    /*background-color: #febb50;*/
+}
+
+.meta span {
+    font-size: 13px;
+    color:#b1b1b1;
 }
 
 .wrap-img {

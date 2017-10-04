@@ -60,6 +60,10 @@ var isLayui = window.layui && layui.define, $, win, ready = {
   }
 };
 
+/**
+ *这里先创建layer一个对象，然后对这个对象设置一些行为
+ * @type {{v: string, ie, index: number, path: *, config: config, ready: ready, alert: alert, confirm: confirm, msg: msg, load: load, tips: tips}}
+ */
 //默认内置方法。
 var layer = {
   v: '3.0.3',
