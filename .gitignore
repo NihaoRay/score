@@ -10,3 +10,4 @@ out/artifacts/ScoreWeb_war_exploded/WEB-INF/web.xml
 out/artifacts/ScoreWeb_war_exploded/WEB-INF/web.xml
 *.project
 .idea/workspace.xml
+ScoreWeb/target/*
