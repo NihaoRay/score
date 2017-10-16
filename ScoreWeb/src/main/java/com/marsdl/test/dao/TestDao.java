@@ -6,6 +6,6 @@ import com.marsdl.test.pojo.Test;
 @MyBatisDao
 public interface TestDao {
 
-    public Test get(String id);
+    public Test get(Test test);
 
 }

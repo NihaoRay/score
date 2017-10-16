@@ -1,5 +1,6 @@
 /**
- * Copyright &copy; 2012-2016 <a href="https://github.com/thinkgem/jeesite">JeeSite</a> All rights reserved.
+ * @author chenrui
+ * @since 2017-10-16
  */
 package com.marsdl.common.annotation;
 
