@@ -11,7 +11,7 @@ public class TestService {
     @Autowired
     private TestDao testDao;
 
-    public Test get(String id) {
+    public Test get(String id) throws Exception {
         Test testU = testDao.get(id);
         return testU;
     }

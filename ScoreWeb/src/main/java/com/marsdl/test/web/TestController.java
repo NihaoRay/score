@@ -1,5 +1,6 @@
 package com.marsdl.test.web;
 
+import com.marsdl.common.util.IPUtil;
 import com.marsdl.test.pojo.Test;
 import com.marsdl.test.service.TestService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,7 +22,8 @@ public class TestController {
 
     @RequestMapping(value="/test")
     @ResponseBody
-    public Test test(HttpServletRequest request, HttpServletResponse response, @RequestParam("id") String id) {
+    public Test test(HttpServletRequest request, HttpServletResponse response, @RequestParam("id") String id) throws Exception {
+        String ip = IPUtil.getIp(request);
         Test test = testService.get(id);
         return test;
     }
