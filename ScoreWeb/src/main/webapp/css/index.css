@@ -14,7 +14,7 @@ body {
 
 input, a {
 	margin: 0px;padding: 0px;
-	text-decoration: none;
+    text-decoration: none;
 }
 dl, dt {
     display: block;
@@ -259,6 +259,10 @@ nav .log-in {
     text-align: left;
     text-decoration: none;
     color: black;
+}
+
+.title:hover {
+    text-decoration:underline;
 }
 
 .abstract {

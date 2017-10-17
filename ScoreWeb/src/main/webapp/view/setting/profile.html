@@ -118,6 +118,7 @@
         $(".search-border").animateLength(380, 400);
         $(".search-input").animateLength(345, 400);
         $(".sign").click(function() {
+            var index = layer.load(1, {shade:[0.1, "#000"]});
             var param = $("#inputForm").serialize();
             $.ajax({
                 "type": "POST",
@@ -127,7 +128,8 @@
                 "dataType": "json",
                 "data": param,
                 "success": function (result) {
-                    layer.alert(result.code);
+                    layer.close(index);
+                   /* layer.alert(result.code);*/
                  },
                 "error": function (result) {
                     debugger;
