@@ -15,24 +15,15 @@ public class SendMailUtil {
     // 发件人的 邮箱 和 密码（替换为自己的邮箱和密码）
     // PS: 某些邮箱服务器为了增加邮箱本身密码的安全性，给 SMTP 客户端设置了独立密码（有的邮箱称为“授权码”）,
     //     对于开启了独立密码的邮箱, 这里的邮箱密码必需使用这个独立密码（授权码）。
-<<<<<<< HEAD
-    public static String myEmailAccount = "root@marsdl.com";
-    public static String myEmailPassword = "NihaoRay123456";
-=======
     public static String myEmailAccount = "";
     public static String myEmailPassword = "";
->>>>>>> ebc8c0227c3b90f93bd1aeffcd7db2eef2e4042d
 
     // 发件人邮箱的 SMTP 服务器地址, 必须准确, 不同邮件服务器地址不同, 一般(只是一般, 绝非绝对)格式为: smtp.xxx.com
     // 网易163邮箱的 SMTP 服务器地址为: smtp.163.com
     public static String myEmailSMTPHost = "smtp.exmail.qq.com";
 
     // 收件人邮箱（替换为自己知道的有效邮箱）
-<<<<<<< HEAD
-    public static String receiveMailAccount = "1215163414@qq.com";
-=======
     public static String receiveMailAccount = "";
->>>>>>> ebc8c0227c3b90f93bd1aeffcd7db2eef2e4042d
 
     public static String sendName = "Marsdl火星探索实验室";
 
