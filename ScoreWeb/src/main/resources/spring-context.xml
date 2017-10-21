@@ -26,8 +26,7 @@
     <!-- MyBatis begin -->
     <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
         <property name="dataSource" ref="dataSource"/>
-        <property name="typeAliasesPackage" value="com.marsdl"/>
-        <!--<property name="typeAliasesSuperType" value="com.marsdl.common.persistence.BaseEntity"/>-->
+        <property name="typeAliasesPackage" value="com.marsdl.modules"/>
         <property name="mapperLocations" value="classpath:/mappings/**/*.xml"/>
         <property name="configLocation" value="classpath:/mybatis-config.xml"/>
     </bean>

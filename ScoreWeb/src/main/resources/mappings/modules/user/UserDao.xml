@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.marsdl.modules.sys.dao.UserDao">
+
+    <sql id="userColumns">
+        a.id as "id",
+        a.login_name as "loginName",
+        a.password as "password",
+        a.no as "no",
+        a.username as "username",
+        a.email as "email",
+        a.phone as "phone",
+        a.mobile as "mobile",
+        a.user_type as "userType",
+        a.photo as "photo",
+        a.update_date as "updateDate",
+        a.create_date as "createDate",
+        a.remarks as "remarks",
+        a.del_flag as "delFlag"
+    </sql>
+
+    <select id="findList" resultType="user">
+      SELECT
+        <include refid="userColumns" />
+      FROM
+        sys_user a
+        <where>
+          a.id = #{id}
+        </where>
+    </select>
+
+    <insert id="insert">
+        INSERT INTO sys_user(
+        id,
+        login_name,
+        password,
+        no,
+        username,
+        email,
+        phone,
+        mobile,
+        user_type,
+        photo,
+        create_by,
+        create_date,
+        update_by,
+        update_date,
+        remarks,
+        del_flag
+        ) VALUES (
+        #{id},
+        #{loginName},
+        #{password},
+        #{no},
+        #{username},
+        #{email},
+        #{phone},
+        #{mobile},
+        #{userType},
+        #{photo},
+        #{createBy.id},
+        #{createDate},
+        #{updateBy.id},
+        #{updateDate},
+        #{remarks},
+        #{delFlag}
+        )
+    </insert>
+
+</mapper>

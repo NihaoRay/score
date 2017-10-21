@@ -15,16 +15,37 @@ public class SendMailUtil {
     // 发件人的 邮箱 和 密码（替换为自己的邮箱和密码）
     // PS: 某些邮箱服务器为了增加邮箱本身密码的安全性，给 SMTP 客户端设置了独立密码（有的邮箱称为“授权码”）,
     //     对于开启了独立密码的邮箱, 这里的邮箱密码必需使用这个独立密码（授权码）。
-    public static String myEmailAccount = "crdchen@foxmail.com";
-    public static String myEmailPassword = "jfathqabkqlnicfa";
+    public static String myEmailAccount = "root@marsdl.com";
+    public static String myEmailPassword = "NihaoRay123456";
 
     // 发件人邮箱的 SMTP 服务器地址, 必须准确, 不同邮件服务器地址不同, 一般(只是一般, 绝非绝对)格式为: smtp.xxx.com
     // 网易163邮箱的 SMTP 服务器地址为: smtp.163.com
-    public static String myEmailSMTPHost = "smtp.qq.com";
+    public static String myEmailSMTPHost = "smtp.exmail.qq.com";
 
     // 收件人邮箱（替换为自己知道的有效邮箱）
-    public static String receiveMailAccount = "13035090503@163.com";
+    public static String receiveMailAccount = "1215163414@qq.com";
 
+    public static String sendName = "Marsdl火星探索实验室";
+
+    public static String receiveName = "钱大刚";
+
+    public static Object content = "<body style=\"margin: 0; padding: 0;font-family: -apple-system,SF UI Text,Arial,PingFang SC,Hiragino Sans GB,Microsoft YaHei,WenQuanYi Micro Hei,sans-serif;\">\n" +
+            "    <div style=\" /*background-color: blue;*/ width: 100%; height: 6rem; \">\n" +
+            "\n" +
+            "    </div>\n" +
+            "    <div style=\"/*background-color: cornflowerblue;*/ width: 100%;  font-size: 1.25rem;text-align: center; color: #0a2b1d\">\n" +
+            "        小伙伴，你好！<br/>欢迎加入Marsdl<a href=\"http://www.marsdl.com\" style=\"color: #00aeef; text-decoration: none\">火星探索实验室</a>\n" +
+            "        <br /><br />\n" +
+            "        <a href=\"http://www.marsdl.com\" style=\"color: #00aeef; text-decoration: none; font-size: 0.7rem\">marsdl.com</a><br />\n" +
+            "        <span style=\"font-size: 0.7rem\">世界因为技术而变得更美好</span>\n" +
+            "    </div>\n" +
+            "</body>";
+
+    /**
+     * 测试方法
+     * @param args
+     * @throws Exception
+     */
     public static void main(String[] args) throws Exception {
         // 1. 创建参数配置, 用于连接邮件服务器的参数配置
         Properties props = new Properties();                    // 参数配置
@@ -84,7 +105,6 @@ public class SendMailUtil {
      * @param session 和服务器交互的会话
      * @param sendMail 发件人邮箱
      * @param receiveMail 收件人邮箱
-     * @return
      * @throws Exception
      */
     public static MimeMessage createMimeMessage(Session session, String sendMail, String receiveMail) throws Exception {
@@ -92,16 +112,16 @@ public class SendMailUtil {
         MimeMessage message = new MimeMessage(session);
 
         // 2. From: 发件人（昵称有广告嫌疑，避免被邮件服务器误认为是滥发广告以至返回失败，请修改昵称）
-        message.setFrom(new InternetAddress(sendMail, "陈瑞", "UTF-8"));
+        message.setFrom(new InternetAddress(sendMail, sendName, "UTF-8"));
 
         // 3. To: 收件人（可以增加多个收件人、抄送、密送）
-        message.setRecipient(MimeMessage.RecipientType.TO, new InternetAddress(receiveMail, "王杰", "UTF-8"));
+        message.setRecipient(MimeMessage.RecipientType.TO, new InternetAddress(receiveMail, receiveName, "UTF-8"));
 
         // 4. Subject: 邮件主题（标题有广告嫌疑，避免被邮件服务器误认为是滥发广告以至返回失败，请修改标题）
         message.setSubject("页面通知", "UTF-8");
 
         // 5. Content: 邮件正文（可以使用html标签）（内容有广告嫌疑，避免被邮件服务器误认为是滥发广告以至返回失败，请修改发送内容）
-        message.setContent("你好，我是陈瑞，再次进行测试，谢谢！", "text/html;charset=UTF-8");
+        message.setContent(content, "text/html;charset=UTF-8");
 
         // 6. 设置发件时间
         message.setSentDate(new Date());
