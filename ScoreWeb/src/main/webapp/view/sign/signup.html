@@ -28,7 +28,7 @@
 				
 				<div class="login-btn">
                     <a class="btn log-in" href="/view/sign/login.html">
-                      	  登录
+                        登录
                     </a>
 					<a class="btn sign-up" href="#">
 						注册
@@ -46,13 +46,13 @@
                 <form id="inputForm">
                     <ul>
                         <li>
-                            <input type="text" class="username" name="username" placeholder="昵称"/>
+                            <input type="text" class="username" name="username" placeholder="昵称" onchange="check(this)"/>
                         </li>
                         <li>
-                            <input type="text" class="email" name="email" placeholder="邮箱"/>
+                            <input type="text" class="email" name="email" placeholder="邮箱" onchange="check(this)"/>
                         </li>
                         <li>
-                            <input type="password" class="password" name="password" placeholder="设置密码"/>
+                            <input type="password" class="password" name="password" placeholder="设置密码" onchange="check(this)"/>
                         </li>
                         <li>
                             验证码
@@ -75,6 +75,25 @@
 <script type="text/javascript" src="/js/jquery-ruirui.js" ></script>
 <script type="text/javascript" src="/js/layer.js"></script>
 <script type="text/javascript">
+
+        function check(obj) {
+            var formData = $(obj).val();
+            if(!formData) {
+                $(obj).css({"border":"1px solid red"});
+                $(obj).attr("placeholder", "请填写信息");
+                return false;
+            } else {
+                $(obj).css({"border":"1px solid #c8c8c8"});
+            }
+            if($(obj).attr("name") == "email") {
+                var reg = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/;
+                if(!reg.test(formData)) {
+                    $(obj).css({"border":"1px solid red"});
+                    return false;
+                }
+            }
+        }
+
 		window.onload = function() {
 			//进行非空验证，校验
 			$("#inputForm").find(".username").change(function() {
@@ -88,13 +107,41 @@
 
 			$(".sign").click(function() {
 				debugger;
-				var formSer = $("#inputForm").serializeArray();
-				$("#inputForm").serializeJSON();
-				$("#inputForm").serialize();
-				var detail = $("#inputForm").serializeJSON();
+                var index = layer.load(1, {shade:[0.1, "#000"]});
+                //验证表单
+                var formInput = $("#inputForm input");
+                var formInputFlag = 0;
+                for(var i=0; i < formInput.size(); i++) {
+                    if(!check(formInput[i])) {
+                        formInputFlag++;
+                    }
+                }
+                if(formInputFlag != 0) {
+                    layer.close(index);
+                    return false;
+                }
+                var param = $("#inputForm").serialize();
+                $.ajax({
+                    "type": "POST",
+                    "url": "/user/save",
+                    "contentType": "application/x-www-form-urlencoded;charset=UTF-8",
+                    "async":  true,
+                    "dataType": "json",
+                    "data": param,
+                    "success": function (result) {
+                        layer.close(index);
+                        layer.alert(result.code);
+                    },
+                    "error": function (result) {
+                        layer.close(index);
+                    }
+                });
+
+				/*$("#inputForm").serializeJSON();
+				$("#inputForm").serialize();*/
+				/*var detail = $("#inputForm").serializeJSON();*/
 				/*String jsonString = JSON.stringify(detail);*/
-				var jsonString = JSON.stringify(detail);
-                layer.msg("后台正在更新中，尽情期待！");
+				/*var jsonString = JSON.stringify(detail);*/
 			})
 		};
 		

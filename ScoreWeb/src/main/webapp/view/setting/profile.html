@@ -121,23 +121,7 @@
         $(".sign").click(function() {
             var index = layer.load(1, {shade:[0.1, "#000"]});
             var param = $("#inputForm").serialize();
-            $.ajax({
-                "type": "POST",
-                "url": "/user/save",
-                "contentType": "application/x-www-form-urlencoded;charset=UTF-8",
-                "async":  true,
-                "dataType": "json",
-                "data": param,
-                "success": function (result) {
-                    layer.close(index);
-                    layer.alert(result.code);
-                 },
-                "error": function (result) {
-                    layer.close(index);
-                    debugger;
-                    alert(result);
-                 }
-            });
+            layer.msg("后台正在更新中，尽情期待！");
         })
     })
 </script>
