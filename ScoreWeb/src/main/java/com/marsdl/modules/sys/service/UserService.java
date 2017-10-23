@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
+import java.util.List;
 
 @Service
 @Transactional(readOnly = true)
@@ -24,19 +25,31 @@ public class UserService {
         if(StringUtils.isBlank(user.getId())) {
             user.setId(IdGen.uuid());
             user.setCreateDate(new Date());
+            //验证用户必填邮箱和用户名
+            boolean isSave = StringUtils.isNotBlank(user.getEmail()) && StringUtils.isNotBlank(user.getUsername());
             try{
-                userDao.insert(user);
+                if(isSave) {
+                    userDao.insert(user);
+                    SendMailUtil.sendEmail(user.getEmail(), user.getUsername());
+                    return true;
+                } else {
+                    return false;
+                }
             } catch (Exception e) {
                 e.printStackTrace();
                 return false;
             }
-            //发送邮件
-            if(StringUtils.isNotBlank(user.getEmail()) && StringUtils.isNotBlank(user.getUsername())) {
-                SendMailUtil.sendEmail(user.getEmail(), user.getUsername());
-            } else {
-                return false;
-            }
         } //在id不为null时，可以执行修改功能
         return true;
+    }
+
+    public List<User> getEmail(User user) {
+        try{
+            List<User> list = userDao.get(user);
+            return list;
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return null;
     }
 }

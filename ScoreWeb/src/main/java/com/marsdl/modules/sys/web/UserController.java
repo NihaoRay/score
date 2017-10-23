@@ -13,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @Controller
 @RequestMapping(value="/user")
@@ -42,4 +43,13 @@ public class UserController {
         }
     }
 
+    @RequestMapping(value = "getEmail")
+    @ResponseBody
+    public String getEmail(User user, HttpServletRequest request) {
+        List<User> list = userService.getEmail(user);
+        if(list.size() == 0) {
+            return RetCode.NOTHING;
+        }
+        return RetCode.SUCCESS;
+    }
 }

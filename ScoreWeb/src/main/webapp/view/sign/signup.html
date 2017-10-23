@@ -89,10 +89,28 @@
                 var reg = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/;
                 if(!reg.test(formData)) {
                     $(obj).css({"border":"1px solid red"});
+                    $(obj).attr("placeholder", "请填写正确格式的邮件");
                     return false;
                 }
+                return getEmail(formData);
             }
             return true;
+        }
+
+        function getEmail(param) {
+            $.ajax({
+                "type": "POST",
+                "url": "/user/getEmail",
+                "contentType": "application/x-www-form-urlencoded;charset=UTF-8",
+                "async":  true,
+                "dataType": "json",
+                "data": {"email":param},
+                "success": function (result) {
+                    if(result.code == "200") {
+                        return false;
+                    }
+                }
+            });
         }
 
 		window.onload = function() {
@@ -108,7 +126,7 @@
 
 			$(".sign").click(function() {
 				debugger;
-                var index = layer.load(1, {shade:[0.1, "#000"]});
+
                 //验证表单
                 var formInput = $("#inputForm input");
                 var formInputFlag = 0;
@@ -118,11 +136,12 @@
                     }
                 }
                 if(formInputFlag != 0) {
-                    layer.close(index);
+                    /*layer.close(index);*/
                     return false;
                 }
                 var param = $("#inputForm").serialize();
-                $.ajax({
+                /*var index = layer.load(1, {shade:[0.1, "#000"]});*/
+                /*$.ajax({
                     "type": "POST",
                     "url": "/user/save",
                     "contentType": "application/x-www-form-urlencoded;charset=UTF-8",
@@ -131,12 +150,12 @@
                     "data": param,
                     "success": function (result) {
                         layer.close(index);
-                        layer.msg(result.code);
+                        layer.msg(result.data);
                     },
                     "error": function (result) {
                         layer.close(index);
                     }
-                });
+                });*/
 				/*$("#inputForm").serializeJSON();
 				$("#inputForm").serialize();*/
 				/*var detail = $("#inputForm").serializeJSON();*/
