@@ -1,5 +1,6 @@
 package com.marsdl.modules.sys.web;
 
+import com.marsdl.common.util.IPUtil;
 import com.marsdl.common.util.RetCode;
 import com.marsdl.modules.sys.entity.User;
 import com.marsdl.modules.sys.service.UserService;
@@ -32,8 +33,13 @@ public class UserController {
     @RequestMapping(value = "save")
     @ResponseBody
     public String save(User user, HttpServletRequest request) {
-        userService.insert(user);
-        return RetCode.SUCCESS;
+        user.setRemarks(IPUtil.getIp(request));
+        boolean isSuccess =  userService.insert(user);
+        if(isSuccess) {
+            return RetCode.SUCCESS;
+        } else {
+            return RetCode.ERROR;
+        }
     }
 
 }

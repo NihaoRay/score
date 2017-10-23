@@ -92,6 +92,7 @@
                     return false;
                 }
             }
+            return true;
         }
 
 		window.onload = function() {
@@ -130,13 +131,12 @@
                     "data": param,
                     "success": function (result) {
                         layer.close(index);
-                        layer.alert(result.code);
+                        layer.msg(result.code);
                     },
                     "error": function (result) {
                         layer.close(index);
                     }
                 });
-
 				/*$("#inputForm").serializeJSON();
 				$("#inputForm").serialize();*/
 				/*var detail = $("#inputForm").serializeJSON();*/
