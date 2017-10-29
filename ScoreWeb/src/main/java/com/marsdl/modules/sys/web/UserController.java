@@ -25,7 +25,7 @@ public class UserController {
     @ModelAttribute
     public User get(@RequestParam(required=false) String id) {
         if (StringUtils.isNotBlank(id)){
-            return null;
+            return userService.get(id);
         }else{
             return new User();
         }

@@ -7,63 +7,44 @@
 		<link rel="stylesheet" href="/css/index.css" />
 		<link rel="stylesheet" href="/css/login.css" />
 	</head>
-	<body>
-		<!--开头的页面-->
-		<nav class="navbar nav-default navbar-fxied-top">
-			<div class="width-limit">
-				<a href="/index.html" class="logo">
-					<img src="/img/sys/logon.png" alt="logo"/>
-				</a>
-				
-				<div class="nav-bar">
-					<form target="_blank" accept-charset="UTF-8" method="get">
-						<div class="search-border">
-							<input type="text" name="q" id="q" placeholder="搜索" class="search-input" />
-							<a href="#" class="search-btn">
-								<img src="/img/sys/search_btn.png" />
-							</a>
-						</div>
-					</form>
-				</div>
-				
-				<div class="login-btn">
-                    <a class="btn log-in" href="#">
-                        登录
-                    </a>
-					<a class="btn sign-up" href="/view/sign/signup.html">
-						注册
-					</a>
-				</div>
-			</div>
-		</nav>
-		
-		<div class="login-div">
-		    <!--以弹框的形式弹出页面-->
-		    <div class="log-content">
-                <div class="tile">
-                    用户登录
-                </div>
-                <form id="inputForm">
-                    <ul>
-                        <li>
-                            <input type="text" class="username" name="username" placeholder="手机号或邮箱"/>
-                        </li>
-                        <li>
-                            <input type="password" class="password" name="password" placeholder="密码"/>
-                        </li>
-                        <li>
-                            验证码
-                        </li>
-                    </ul>
-                    <div class="sign signin-button">登录</div>
-                </form>
-			</div>	
-		</div>
+	<body class="login-bg">
 
-        <div class="footer">
-            <div class="footer-content">copyright 2017 marsdl.com all rights reserved
-                <a href="http://www.miibeian.gov.cn/">皖ICP备17022218</a>
+    <nav class="navbar nav-default navbar-fxied-top">
+        <div class="width-limit">
+            <a href="../../index.html" class="logo">
+                <img src="../../img/sys/logon.png" alt="logo"/>
+            </a>
+
+            <div class="login-btn">
+                <a class="btn log-in" href="#">
+                    登录
+                </a>
+                <a class="btn sign-up" href="/view/sign/signup.html">
+                    注册
+                </a>
             </div>
+        </div>
+    </nav>
+
+        <!--以弹框的形式弹出页面-->
+        <div class="log-content">
+            <div class="tile">
+                用户登录
+            </div>
+            <form id="inputForm">
+                <ul>
+                    <li>
+                        <input type="text" class="username" name="username" placeholder="手机号或邮箱"/>
+                    </li>
+                    <li>
+                        <input type="password" class="password" name="password" placeholder="密码"/>
+                    </li>
+                    <li>
+                        验证码
+                    </li>
+                </ul>
+                <div class="sign signin-button">登录</div>
+            </form>
         </div>
 	</body>
 </html>
@@ -77,9 +58,9 @@
 				/*$(this).css("border", "solid 1px #c8c8c8");*/
 				/*$(this).css({"border":"1px solid red", "color":"red"})*/
 			});
-			
+
 			$("#inputForm").find(".password").change(function() {
-				
+
 			});
 
 			$(".sign").click(function() {
@@ -90,12 +71,12 @@
 				var detail = $("#inputForm").serializeJSON();
 				/*String jsonString = JSON.stringify(detail);*/
 				var jsonString = JSON.stringify(detail);
-                layer.msg("后台正在更新中，尽情期待！");
+                layer.msg("后台正在更新中，尽情期待！",{time: 2500, icon:6});
 			})
 		};
-		
+
 		$(function() {
            $(".search-border").animateLength(380, 400);
-		  $(".search-input").animateLength(345, 400); 
+		  $(".search-input").animateLength(345, 400);
 		})
 </script>

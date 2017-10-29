@@ -29,6 +29,21 @@
         </where>
     </select>
 
+    <select id="getEmail" resultType="user">
+        SELECT
+        <include refid="userColumns" />
+        FROM
+        sys_user a
+        <where>
+            <if test="user != null and id != null and id != ''">
+                and a.id = #{id}
+            </if>
+            <if test="user != null and email != null and email != ''">
+                and a.email = #{email}
+            </if>
+        </where>
+    </select>
+
     <select id="get" resultType="user">
         SELECT
         <include refid="userColumns" />
@@ -37,9 +52,6 @@
         <where>
             <if test="id != null and id != ''">
                 and a.id = #{id}
-            </if>
-            <if test="email != null and email != ''">
-                and a.email = #{email}
             </if>
         </where>
     </select>

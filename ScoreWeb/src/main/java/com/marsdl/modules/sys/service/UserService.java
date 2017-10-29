@@ -20,6 +20,11 @@ public class UserService {
     @Autowired
     private UserDao userDao;
 
+    public User get(String id) {
+        User user = userDao.get(id);
+        return user;
+    }
+
     @Transactional(readOnly = false)
     public boolean insert(User user) {
         if(StringUtils.isBlank(user.getId())) {
@@ -45,7 +50,7 @@ public class UserService {
 
     public List<User> getEmail(User user) {
         try{
-            List<User> list = userDao.get(user);
+            List<User> list = userDao.getEmail(user);
             return list;
         } catch (Exception e) {
             e.printStackTrace();

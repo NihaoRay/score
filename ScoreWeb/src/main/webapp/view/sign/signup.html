@@ -7,25 +7,14 @@
 		<link rel="stylesheet" href="/css/index.css" />
 		<link rel="stylesheet" href="/css/login.css" />
 	</head>
-	<body>
+	<body class="login-bg">
 		<!--开头的页面-->
 		<nav class="navbar nav-default navbar-fxied-top">
 			<div class="width-limit">
 				<a href="../../index.html" class="logo">
 					<img src="../../img/sys/logon.png" alt="logo"/>
 				</a>
-				
-				<div class="nav-bar">
-					<form target="_blank" accept-charset="UTF-8" method="get">
-						<div class="search-border">
-							<input type="text" name="q" id="q" placeholder="搜索" class="search-input" />
-							<a href="#" class="search-btn">
-								<img src="/img/sys/search_btn.png" />
-							</a>
-						</div>
-					</form>
-				</div>
-				
+
 				<div class="login-btn">
                     <a class="btn log-in" href="/view/sign/login.html">
                         登录
@@ -62,13 +51,6 @@
                 </form>
 			</div>	
 		</div>
-
-        <div class="footer">
-            <div class="footer-content">
-                copyright 2017 marsdl.com all rights reserved
-                <a href="http://www.miibeian.gov.cn/">皖ICP备17022218</a>
-            </div>
-        </div>
 	</body>
 </html>
 <script type="text/javascript" src="/js/jquery-1.12.0.min.js" ></script>
@@ -77,10 +59,11 @@
 <script type="text/javascript">
 
         function check(obj) {
+            debugger;
             var formData = $(obj).val();
             if(!formData) {
                 $(obj).css({"border":"1px solid red"});
-                $(obj).attr("placeholder", "请填写信息");
+                layer.msg("请填写信息", {time: 2500, icon:5});
                 return false;
             } else {
                 $(obj).css({"border":"1px solid #c8c8c8"});
@@ -89,28 +72,11 @@
                 var reg = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/;
                 if(!reg.test(formData)) {
                     $(obj).css({"border":"1px solid red"});
-                    $(obj).attr("placeholder", "请填写正确格式的邮件");
+                    layer.msg("请填写正确格式的邮件", {time: 2500, icon:5});
                     return false;
                 }
-                return getEmail(formData);
             }
             return true;
-        }
-
-        function getEmail(param) {
-            $.ajax({
-                "type": "POST",
-                "url": "/user/getEmail",
-                "contentType": "application/x-www-form-urlencoded;charset=UTF-8",
-                "async":  true,
-                "dataType": "json",
-                "data": {"email":param},
-                "success": function (result) {
-                    if(result.code == "200") {
-                        return false;
-                    }
-                }
-            });
         }
 
 		window.onload = function() {
@@ -125,8 +91,6 @@
 			});
 
 			$(".sign").click(function() {
-				debugger;
-
                 //验证表单
                 var formInput = $("#inputForm input");
                 var formInputFlag = 0;
@@ -135,13 +99,13 @@
                         formInputFlag++;
                     }
                 }
+                var index = layer.load(1, {shade:[0.1, "#000"]});
                 if(formInputFlag != 0) {
-                    /*layer.close(index);*/
+                    layer.close(index);
                     return false;
                 }
                 var param = $("#inputForm").serialize();
-                /*var index = layer.load(1, {shade:[0.1, "#000"]});*/
-                /*$.ajax({
+                $.ajax({
                     "type": "POST",
                     "url": "/user/save",
                     "contentType": "application/x-www-form-urlencoded;charset=UTF-8",
@@ -150,12 +114,12 @@
                     "data": param,
                     "success": function (result) {
                         layer.close(index);
-                        layer.msg(result.data);
+                        layer.msg(result.data, {time: 2500, icon:6});
                     },
                     "error": function (result) {
                         layer.close(index);
                     }
-                });*/
+                });
 				/*$("#inputForm").serializeJSON();
 				$("#inputForm").serialize();*/
 				/*var detail = $("#inputForm").serializeJSON();*/
@@ -163,9 +127,4 @@
 				/*var jsonString = JSON.stringify(detail);*/
 			})
 		};
-		
-		$(function() {
-           $(".search-border").animateLength(380, 400);
-		  $(".search-input").animateLength(345, 400); 
-		})
 </script>
