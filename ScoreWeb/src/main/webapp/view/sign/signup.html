@@ -1,130 +1,127 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<meta charset="UTF-8">
-		<title>用户注册</title>
-        <link rel="icon" href="/img/sys/icon.png" type=" image/png" >
-		<link rel="stylesheet" href="/css/index.css" />
-		<link rel="stylesheet" href="/css/login.css" />
-	</head>
-	<body class="login-bg">
-		<!--开头的页面-->
-		<nav class="navbar nav-default navbar-fxied-top">
-			<div class="width-limit">
-				<a href="../../index.html" class="logo">
-					<img src="../../img/sys/logon.png" alt="logo"/>
-				</a>
+<head>
+    <meta charset="UTF-8">
+    <title>用户注册</title>
+    <link rel="icon" href="/img/sys/icon.png" type=" image/png">
+    <link rel="stylesheet" href="/css/index.css"/>
+    <link rel="stylesheet" href="/css/login.css"/>
+</head>
+<body class="login-bg">
+<!--开头的页面-->
+<nav class="navbar nav-default navbar-fxied-top" style="background-color: transparent">
+    <div class="width-limit">
+        <a href="../../index.html" class="logo">
+            <img src="../../img/sys/logon.png" alt="logo"/>
+        </a>
 
-				<div class="login-btn">
-                    <a class="btn log-in" href="/view/sign/login.html">
-                        登录
-                    </a>
-					<a class="btn sign-up" href="#">
-						注册
-					</a>
-				</div>
-			</div>
-		</nav>
-		
-		<div class="login-div">
-		    <!--以弹框的形式弹出页面-->
-		    <div class="log-content">
-                <div class="tile">
-                    	用户注册
-                </div>
-                <form id="inputForm">
-                    <ul>
-                        <li>
-                            <input type="text" class="username" name="username" placeholder="昵称" onchange="check(this)"/>
-                        </li>
-                        <li>
-                            <input type="text" class="email" name="email" placeholder="邮箱" onchange="check(this)"/>
-                        </li>
-                        <li>
-                            <input type="password" class="password" name="password" placeholder="设置密码" onchange="check(this)"/>
-                        </li>
-                        <li>
-                            验证码
-                        </li>
-                    </ul>
-                    <div class="sign signup-button">注册</div>
-                </form>
-			</div>	
-		</div>
-	</body>
+        <div class="login-btn">
+            <a class="btn log-in" href="/view/sign/login.html">
+                登录
+            </a>
+            <a class="btn sign-up" href="#">
+                注册
+            </a>
+        </div>
+    </div>
+</nav>
+
+<!--以弹框的形式弹出页面-->
+<div class="log-content">
+    <div class="tile">
+        用户注册
+    </div>
+    <form id="inputForm">
+        <ul>
+            <li>
+                <input type="text" class="username" name="username" placeholder="昵称" onchange="check(this)"/>
+            </li>
+            <li>
+                <input type="text" class="email" name="email" placeholder="邮箱" onchange="check(this)"/>
+            </li>
+            <li>
+                <input type="password" class="password" name="password" placeholder="设置密码" onchange="check(this)"/>
+            </li>
+            <li>
+                验证码
+            </li>
+        </ul>
+        <div class="sign signup-button">注册</div>
+    </form>
+</div>
+</body>
 </html>
-<script type="text/javascript" src="/js/jquery-1.12.0.min.js" ></script>
-<script type="text/javascript" src="/js/jquery-ruirui.js" ></script>
+<script type="text/javascript" src="/js/jquery-1.12.0.min.js"></script>
+<script type="text/javascript" src="/js/jquery-ruirui.js"></script>
 <script type="text/javascript" src="/js/layer.js"></script>
 <script type="text/javascript">
-
-        function check(obj) {
-            debugger;
-            var formData = $(obj).val();
-            if(!formData) {
-                $(obj).css({"border":"1px solid red"});
-                layer.msg("请填写信息", {time: 2500, icon:5});
-                return false;
-            } else {
-                $(obj).css({"border":"1px solid #c8c8c8"});
-            }
-            if($(obj).attr("name") == "email") {
-                var reg = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/;
-                if(!reg.test(formData)) {
-                    $(obj).css({"border":"1px solid red"});
-                    layer.msg("请填写正确格式的邮件", {time: 2500, icon:5});
-                    return false;
-                }
-            }
-            return true;
+    function check(obj) {
+        debugger;
+        var formData = $(obj).val();
+        if (!formData) {
+            $(obj).css({"border": "1px solid red"});
+            layer.msg("请填写信息", {time: 2500, icon: 5});
+            return false;
+        } else {
+            $(obj).css({"border": "1px solid #c8c8c8"});
         }
+        if ($(obj).attr("name") == "email") {
+            var reg = /^([a-zA-Z0-9_-])+@([a-zA-Z0-9_-])+(.[a-zA-Z0-9_-])+/;
+            if (!reg.test(formData)) {
+                $(obj).css({"border": "1px solid red"});
+                layer.msg("请填写正确格式的邮件", {time: 2500, icon: 5});
+                return false;
+            }
+        }
+        return true;
+    }
 
-		window.onload = function() {
-			//进行非空验证，校验
-			$("#inputForm").find(".username").change(function() {
-				/*$(this).css("border", "solid 1px #c8c8c8");*/
-				/*$(this).css({"border":"1px solid red", "color":"red"})*/
-			});
-			
-			$("#inputForm").find(".password").change(function() {
-				
-			});
+    window.onload = function () {
+        //进行非空验证，校验
+        $("#inputForm").find(".username").change(function () {
+            /*$(this).css("border", "solid 1px #c8c8c8");*/
+            /*$(this).css({"border":"1px solid red", "color":"red"})*/
+        });
 
-			$(".sign").click(function() {
-                //验证表单
-                var formInput = $("#inputForm input");
-                var formInputFlag = 0;
-                for(var i=0; i < formInput.size(); i++) {
-                    if(!check(formInput[i])) {
-                        formInputFlag++;
-                    }
+        $("#inputForm").find(".password").change(function () {
+
+        });
+
+        $(".sign").click(function () {
+            //验证表单
+            var formInput = $("#inputForm input");
+            var formInputFlag = 0;
+            for (var i = 0; i < formInput.size(); i++) {
+                if (!check(formInput[i])) {
+                    formInputFlag++;
                 }
-                var index = layer.load(1, {shade:[0.1, "#000"]});
-                if(formInputFlag != 0) {
+            }
+            var index = layer.load(1, {shade: [0.1, "#000"]});
+            if (formInputFlag != 0) {
+                layer.close(index);
+                return false;
+            }
+            var param = $("#inputForm").serialize();
+            $.ajax({
+                "type": "POST",
+                "url": "/user/save",
+                "contentType": "application/x-www-form-urlencoded;charset=UTF-8",
+                "async": true,
+                "dataType": "json",
+                "data": param,
+                "success": function (result) {
                     layer.close(index);
-                    return false;
+                    layer.msg(result.data, {time: 2500, icon: 6});
+                },
+                "error": function (result) {
+                    layer.close(index);
                 }
-                var param = $("#inputForm").serialize();
-                $.ajax({
-                    "type": "POST",
-                    "url": "/user/save",
-                    "contentType": "application/x-www-form-urlencoded;charset=UTF-8",
-                    "async":  true,
-                    "dataType": "json",
-                    "data": param,
-                    "success": function (result) {
-                        layer.close(index);
-                        layer.msg(result.data, {time: 2500, icon:6});
-                    },
-                    "error": function (result) {
-                        layer.close(index);
-                    }
-                });
-				/*$("#inputForm").serializeJSON();
-				$("#inputForm").serialize();*/
-				/*var detail = $("#inputForm").serializeJSON();*/
-				/*String jsonString = JSON.stringify(detail);*/
-				/*var jsonString = JSON.stringify(detail);*/
-			})
-		};
+            });
+            /*$("#inputForm").serializeJSON();
+             $("#inputForm").serialize();*/
+            /*var detail = $("#inputForm").serializeJSON();*/
+            /*String jsonString = JSON.stringify(detail);*/
+            /*var jsonString = JSON.stringify(detail);*/
+        })
+    };
 </script>

@@ -27,13 +27,13 @@ public class UserService {
 
     @Transactional(readOnly = false)
     public boolean insert(User user) {
-        if(StringUtils.isBlank(user.getId())) {
+        if (StringUtils.isBlank(user.getId())) {
             user.setId(IdGen.uuid());
             user.setCreateDate(new Date());
             //验证用户必填邮箱和用户名
             boolean isSave = StringUtils.isNotBlank(user.getEmail()) && StringUtils.isNotBlank(user.getUsername());
-            try{
-                if(isSave) {
+            try {
+                if (isSave) {
                     userDao.insert(user);
                     SendMailUtil.sendEmail(user.getEmail(), user.getUsername());
                     return true;
@@ -49,7 +49,7 @@ public class UserService {
     }
 
     public List<User> getEmail(User user) {
-        try{
+        try {
             List<User> list = userDao.getEmail(user);
             return list;
         } catch (Exception e) {

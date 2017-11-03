@@ -31,7 +31,7 @@ li {
 .navbar-fxied-top {
 	height: 58px;
 	width: 100%;
-	/*background-color: #fffdfd;*/
+	background-color: #ffffff;
 	position: fixed;
 	right: 0;
 	left: 0;
@@ -148,13 +148,27 @@ nav .log-in {
 	line-height: 35px;
 }
 
+nav .add-artile {
+    height: 37px;
+    border-radius: 12px;
+    width: 90px;
+    color: #ffffff;
+    line-height: 37px;
+    font-size:14px;
+    background-color: #febb50;
+}
+
+nav .add-artile:hover {
+    background-color: #f9ab2f;
+}
+
+
 .side-tool {
 	display: block;
 	height: 48px;
 	width: 48px;
 	border: 1px solid #EEEEEE;
 }
-
 
 .container {
 	position: relative;
@@ -219,7 +233,7 @@ nav .log-in {
 .avater img {
 	width: 32px;
 	height: 32px;
-	border-radius: 16px;
+	border-radius: 50%;
 }
 
 .name {

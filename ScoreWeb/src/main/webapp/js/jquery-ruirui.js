@@ -1,10 +1,9 @@
 /**
- * @author https://github.com/NihaoRay
+ * @author chenrui
  * @date 2017-09-16
- * @description jquery animate funtion
+ * @description js组件
  */
 (function ($) {
-
     /**json数据序列化*/
     $.fn.serializeJSON = function () {
         var jsonObj = {};
@@ -33,7 +32,6 @@
             }, speedTime);
         })
     };
-
 })(jQuery);
 
 
