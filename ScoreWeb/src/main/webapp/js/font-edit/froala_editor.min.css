@@ -482,7 +482,7 @@ button {
 .froala-editor span.f-sep {
 	display: inline-block;
 	width: 0;
-	height: 35px;
+	/*height: 35px;*/
 	margin: 0;
 	border-right: solid 1px #ccc;
 	float: left
@@ -1718,7 +1718,8 @@ button {
 
 .froala-element.f-basic {
 	/*border: solid 1px #252525;*/
-	padding: 10px
+	padding: 10px;
+    top: 30px;
 }
 
 .froala-element.f-basic span.f-img-editor {
