@@ -11,3 +11,4 @@ out/artifacts/ScoreWeb_war_exploded/WEB-INF/web.xml
 .idea/*
 ScoreWeb/target/*
 Scoreweb/ScoreWeb.iml
+Scoreweb/src/main/java/com/marsdl/common/util/SendMailUtil.java
