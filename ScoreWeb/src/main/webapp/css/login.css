@@ -123,29 +123,3 @@ body{
 	display: inline-block;
 }
 
-.footer {
-    position: fixed;
-    height: 20px;
-    border-top: 1px solid #d8d4d4;
-    left: 0;
-    right: 0;
-    width: 100%;
-    background-color:#ffffff;
-    bottom: 0;
-}
-
-.footer-content {
-    font-size:14px;
-    color:#b1b1b1;
-    display: block;
-    margin: 0 auto;
-    height: 20px;
-    width: 810px;
-    background-color: blue;
-    text-align: center;
-}
-
-.footer-content a {
-    font-size:14px;
-    color:#b1b1b1;
-}

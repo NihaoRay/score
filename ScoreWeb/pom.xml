@@ -334,6 +334,13 @@
             <version>${dozer.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <version>1.5.2.RELEASE</version>
+            <scope>test</scope>
+        </dependency>
+
         <!-- email -->
         <dependency>
             <groupId>javax.mail</groupId>
@@ -381,6 +388,11 @@
             <artifactId>javase</artifactId>
             <version>2.2</version>
         </dependency>
+       <!-- <dependency>
+            <groupId>com.jeesuite</groupId>
+            <artifactId>jeesuite-springboot-starter</artifactId>
+            <version>1.1.5</version>
+        </dependency>-->
 
     </dependencies>
 
@@ -392,7 +404,7 @@
         <developer>
             <id>marsdl</id>
             <name>chenrui</name>
-            <email>crdchen at foxmail.com</email>
+            <email>chenrui at marsdl.com</email>
             <roles>
                 <role>Project Leader</role>
             </roles>

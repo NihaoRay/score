@@ -1,0 +1,23 @@
+@charset "UTF-8";
+*{margin: 0; padding: 0}
+
+.footer {
+    height: 2.5rem;
+}
+
+.navbar{
+    height: 1.5rem;
+}
+
+.footer-content {
+    font-size: 1.5rem;
+    height: 2.5rem;
+    line-height: 2.5rem;
+}
+
+.video-mobile {
+
+    width: 100%;
+    height: 1.5rem;
+    background-color: blue;
+}

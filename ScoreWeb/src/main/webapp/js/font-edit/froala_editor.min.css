@@ -1,4 +1,4 @@
-@import url(froala_page.min.css);
+@import url(marsdl_page.min.css);
 
 [contenteditable],
 [contenteditable]:focus {
@@ -45,11 +45,11 @@ button {
 	font-size: 14px
 }
 
-.froala-box {
+.marsdl-box {
 	position: relative
 }
 
-.froala-box .html-switch {
+.marsdl-box .html-switch {
 	position: absolute;
 	left: 1px;
 	top: 1px;
@@ -77,12 +77,12 @@ button {
 	width: 40px
 }
 
-.froala-box .html-switch:hover {
+.marsdl-box .html-switch:hover {
 	color: #fff;
 	background: #2c82c9
 }
 
-.froala-box.f-html .html-switch {
+.marsdl-box.f-html .html-switch {
 	display: inline-block
 }
 
@@ -110,7 +110,7 @@ button {
 	display: none!important
 }
 
-.froala-element {
+.marsdl-element {
 	min-height: 35px;
 	overflow-y: auto;
 	overflow-x: hidden;
@@ -121,7 +121,7 @@ button {
 	text-align: left
 }
 
-.froala-element:after {
+.marsdl-element:after {
 	position: absolute;
 	bottom: 0;
 	right: 5px;
@@ -131,54 +131,54 @@ button {
 	font-family: "Times New Roman", Georgia, Serif
 }
 
-.froala-element * {
+.marsdl-element * {
 	-webkit-box-sizing: content-box;
 	-moz-box-sizing: content-box;
 	box-sizing: content-box
 }
 
-.froala-element.f-image {
+.marsdl-element.f-image {
 	overflow: visible
 }
 
-.froala-element.f-tni span.f-img-wrap {
+.marsdl-element.f-tni span.f-img-wrap {
 	display: block;
 	text-align: center
 }
 
-.froala-element.f-tni span.f-img-wrap:after {
+.marsdl-element.f-tni span.f-img-wrap:after {
 	clear: both;
 	display: block;
 	content: ""
 }
 
-.froala-element.f-tni span.f-img-editor {
+.marsdl-element.f-tni span.f-img-editor {
 	display: inline-block
 }
 
-.froala-element.f-tni img {
+.marsdl-element.f-tni img {
 	display: block;
 	margin-left: auto!important;
 	margin-right: auto!important
 }
 
-.froala-element.f-tni img:after {
+.marsdl-element.f-tni img:after {
 	clear: both;
 	display: block;
 	content: ""
 }
 
-.froala-element span {
+.marsdl-element span {
 	line-height: 120%
 }
 
-.froala-element.f-basic.f-placeholder:before {
+.marsdl-element.f-basic.f-placeholder:before {
 	left: 10px;
 	right: 10px;
 	top: 10px
 }
 
-.froala-element.f-placeholder:before {
+.marsdl-element.f-placeholder:before {
 	color: #ccc;
 	font-style: italic;
 	content: attr(data-placeholder);
@@ -189,22 +189,22 @@ button {
 	right: 0
 }
 
-.froala-element.not-msie pre,
-.froala-element.not-msie blockquote {
+.marsdl-element.not-msie pre,
+.marsdl-element.not-msie blockquote {
 	overflow: hidden
 }
 
-.froala-element table>span,
-.froala-element table tr>span {
+.marsdl-element table>span,
+.marsdl-element table tr>span {
 	display: none;
 	visibility: hidden
 }
 
-.froala-element a {
+.marsdl-element a {
 	cursor: pointer
 }
 
-.froala-element img {
+.marsdl-element img {
 	min-width: 32px!important;
 	min-height: 32px!important;
 	cursor: pointer;
@@ -216,40 +216,40 @@ button {
 	overflow: auto
 }
 
-.froala-element:not(.ie8) img {
+.marsdl-element:not(.ie8) img {
 	max-width: 100%!important
 }
 
-.froala-element img::selection {
+.marsdl-element img::selection {
 	color: #fff;
 	background-color: transparent!important
 }
 
-.froala-element img::-moz-selection {
+.marsdl-element img::-moz-selection {
 	color: #fff;
 	background-color: transparent!important
 }
 
-.froala-element span.f-img-wrap {
+.marsdl-element span.f-img-wrap {
 	line-height: 0;
 	text-align: center;
 	border: 0;
 	outline: 0
 }
 
-.froala-element span.f-img-wrap.fr-fin {
+.marsdl-element span.f-img-wrap.fr-fin {
 	display: block
 }
 
-.froala-element span.f-img-wrap.fr-fir {
+.marsdl-element span.f-img-wrap.fr-fir {
 	float: right
 }
 
-.froala-element span.f-img-wrap.fr-fil {
+.marsdl-element span.f-img-wrap.fr-fil {
 	float: left
 }
 
-.froala-element span.f-img-editor {
+.marsdl-element span.f-img-editor {
 	display: inline-block;
 	position: relative;
 	max-width: 100%!important;
@@ -265,7 +265,7 @@ button {
 	border-color: transparent
 }
 
-.froala-element span.f-img-editor:before {
+.marsdl-element span.f-img-editor:before {
 	content: "";
 	position: absolute;
 	top: -2px;
@@ -278,33 +278,33 @@ button {
 	z-index: 1
 }
 
-.froala-element span.f-img-editor:after {
+.marsdl-element span.f-img-editor:after {
 	content: "";
 	display: block;
 	clear: both
 }
 
-.froala-element span.f-img-editor.fr-fil {
+.marsdl-element span.f-img-editor.fr-fil {
 	margin: 10px 10px 10px 3px;
 	float: left
 }
 
-.froala-element span.f-img-editor.fr-fir {
+.marsdl-element span.f-img-editor.fr-fir {
 	margin: 10px 3px 10px 10px;
 	float: right
 }
 
-.froala-element span.f-img-editor.fr-fin {
+.marsdl-element span.f-img-editor.fr-fin {
 	margin: 10px 0;
 	float: none
 }
 
-.froala-element span.f-img-editor img {
+.marsdl-element span.f-img-editor img {
 	padding: 0!important;
 	margin: auto
 }
 
-.froala-element span.f-img-handle {
+.marsdl-element span.f-img-handle {
 	position: absolute;
 	height: 13px;
 	width: 13px;
@@ -314,7 +314,7 @@ button {
 	margin: auto
 }
 
-.froala-element span.f-img-handle.f-h-ne {
+.marsdl-element span.f-img-handle.f-h-ne {
 	top: -3px;
 	left: auto;
 	right: -3px;
@@ -322,7 +322,7 @@ button {
 	cursor: ne-resize
 }
 
-.froala-element span.f-img-handle.f-h-se {
+.marsdl-element span.f-img-handle.f-h-se {
 	top: auto;
 	left: auto;
 	right: -3px;
@@ -330,7 +330,7 @@ button {
 	cursor: se-resize
 }
 
-.froala-element span.f-img-handle.f-h-sw {
+.marsdl-element span.f-img-handle.f-h-sw {
 	top: auto;
 	left: -3px;
 	right: auto;
@@ -338,7 +338,7 @@ button {
 	cursor: sw-resize
 }
 
-.froala-element span.f-img-handle.f-h-nw {
+.marsdl-element span.f-img-handle.f-h-nw {
 	top: -3px;
 	left: -3px;
 	right: auto;
@@ -346,7 +346,7 @@ button {
 	cursor: nw-resize
 }
 
-.froala-element .f-video-editor {
+.marsdl-element .f-video-editor {
 	display: inline-block;
 	position: relative;
 	line-height: 0;
@@ -354,7 +354,7 @@ button {
 	padding: 3px
 }
 
-.froala-element .f-video-editor:after {
+.marsdl-element .f-video-editor:after {
 	position: absolute;
 	content: '';
 	z-index: 2;
@@ -365,11 +365,11 @@ button {
 	cursor: pointer
 }
 
-.froala-element .f-video-editor.active:after {
+.marsdl-element .f-video-editor.active:after {
 	border: solid 1px #252525
 }
 
-.f-html .froala-element {
+.f-html .marsdl-element {
 	background: #202020;
 	color: #fff;
 	font-family: 'Courier New', Monospace;
@@ -378,17 +378,17 @@ button {
 	padding: 0
 }
 
-.f-html .froala-element.f-placeholder:before {
+.f-html .marsdl-element.f-placeholder:before {
 	content: ''
 }
 
-.f-html .froala-element:after {
+.f-html .marsdl-element:after {
 	clear: both;
 	display: block;
 	content: ""
 }
 
-.f-html .froala-element textarea {
+.f-html .marsdl-element textarea {
 	direction: ltr!important;
 	text-align: left;
 	width: 100%;
@@ -410,7 +410,7 @@ button {
 	margin: 0
 }
 
-.froala-editor :not(input):not(textarea) {
+.marsdl-editor :not(input):not(textarea) {
 	user-select: none;
 	-o-user-select: none;
 	-moz-user-select: none;
@@ -419,7 +419,7 @@ button {
 	-ms-user-select: none
 }
 
-.froala-editor {
+.marsdl-editor {
 	text-align: left;
 	background: #fff;
 /*	border: solid 1px #252525;
@@ -437,17 +437,17 @@ button {
 	line-height: 140%
 }
 
-.froala-editor.f-inline {
+.marsdl-editor.f-inline {
 	position: absolute
 }
 
-.froala-editor * {
+.marsdl-editor * {
 	-webkit-box-sizing: content-box;
 	-moz-box-sizing: content-box;
 	box-sizing: content-box
 }
 
-.froala-editor:not(.froala-modal):before {
+.marsdl-editor:not(.marsdl-modal):before {
 	width: 0;
 	height: 0;
 	border-left: 7px solid transparent;
@@ -461,16 +461,16 @@ button {
 	left: 15px
 }
 
-.froala-editor.right-side:before {
+.marsdl-editor.right-side:before {
 	right: 15px;
 	left: auto
 }
 
-.froala-editor .bttn-wrapper {
+.marsdl-editor .bttn-wrapper {
 	white-space: nowrap
 }
 
-.froala-editor hr {
+.marsdl-editor hr {
 	border: 0;
 	border-top-width: 1px;
 	border-top-style: solid;
@@ -479,7 +479,7 @@ button {
 	height: 0
 }
 
-.froala-editor span.f-sep {
+.marsdl-editor span.f-sep {
 	display: inline-block;
 	width: 0;
 	/*height: 35px;*/
@@ -488,17 +488,17 @@ button {
 	float: left
 }
 
-.froala-editor button::-moz-focus-inner {
+.marsdl-editor button::-moz-focus-inner {
 	border: 0
 }
 
-.froala-editor i.for-text {
+.marsdl-editor i.for-text {
 	font-style: normal;
 	font-weight: 700;
 	padding-left: 4px
 }
 
-.froala-editor .fr-dropdown {
+.marsdl-editor .fr-dropdown {
 	display: inline-block;
 	position: relative;
 	text-align: left;
@@ -510,21 +510,21 @@ button {
 	-ms-user-select: none
 }
 
-.froala-editor .fr-dropdown .fr-trigger.active+.fr-dropdown-menu {
+.marsdl-editor .fr-dropdown .fr-trigger.active+.fr-dropdown-menu {
 	display: block
 }
 
-.froala-editor .fr-dropdown .fr-trigger {
+.marsdl-editor .fr-dropdown .fr-trigger {
 	padding-left: 2px;
 	width: 38px;
 	text-align: left
 }
 
-.froala-editor .fr-dropdown .fr-trigger i {
+.marsdl-editor .fr-dropdown .fr-trigger i {
 	margin-left: 5px
 }
 
-.froala-editor .fr-dropdown .fr-dropdown-menu {
+.marsdl-editor .fr-dropdown .fr-dropdown-menu {
 	display: none;
 	position: absolute;
 	background: #fff;
@@ -538,21 +538,21 @@ button {
 	-webkit-overflow-scrolling: touch
 }
 
-.froala-editor .fr-dropdown .fr-dropdown-menu li {
+.marsdl-editor .fr-dropdown .fr-dropdown-menu li {
 	list-style-type: none;
 	position: relative
 }
 
-.froala-editor .fr-dropdown .fr-dropdown-menu li button.fr-bttn {
+.marsdl-editor .fr-dropdown .fr-dropdown-menu li button.fr-bttn {
 	margin: 5px
 }
 
-.froala-editor .fr-dropdown .fr-dropdown-menu li.active a {
+.marsdl-editor .fr-dropdown .fr-dropdown-menu li.active a {
 	background: #444!important;
 	color: #fff!important
 }
 
-.froala-editor .fr-dropdown .fr-dropdown-menu li a {
+.marsdl-editor .fr-dropdown .fr-dropdown-menu li a {
 	padding: 5px 25px;
 	margin: 0;
 	display: block;
@@ -564,29 +564,29 @@ button {
 	line-height: 130%
 }
 
-.froala-editor .fr-dropdown .fr-dropdown-menu li a:hover {
+.marsdl-editor .fr-dropdown .fr-dropdown-menu li a:hover {
 	background: #444!important;
 	color: #fff!important
 }
 
-.froala-editor .fr-dropdown .fr-dropdown-menu hr {
+.marsdl-editor .fr-dropdown .fr-dropdown-menu hr {
 	clear: both;
 	height: 0;
 	border: 0;
 	display: block
 }
 
-.froala-editor .fr-dropdown .fr-dropdown-menu:after {
+.marsdl-editor .fr-dropdown .fr-dropdown-menu:after {
 	clear: both;
 	content: "";
 	display: block
 }
 
-.froala-editor .fr-dropdown.fr-color-picker i {
+.marsdl-editor .fr-dropdown.fr-color-picker i {
 	padding-left: 3px
 }
 
-.froala-editor .fr-dropdown.fr-color-picker .fr-dropdown-menu {
+.marsdl-editor .fr-dropdown.fr-color-picker .fr-dropdown-menu {
 	padding: 10px;
 	line-height: 0;
 	white-space: nowrap;
@@ -594,27 +594,27 @@ button {
 	direction: ltr!important
 }
 
-.froala-editor .fr-dropdown.fr-color-picker .fr-dropdown-menu>div {
+.marsdl-editor .fr-dropdown.fr-color-picker .fr-dropdown-menu>div {
 	white-space: nowrap;
 	display: inline-block
 }
 
-.froala-editor .fr-dropdown.fr-color-picker .fr-dropdown-menu>div+div {
+.marsdl-editor .fr-dropdown.fr-color-picker .fr-dropdown-menu>div+div {
 	margin-left: 12px
 }
 
-.froala-editor .fr-dropdown.fr-color-picker .fr-dropdown-menu p {
+.marsdl-editor .fr-dropdown.fr-color-picker .fr-dropdown-menu p {
 	margin: 0 0 10px;
 	font-size: 13px;
 	line-height: 1;
 	color: #444
 }
 
-.froala-editor .fr-dropdown.fr-color-picker .fr-dropdown-menu p span {
+.marsdl-editor .fr-dropdown.fr-color-picker .fr-dropdown-menu p span {
 	float: left
 }
 
-.froala-editor .fr-dropdown.fr-color-picker .fr-dropdown-menu p a.fr-bttn {
+.marsdl-editor .fr-dropdown.fr-color-picker .fr-dropdown-menu p a.fr-bttn {
 	display: inline-block;
 	float: right;
 	padding: 0;
@@ -626,17 +626,17 @@ button {
 	cursor: pointer
 }
 
-.froala-editor .fr-dropdown.fr-color-picker .fr-dropdown-menu p a.fr-bttn:hover {
+.marsdl-editor .fr-dropdown.fr-color-picker .fr-dropdown-menu p a.fr-bttn:hover {
 	color: #2c82c9
 }
 
-.froala-editor .fr-dropdown.fr-color-picker .fr-dropdown-menu p:after {
+.marsdl-editor .fr-dropdown.fr-color-picker .fr-dropdown-menu p:after {
 	content: "";
 	display: block;
 	clear: both
 }
 
-.froala-editor .fr-dropdown.fr-color-picker .fr-dropdown-menu .fr-color-bttn {
+.marsdl-editor .fr-dropdown.fr-color-picker .fr-dropdown-menu .fr-color-bttn {
 	display: inline;
 	width: 18px;
 	height: 18px;
@@ -653,13 +653,13 @@ button {
 	background-clip: padding-box
 }
 
-.froala-editor .fr-dropdown.fr-color-picker .fr-dropdown-menu .fr-color-bttn.active {
+.marsdl-editor .fr-dropdown.fr-color-picker .fr-dropdown-menu .fr-color-bttn.active {
 	border: solid 1px #fff;
 	outline: solid 1px #252525;
 	z-index: 101
 }
 
-.froala-editor .fr-dropdown.fr-color-picker .fr-dropdown-menu .fr-color-bttn.active:after {
+.marsdl-editor .fr-dropdown.fr-color-picker .fr-dropdown-menu .fr-color-bttn.active:after {
 	position: absolute;
 	left: 2px;
 	top: 1px;
@@ -670,75 +670,75 @@ button {
 	color: #fff
 }
 
-.froala-editor .fr-dropdown.fr-color-picker .fr-dropdown-menu .separator {
+.marsdl-editor .fr-dropdown.fr-color-picker .fr-dropdown-menu .separator {
 	height: 8px
 }
 
-.froala-editor .fr-dropdown.fr-color-picker .fr-dropdown-menu .fr-color-bttn:hover:not(:focus):not(:active) {
+.marsdl-editor .fr-dropdown.fr-color-picker .fr-dropdown-menu .fr-color-bttn:hover:not(:focus):not(:active) {
 	border: solid 1px #252525
 }
 
-.froala-editor .fr-dropdown .fr-dropdown-menu li a.format-blockquote {
+.marsdl-editor .fr-dropdown .fr-dropdown-menu li a.format-blockquote {
 	font-style: italic
 }
 
-.froala-editor .fr-dropdown .fr-dropdown-menu li a.format-pre {
+.marsdl-editor .fr-dropdown .fr-dropdown-menu li a.format-pre {
 	font-family: monospace, sans-serif
 }
 
-.froala-editor .fr-dropdown .fr-dropdown-menu li a.format-h1 {
+.marsdl-editor .fr-dropdown .fr-dropdown-menu li a.format-h1 {
 	font-size: 36px;
 	line-height: 1.1;
 	font-weight: 400
 }
 
-.froala-editor .fr-dropdown .fr-dropdown-menu li a.format-h2 {
+.marsdl-editor .fr-dropdown .fr-dropdown-menu li a.format-h2 {
 	font-size: 30px;
 	line-height: 1.1;
 	font-weight: 400
 }
 
-.froala-editor .fr-dropdown .fr-dropdown-menu li a.format-h3 {
+.marsdl-editor .fr-dropdown .fr-dropdown-menu li a.format-h3 {
 	font-size: 24px;
 	line-height: 1.1;
 	font-weight: 400
 }
 
-.froala-editor .fr-dropdown .fr-dropdown-menu li a.format-h4 {
+.marsdl-editor .fr-dropdown .fr-dropdown-menu li a.format-h4 {
 	font-size: 18px;
 	line-height: 1.1;
 	font-weight: 400
 }
 
-.froala-editor .fr-dropdown .fr-dropdown-menu li a.format-h5 {
+.marsdl-editor .fr-dropdown .fr-dropdown-menu li a.format-h5 {
 	font-size: 14px;
 	line-height: 1.1;
 	font-weight: 400
 }
 
-.froala-editor .fr-dropdown .fr-dropdown-menu li a.format-h6 {
+.marsdl-editor .fr-dropdown .fr-dropdown-menu li a.format-h6 {
 	font-size: 12px;
 	line-height: 1.1;
 	font-weight: 400
 }
 
-.froala-editor .fr-dropdown .fr-dropdown-menu.f-font-sizes {
+.marsdl-editor .fr-dropdown .fr-dropdown-menu.f-font-sizes {
 	max-height: 200px;
 	overflow-y: scroll
 }
 
-.froala-editor .fr-dropdown .fr-dropdown-menu.f-font-sizes a {
+.marsdl-editor .fr-dropdown .fr-dropdown-menu.f-font-sizes a {
 	padding: 5px 7px!important;
 	font-size: 12px;
 	line-height: 160%
 }
 
-.froala-editor .fr-dropdown .fr-dropdown-menu.fr-table>li>a {
+.marsdl-editor .fr-dropdown .fr-dropdown-menu.fr-table>li>a {
 	padding-left: 10px;
 	position: relative
 }
 
-.froala-editor .fr-dropdown .fr-dropdown-menu.fr-table>li>a i {
+.marsdl-editor .fr-dropdown .fr-dropdown-menu.fr-table>li>a i {
 	bottom: 0;
 	font-size: 12px;
 	height: 10px;
@@ -748,20 +748,20 @@ button {
 	top: 0
 }
 
-.froala-editor .fr-dropdown .fr-dropdown-menu.fr-table>li:hover>a,
-.froala-editor .fr-dropdown .fr-dropdown-menu.fr-table>li.hover>a {
+.marsdl-editor .fr-dropdown .fr-dropdown-menu.fr-table>li:hover>a,
+.marsdl-editor .fr-dropdown .fr-dropdown-menu.fr-table>li.hover>a {
 	background: #444;
 	color: #fff
 }
 
-.froala-editor .fr-dropdown .fr-dropdown-menu.fr-table>li:hover>div,
-.froala-editor .fr-dropdown .fr-dropdown-menu.fr-table>li.hover>div,
-.froala-editor .fr-dropdown .fr-dropdown-menu.fr-table>li:hover>ul,
-.froala-editor .fr-dropdown .fr-dropdown-menu.fr-table>li.hover>ul {
+.marsdl-editor .fr-dropdown .fr-dropdown-menu.fr-table>li:hover>div,
+.marsdl-editor .fr-dropdown .fr-dropdown-menu.fr-table>li.hover>div,
+.marsdl-editor .fr-dropdown .fr-dropdown-menu.fr-table>li:hover>ul,
+.marsdl-editor .fr-dropdown .fr-dropdown-menu.fr-table>li.hover>ul {
 	display: block!important
 }
 
-.froala-editor .fr-dropdown .fr-dropdown-menu.fr-table>li>ul {
+.marsdl-editor .fr-dropdown .fr-dropdown-menu.fr-table>li>ul {
 	display: none;
 	position: absolute;
 	left: 100%;
@@ -774,11 +774,11 @@ button {
 	margin: 0
 }
 
-.froala-editor .fr-dropdown .fr-dropdown-menu.fr-table>li>ul a {
+.marsdl-editor .fr-dropdown .fr-dropdown-menu.fr-table>li>ul a {
 	padding: 5px 10px
 }
 
-.froala-editor .fr-dropdown .fr-dropdown-menu.fr-table>li>div {
+.marsdl-editor .fr-dropdown .fr-dropdown-menu.fr-table>li>div {
 	display: none;
 	position: absolute;
 	left: 100%;
@@ -790,52 +790,52 @@ button {
 	padding: 5px
 }
 
-.froala-editor .fr-dropdown .fr-dropdown-menu.fr-table>li>div>div.fr-t-info {
+.marsdl-editor .fr-dropdown .fr-dropdown-menu.fr-table>li>div>div.fr-t-info {
 	line-height: 140%;
 	text-align: center;
 	font-size: 13px;
 	padding-bottom: 5px
 }
 
-.froala-editor .fr-dropdown .fr-dropdown-menu.fr-table>li>div>span {
+.marsdl-editor .fr-dropdown .fr-dropdown-menu.fr-table>li>div>span {
 	display: inline-block;
 	padding: 0 4px 4px 0;
 	line-height: 0;
 	float: none
 }
 
-.froala-editor .fr-dropdown .fr-dropdown-menu.fr-table>li>div>span>span {
+.marsdl-editor .fr-dropdown .fr-dropdown-menu.fr-table>li>div>span>span {
 	display: inline-block;
 	width: 12px;
 	height: 12px;
 	border: solid 1px #ccc
 }
 
-.froala-editor .fr-dropdown .fr-dropdown-menu.fr-table>li>div>span:hover>span,
-.froala-editor .fr-dropdown .fr-dropdown-menu.fr-table>li>div>span.hover>span {
+.marsdl-editor .fr-dropdown .fr-dropdown-menu.fr-table>li>div>span:hover>span,
+.marsdl-editor .fr-dropdown .fr-dropdown-menu.fr-table>li>div>span.hover>span {
 	background: rgba(61, 142, 185, .3);
 	border: solid 1px #3d8eb9
 }
 
-.froala-editor .fr-dropdown .fr-dropdown-menu.fr-table>li>div .new-line {
+.marsdl-editor .fr-dropdown .fr-dropdown-menu.fr-table>li>div .new-line {
 	content: "";
 	display: block;
 	clear: both
 }
 
-.froala-editor .fr-dropdown .fr-dropdown-menu.fr-table>hr {
+.marsdl-editor .fr-dropdown .fr-dropdown-menu.fr-table>hr {
 	border-top: solid 1px #252525
 }
 
-.froala-editor .fr-dropdown .fr-dropdown-menu.f-align a {
+.marsdl-editor .fr-dropdown .fr-dropdown-menu.f-align a {
 	padding: 5px 0!important;
 	width: 40px;
 	text-align: center;
 	font-size: 16px
 }
 
-.froala-editor button.fr-bttn,
-.froala-editor button.fr-trigger {
+.marsdl-editor button.fr-bttn,
+.marsdl-editor button.fr-trigger {
 	padding: 0;
 	background: 0 0;
 	color: #353535;
@@ -862,53 +862,53 @@ button {
 	z-index: 2
 }
 
-.froala-editor button.fr-bttn img,
-.froala-editor button.fr-trigger img {
+.marsdl-editor button.fr-bttn img,
+.marsdl-editor button.fr-trigger img {
 	max-width: 40px;
 	max-height: 35px;
 	display: block
 }
 
-.froala-editor button.fr-bttn:disabled,
-.froala-editor button.fr-trigger:disabled {
+.marsdl-editor button.fr-bttn:disabled,
+.marsdl-editor button.fr-trigger:disabled {
 	color: #aaa!important;
 	background: transparent!important;
 	cursor: default
 }
 
-.froala-editor button.fr-bttn:disabled:after,
-.froala-editor button.fr-trigger:disabled:after {
+.marsdl-editor button.fr-bttn:disabled:after,
+.marsdl-editor button.fr-trigger:disabled:after {
 	border-top-color: #aaa!important
 }
 
-.froala-editor button.fr-bttn i,
-.froala-editor button.fr-trigger i {
+.marsdl-editor button.fr-bttn i,
+.marsdl-editor button.fr-trigger i {
 	line-height: 170%;
 	-moz-outline: 0;
 	outline: 0
 }
 
-.froala-editor .bttn-wrapper:not(.touch) button.fr-bttn:hover,
-.froala-editor .froala-popup button.fr-bttn:hover,
-.froala-editor .bttn-wrapper:not(.touch) button.fr-trigger:hover,
-.froala-editor .froala-popup button.fr-trigger:hover {
+.marsdl-editor .bttn-wrapper:not(.touch) button.fr-bttn:hover,
+.marsdl-editor .marsdl-popup button.fr-bttn:hover,
+.marsdl-editor .bttn-wrapper:not(.touch) button.fr-trigger:hover,
+.marsdl-editor .marsdl-popup button.fr-trigger:hover {
 	background: #2c82c9;
 	color: #fff
 }
 
-.froala-editor .bttn-wrapper:not(.touch) button.fr-bttn:hover:after,
-.froala-editor .froala-popup button.fr-bttn:hover:after,
-.froala-editor .bttn-wrapper:not(.touch) button.fr-trigger:hover:after,
-.froala-editor .froala-popup button.fr-trigger:hover:after {
+.marsdl-editor .bttn-wrapper:not(.touch) button.fr-bttn:hover:after,
+.marsdl-editor .marsdl-popup button.fr-bttn:hover:after,
+.marsdl-editor .bttn-wrapper:not(.touch) button.fr-trigger:hover:after,
+.marsdl-editor .marsdl-popup button.fr-trigger:hover:after {
 	border-top-color: #fff
 }
 
-.froala-editor .fr-bttn.active {
+.marsdl-editor .fr-bttn.active {
 	color: #cddc39;
 	background: 0 0
 }
 
-.froala-editor .fr-trigger:after {
+.marsdl-editor .fr-trigger:after {
 	width: 0;
 	height: 0;
 	border-left: 3px solid transparent;
@@ -926,21 +926,21 @@ button {
 	zoom: 1
 }
 
-.froala-editor .fr-trigger.active {
+.marsdl-editor .fr-trigger.active {
 	color: #fff;
 	background: #2c82c9
 }
 
-.froala-editor .fr-trigger.active:after {
+.marsdl-editor .fr-trigger.active:after {
 	border-top-color: #fff!important
 }
 
-.froala-editor .froala-popup {
+.marsdl-editor .marsdl-popup {
 	font-size: 13px;
 	background: #fff
 }
 
-.froala-editor .froala-popup :not(input):not(textarea) {
+.marsdl-editor .marsdl-popup :not(input):not(textarea) {
 	-webkit-touch-callout: none;
 	-webkit-user-select: none;
 	-khtml-user-select: none;
@@ -949,14 +949,14 @@ button {
 	user-select: none
 }
 
-.froala-editor .froala-popup h4 {
+.marsdl-editor .marsdl-popup h4 {
 	margin: 0;
 	font-size: 14px;
 	color: #444;
 	padding: 7px 7px 0
 }
 
-.froala-editor .froala-popup h4:after {
+.marsdl-editor .marsdl-popup h4:after {
 	content: ".";
 	display: block;
 	clear: both;
@@ -965,11 +965,11 @@ button {
 	height: 0
 }
 
-.froala-editor .froala-popup h4 span {
+.marsdl-editor .marsdl-popup h4 span {
 	float: left
 }
 
-.froala-editor .froala-popup h4 i {
+.marsdl-editor .marsdl-popup h4 i {
 	float: right;
 	cursor: pointer;
 	color: #ccc;
@@ -979,46 +979,46 @@ button {
 	-o-transition: all .2s ease-in
 }
 
-.froala-editor .froala-popup h4 i.fa-external-link {
+.marsdl-editor .marsdl-popup h4 i.fa-external-link {
 	float: left;
 	margin-left: 5px;
 	margin-top: 1px;
 	color: #444
 }
 
-.froala-editor .froala-popup h4 i.fa-external-link:hover {
+.marsdl-editor .marsdl-popup h4 i.fa-external-link:hover {
 	color: #2c82c9
 }
 
-.froala-editor .froala-popup h4 i:hover {
+.marsdl-editor .marsdl-popup h4 i:hover {
 	color: #444
 }
 
-.froala-editor .froala-popup div.f-popup-line {
+.marsdl-editor .marsdl-popup div.f-popup-line {
 	margin: 0 7px;
 	padding: 10px 0;
 	display: block;
 	position: relative
 }
 
-.froala-editor .froala-popup div.f-popup-line.f-popup-toolbar {
+.marsdl-editor .marsdl-popup div.f-popup-line.f-popup-toolbar {
 	background: #fff
 }
 
-.froala-editor .froala-popup div.f-popup-line:after {
+.marsdl-editor .marsdl-popup div.f-popup-line:after {
 	content: "";
 	display: block;
 	clear: both
 }
 
-.froala-editor .froala-popup div.f-popup-line label {
+.marsdl-editor .marsdl-popup div.f-popup-line label {
 	float: left;
 	margin: 5px 5px 0;
 	line-height: 120%;
 	color: #444
 }
 
-.froala-editor .froala-popup div.f-popup-line input[type=text] {
+.marsdl-editor .marsdl-popup div.f-popup-line input[type=text] {
 	font-size: 12px;
 	width: 250px;
 	border: solid 1px #ccc;
@@ -1043,18 +1043,18 @@ button {
 	outline: 0
 }
 
-.froala-editor .froala-popup div.f-popup-line input[type=text]:focus {
+.marsdl-editor .marsdl-popup div.f-popup-line input[type=text]:focus {
 	border: solid 1px #54acd2
 }
 
-.froala-editor .froala-popup div.f-popup-line input[type=checkbox] {
+.marsdl-editor .marsdl-popup div.f-popup-line input[type=checkbox] {
 	float: left;
 	margin-right: 0;
 	margin-left: 0;
 	margin-top: 5px
 }
 
-.froala-editor .froala-popup div.f-popup-line textarea {
+.marsdl-editor .marsdl-popup div.f-popup-line textarea {
 	padding: 5px;
 	font-size: 12px;
 	margin: 0;
@@ -1079,19 +1079,19 @@ button {
 	outline: 0
 }
 
-.froala-editor .froala-popup div.f-popup-line textarea:focus {
+.marsdl-editor .marsdl-popup div.f-popup-line textarea:focus {
 	border: solid 1px #54acd2;
 	outline: 0
 }
 
-.froala-popup.froala-image-popup div.f-popup-line.drop-upload,
-.froala-popup.froala-file-popup div.f-popup-line.drop-upload {
+.marsdl-popup.marsdl-image-popup div.f-popup-line.drop-upload,
+.marsdl-popup.marsdl-file-popup div.f-popup-line.drop-upload {
 	overflow: hidden;
 	position: relative
 }
 
-.froala-popup.froala-image-popup div.f-popup-line.drop-upload div.f-upload,
-.froala-popup.froala-file-popup div.f-popup-line.drop-upload div.f-upload {
+.marsdl-popup.marsdl-image-popup div.f-popup-line.drop-upload div.f-upload,
+.marsdl-popup.marsdl-file-popup div.f-popup-line.drop-upload div.f-upload {
 	border: dashed 2px #ccc;
 	color: #444;
 	font-weight: 400;
@@ -1102,23 +1102,23 @@ button {
 	overflow: hidden
 }
 
-.froala-popup.froala-image-popup div.f-popup-line.drop-upload div.f-upload:hover,
-.froala-popup.froala-file-popup div.f-popup-line.drop-upload div.f-upload:hover {
+.marsdl-popup.marsdl-image-popup div.f-popup-line.drop-upload div.f-upload:hover,
+.marsdl-popup.marsdl-file-popup div.f-popup-line.drop-upload div.f-upload:hover {
 	border: dashed 2px #353535
 }
 
-.froala-popup.froala-image-popup div.f-popup-line.drop-upload div.f-upload.f-hover,
-.froala-popup.froala-file-popup div.f-popup-line.drop-upload div.f-upload.f-hover {
+.marsdl-popup.marsdl-image-popup div.f-popup-line.drop-upload div.f-upload.f-hover,
+.marsdl-popup.marsdl-file-popup div.f-popup-line.drop-upload div.f-upload.f-hover {
 	border: dashed 2px #61bd6d
 }
 
-.froala-popup.froala-image-popup div.f-popup-line.drop-upload div.f-upload strong,
-.froala-popup.froala-file-popup div.f-popup-line.drop-upload div.f-upload strong {
+.marsdl-popup.marsdl-image-popup div.f-popup-line.drop-upload div.f-upload strong,
+.marsdl-popup.marsdl-file-popup div.f-popup-line.drop-upload div.f-upload strong {
 	font-size: 14px
 }
 
-.froala-popup.froala-image-popup div.f-popup-line.drop-upload form,
-.froala-popup.froala-file-popup div.f-popup-line.drop-upload form {
+.marsdl-popup.marsdl-image-popup div.f-popup-line.drop-upload form,
+.marsdl-popup.marsdl-file-popup div.f-popup-line.drop-upload form {
 	width: 100%;
 	height: 100%;
 	background: 0 0;
@@ -1133,8 +1133,8 @@ button {
 	overflow: hidden
 }
 
-.froala-popup.froala-image-popup div.f-popup-line.drop-upload form input,
-.froala-popup.froala-file-popup div.f-popup-line.drop-upload form input {
+.marsdl-popup.marsdl-image-popup div.f-popup-line.drop-upload form input,
+.marsdl-popup.marsdl-file-popup div.f-popup-line.drop-upload form input {
 	background: 0 0;
 	display: inline-block;
 	width: 400%;
@@ -1144,13 +1144,13 @@ button {
 	font-size: 1000px!important
 }
 
-.froala-popup.froala-image-popup div.f-popup-line.drop-upload form button,
-.froala-popup.froala-file-popup div.f-popup-line.drop-upload form button {
+.marsdl-popup.marsdl-image-popup div.f-popup-line.drop-upload form button,
+.marsdl-popup.marsdl-file-popup div.f-popup-line.drop-upload form button {
 	background: 0 0
 }
 
-.froala-popup.froala-image-popup div.f-popup-line button.f-browse,
-.froala-popup.froala-file-popup div.f-popup-line button.f-browse {
+.marsdl-popup.marsdl-image-popup div.f-popup-line button.f-browse,
+.marsdl-popup.marsdl-file-popup div.f-popup-line button.f-browse {
 	display: none;
 	margin: 0 5px 0 -1px;
 	padding: 2px 7px;
@@ -1158,45 +1158,45 @@ button {
 	color: #fff
 }
 
-.froala-popup.froala-image-popup div.f-popup-line button.f-browse:hover,
-.froala-popup.froala-file-popup div.f-popup-line button.f-browse:hover {
+.marsdl-popup.marsdl-image-popup div.f-popup-line button.f-browse:hover,
+.marsdl-popup.marsdl-file-popup div.f-popup-line button.f-browse:hover {
 	background: #353535;
 	color: #fff
 }
 
-.froala-popup.froala-image-popup div.f-popup-line+div.f-popup-line,
-.froala-popup.froala-file-popup div.f-popup-line+div.f-popup-line {
+.marsdl-popup.marsdl-image-popup div.f-popup-line+div.f-popup-line,
+.marsdl-popup.marsdl-file-popup div.f-popup-line+div.f-popup-line {
 	border-top: solid 1px #ccc
 }
 
-.froala-popup.froala-image-popup div.f-popup-line input[type=text],
-.froala-popup.froala-file-popup div.f-popup-line input[type=text] {
+.marsdl-popup.marsdl-image-popup div.f-popup-line input[type=text],
+.marsdl-popup.marsdl-file-popup div.f-popup-line input[type=text] {
 	margin-right: 0!important;
 	width: 200px
 }
 
-.froala-popup.froala-image-popup h4 span+span,
-.froala-popup.froala-file-popup h4 span+span {
+.marsdl-popup.marsdl-image-popup h4 span+span,
+.marsdl-popup.marsdl-file-popup h4 span+span {
 	display: none
 }
 
-.froala-popup.froala-image-popup h4.uploading span,
-.froala-popup.froala-file-popup h4.uploading span {
+.marsdl-popup.marsdl-image-popup h4.uploading span,
+.marsdl-popup.marsdl-file-popup h4.uploading span {
 	display: none
 }
 
-.froala-popup.froala-image-popup h4.uploading span+span,
-.froala-popup.froala-file-popup h4.uploading span+span {
+.marsdl-popup.marsdl-image-popup h4.uploading span+span,
+.marsdl-popup.marsdl-file-popup h4.uploading span+span {
 	display: inline-block
 }
 
-.froala-popup.froala-image-popup h4.uploading i,
-.froala-popup.froala-file-popup h4.uploading i {
+.marsdl-popup.marsdl-image-popup h4.uploading i,
+.marsdl-popup.marsdl-file-popup h4.uploading i {
 	display: none
 }
 
-.froala-popup.froala-image-popup p.f-progress,
-.froala-popup.froala-file-popup p.f-progress {
+.marsdl-popup.marsdl-image-popup p.f-progress,
+.marsdl-popup.marsdl-file-popup p.f-progress {
 	width: 100%;
 	display: none;
 	border: 0;
@@ -1205,8 +1205,8 @@ button {
 	width: 250px
 }
 
-.froala-popup.froala-image-popup p.f-progress span,
-.froala-popup.froala-file-popup p.f-progress span {
+.marsdl-popup.marsdl-image-popup p.f-progress span,
+.marsdl-popup.marsdl-file-popup p.f-progress span {
 	display: inline-block;
 	height: 100%;
 	background-color: #61bd6d;
@@ -1215,59 +1215,59 @@ button {
 	line-height: 20px
 }
 
-.froala-popup.froala-image-editor-popup div.f-popup-line {
+.marsdl-popup.marsdl-image-editor-popup div.f-popup-line {
 	padding: 0;
 	margin: 0
 }
 
-.froala-popup.froala-image-editor-popup div.f-popup-line input[type=text] {
+.marsdl-popup.marsdl-image-editor-popup div.f-popup-line input[type=text] {
 	width: 160px
 }
 
-.froala-popup.froala-image-editor-popup div.f-popup-line+div.f-popup-line {
+.marsdl-popup.marsdl-image-editor-popup div.f-popup-line+div.f-popup-line {
 	border-top: solid 1px #ccc;
 	padding: 5px
 }
 
-.froala-popup.froala-link-popup div.f-popup-line button {
+.marsdl-popup.marsdl-link-popup div.f-popup-line button {
 	float: right
 }
 
-.froala-popup.froala-link-popup div.f-popup-line input[type=text] {
+.marsdl-popup.marsdl-link-popup div.f-popup-line input[type=text] {
 	margin-left: 0!important;
 	margin-right: 0!important
 }
 
-.froala-popup.froala-link-popup div.f-popup-line input[type=text].f-bi {
+.marsdl-popup.marsdl-link-popup div.f-popup-line input[type=text].f-bi {
 	width: 225px
 }
 
-.froala-popup.froala-link-popup div.f-popup-line input[type=text]:disabled {
+.marsdl-popup.marsdl-link-popup div.f-popup-line input[type=text]:disabled {
 	background: #fff;
 	color: #aaa
 }
 
-.froala-popup.froala-link-popup div.f-popup-line input[type=text].fr-error {
+.marsdl-popup.marsdl-link-popup div.f-popup-line input[type=text].fr-error {
 	border-color: #b8312f
 }
 
-.froala-popup.froala-link-popup div.f-popup-line:not(.fr-hidden)+div.f-popup-line,
-.froala-popup.froala-link-popup div.f-popup-line+div.f-popup-line:last-child {
+.marsdl-popup.marsdl-link-popup div.f-popup-line:not(.fr-hidden)+div.f-popup-line,
+.marsdl-popup.marsdl-link-popup div.f-popup-line+div.f-popup-line:last-child {
 	padding-top: 0
 }
 
-.froala-popup.froala-link-popup div.f-popup-line .f-browse-links {
+.marsdl-popup.marsdl-link-popup div.f-popup-line .f-browse-links {
 	background: #475577;
 	color: #fff;
 	margin-left: -1px
 }
 
-.froala-popup.froala-link-popup div.f-popup-line .f-browse-links:hover {
+.marsdl-popup.marsdl-link-popup div.f-popup-line .f-browse-links:hover {
 	background: #353535;
 	color: #fff
 }
 
-.froala-popup.froala-link-popup div.f-popup-line ul {
+.marsdl-popup.marsdl-link-popup div.f-popup-line ul {
 	background: #fff;
 	display: block;
 	list-style-type: none;
@@ -1286,50 +1286,50 @@ button {
 	z-index: 2
 }
 
-.froala-popup.froala-link-popup div.f-popup-line ul li {
+.marsdl-popup.marsdl-link-popup div.f-popup-line ul li {
 	padding: 2px 5px;
 	cursor: pointer;
 	color: #444
 }
 
-.froala-popup.froala-link-popup div.f-popup-line ul li+li {
+.marsdl-popup.marsdl-link-popup div.f-popup-line ul li+li {
 	border-top: solid 1px #252525
 }
 
-.froala-popup.froala-link-popup div.f-popup-line ul li:hover {
+.marsdl-popup.marsdl-link-popup div.f-popup-line ul li:hover {
 	background: #444;
 	color: #fff
 }
 
-.froala-popup.froala-video-popup div.f-popup-line {
+.marsdl-popup.marsdl-video-popup div.f-popup-line {
 	padding-bottom: 0
 }
 
-.froala-popup.froala-video-popup p {
+.marsdl-popup.marsdl-video-popup p {
 	margin: 0;
 	text-align: center;
 	font-weight: 700
 }
 
-.froala-popup.froala-video-popup p+div.f-popup-line {
+.marsdl-popup.marsdl-video-popup p+div.f-popup-line {
 	padding-top: 2px;
 	padding-bottom: 7px
 }
 
-.froala-popup.froala-video-popup p.or {
+.marsdl-popup.marsdl-video-popup p.or {
 	color: #444
 }
 
-.froala-popup.froala-video-editor-popup div.f-popup-line {
+.marsdl-popup.marsdl-video-editor-popup div.f-popup-line {
 	padding: 0;
 	margin: 0
 }
 
-.froala-popup.froala-text-popup div.f-popup-line input {
+.marsdl-popup.marsdl-text-popup div.f-popup-line input {
 	margin-left: 0!important
 }
 
-.froala-popup button:not(.fr-bttn):not(.fr-trigger) {
+.marsdl-popup button:not(.fr-bttn):not(.fr-trigger) {
 	border: 0;
 	color: #fff;
 	padding: 2px 5px;
@@ -1346,24 +1346,24 @@ button {
 	min-width: 16px
 }
 
-.froala-popup button:not(.fr-bttn):not(.fr-trigger).f-ok {
+.marsdl-popup button:not(.fr-bttn):not(.fr-trigger).f-ok {
 	background: #2c82c9;
 	color: #fff
 }
 
-.froala-popup button:not(.fr-bttn):not(.fr-trigger).f-unlink {
+.marsdl-popup button:not(.fr-bttn):not(.fr-trigger).f-unlink {
 	background: #b8312f;
 	color: #fff;
 	margin: 0 5px
 }
 
-.froala-popup button:not(.fr-bttn):not(.fr-trigger):hover,
-.froala-popup button:not(.fr-bttn):not(.fr-trigger):focus {
+.marsdl-popup button:not(.fr-bttn):not(.fr-trigger):hover,
+.marsdl-popup button:not(.fr-bttn):not(.fr-trigger):focus {
 	background: #353535;
 	color: #fff
 }
 
-.froala-modal {
+.marsdl-modal {
 	position: fixed;
 	z-index: 1001;
 	overflow-x: auto;
@@ -1375,7 +1375,7 @@ button {
 	text-align: center
 }
 
-.froala-modal .f-modal-wrapper {
+.marsdl-modal .f-modal-wrapper {
 	margin: 50px auto;
 	display: inline-block;
 	background: #fff;
@@ -1385,11 +1385,11 @@ button {
 	border-top: solid 5px #252525
 }
 
-.froala-modal .f-modal-wrapper .f-preloader {
+.marsdl-modal .f-modal-wrapper .f-preloader {
 	margin: 50px 0
 }
 
-.froala-modal .f-modal-wrapper h4 {
+.marsdl-modal .f-modal-wrapper h4 {
 	margin: 0;
 	font-size: 18px;
 	color: #444;
@@ -1397,7 +1397,7 @@ button {
 	text-align: left
 }
 
-.froala-modal .f-modal-wrapper h4:after {
+.marsdl-modal .f-modal-wrapper h4:after {
 	content: ".";
 	display: block;
 	clear: both;
@@ -1406,17 +1406,17 @@ button {
 	height: 0
 }
 
-.froala-modal .f-modal-wrapper h4 i {
+.marsdl-modal .f-modal-wrapper h4 i {
 	float: right;
 	cursor: pointer;
 	color: #ccc
 }
 
-.froala-modal .f-modal-wrapper h4 i:hover {
+.marsdl-modal .f-modal-wrapper h4 i:hover {
 	color: #444
 }
 
-.froala-modal .f-modal-wrapper div.f-image-list {
+.marsdl-modal .f-modal-wrapper div.f-image-list {
 	list-style-type: none;
 	margin: 10px;
 	padding: 0;
@@ -1429,14 +1429,14 @@ button {
 	width: 600px
 }
 
-.froala-modal .f-modal-wrapper div.f-image-list div {
+.marsdl-modal .f-modal-wrapper div.f-image-list div {
 	position: relative;
 	width: 100%;
 	display: inline-block;
 	margin-bottom: 10px
 }
 
-.froala-modal .f-modal-wrapper div.f-image-list div.f-img-deleting:after {
+.marsdl-modal .f-modal-wrapper div.f-image-list div.f-img-deleting:after {
 	position: absolute;
 	-webkit-opacity: .75;
 	-moz-opacity: .75;
@@ -1452,7 +1452,7 @@ button {
 	z-index: 2
 }
 
-.froala-modal .f-modal-wrapper div.f-image-list div.f-img-deleting:before {
+.marsdl-modal .f-modal-wrapper div.f-image-list div.f-img-deleting:before {
 	content: "Deleting...";
 	color: #FFF;
 	top: 0;
@@ -1466,7 +1466,7 @@ button {
 	height: 20px
 }
 
-.froala-modal .f-modal-wrapper div.f-image-list div.f-empty {
+.marsdl-modal .f-modal-wrapper div.f-image-list div.f-empty {
 	width: 100%;
 	height: 200px;
 	background: #ccc;
@@ -1474,7 +1474,7 @@ button {
 	margin-bottom: 10px
 }
 
-.froala-modal .f-modal-wrapper div.f-image-list div.f-empty:after {
+.marsdl-modal .f-modal-wrapper div.f-image-list div.f-empty:after {
 	position: absolute;
 	margin: auto;
 	top: 0;
@@ -1486,7 +1486,7 @@ button {
 	height: 20px
 }
 
-.froala-modal .f-modal-wrapper div.f-image-list div img {
+.marsdl-modal .f-modal-wrapper div.f-image-list div img {
 	width: 100%;
 	-webkit-opacity: .75;
 	-moz-opacity: .75;
@@ -1495,7 +1495,7 @@ button {
 	vertical-align: middle
 }
 
-.froala-modal .f-modal-wrapper div.f-image-list div .f-delete-img {
+.marsdl-modal .f-modal-wrapper div.f-image-list div .f-delete-img {
 	display: none;
 	bottom: 0;
 	left: 0;
@@ -1516,31 +1516,31 @@ button {
 	text-decoration: none
 }
 
-.froala-modal .f-modal-wrapper div.f-image-list div .f-delete-img {
+.marsdl-modal .f-modal-wrapper div.f-image-list div .f-delete-img {
 	display: inline-block
 }
 
-.froala-modal .f-modal-wrapper div.f-image-list:not(.f-touch) .f-delete-img {
+.marsdl-modal .f-modal-wrapper div.f-image-list:not(.f-touch) .f-delete-img {
 	display: none
 }
 
-.froala-modal .f-modal-wrapper div.f-image-list:not(.f-touch) div:hover .f-delete-img {
+.marsdl-modal .f-modal-wrapper div.f-image-list:not(.f-touch) div:hover .f-delete-img {
 	display: inline-block
 }
 
-.froala-modal .f-modal-wrapper div.f-image-list:not(.f-touch) div:hover .f-delete-img:hover {
+.marsdl-modal .f-modal-wrapper div.f-image-list:not(.f-touch) div:hover .f-delete-img:hover {
 	background: #353535;
 	color: #fff
 }
 
-.froala-modal .f-modal-wrapper div.f-image-list:not(.f-touch) div:hover img {
+.marsdl-modal .f-modal-wrapper div.f-image-list:not(.f-touch) div:hover img {
 	-webkit-opacity: 1;
 	-moz-opacity: 1;
 	opacity: 1;
 	-ms-filter: "alpha(Opacity=0)"
 }
 
-.froala-overlay {
+.marsdl-overlay {
 	position: fixed;
 	top: 0;
 	bottom: 0;
@@ -1554,129 +1554,129 @@ button {
 	-ms-filter: "alpha(Opacity=0)"
 }
 
-.froala-editor.f-rtl {
+.marsdl-editor.f-rtl {
 	direction: rtl;
 	text-align: right
 }
 
-.froala-editor.f-rtl.f-basic .fr-bttn {
+.marsdl-editor.f-rtl.f-basic .fr-bttn {
 	float: right
 }
 
-.froala-editor.f-rtl.f-basic .f-sep {
+.marsdl-editor.f-rtl.f-basic .f-sep {
 	float: right
 }
 
-.froala-editor.f-rtl .fr-dropdown-menu {
+.marsdl-editor.f-rtl .fr-dropdown-menu {
 	text-align: right!important;
 	direction: rtl!important
 }
 
-.froala-editor.f-rtl .fr-dropdown-menu li.active:before {
+.marsdl-editor.f-rtl .fr-dropdown-menu li.active:before {
 	left: auto;
 	right: 5px
 }
 
-.froala-editor.f-rtl .fr-dropdown.fr-color-picker .fr-dropdown-menu p {
+.marsdl-editor.f-rtl .fr-dropdown.fr-color-picker .fr-dropdown-menu p {
 	text-align: right!important;
 	direction: rtl!important
 }
 
-.froala-editor.f-rtl .fr-dropdown.fr-table .fr-dropdown-menu>li>a {
+.marsdl-editor.f-rtl .fr-dropdown.fr-table .fr-dropdown-menu>li>a {
 	padding: 5px 10px 5px 25px
 }
 
-.froala-editor.f-rtl .fr-dropdown.fr-table .fr-dropdown-menu>li>a i {
+.marsdl-editor.f-rtl .fr-dropdown.fr-table .fr-dropdown-menu>li>a i {
 	right: auto;
 	left: 5px
 }
 
-.froala-editor.f-rtl .fr-dropdown.fr-table .fr-dropdown-menu>li>a i:before {
+.marsdl-editor.f-rtl .fr-dropdown.fr-table .fr-dropdown-menu>li>a i:before {
 	content: '\f053'
 }
 
-.froala-editor.f-rtl .fr-dropdown.fr-table .fr-dropdown-menu>li>div,
-.froala-editor.f-rtl .fr-dropdown.fr-table .fr-dropdown-menu>li>ul {
+.marsdl-editor.f-rtl .fr-dropdown.fr-table .fr-dropdown-menu>li>div,
+.marsdl-editor.f-rtl .fr-dropdown.fr-table .fr-dropdown-menu>li>ul {
 	right: 100%;
 	left: auto
 }
 
-.froala-editor.f-rtl .froala-popup div.f-popup-line label,
-.froala-editor.f-rtl .froala-popup div.f-popup-line input {
+.marsdl-editor.f-rtl .marsdl-popup div.f-popup-line label,
+.marsdl-editor.f-rtl .marsdl-popup div.f-popup-line input {
 	float: right!important
 }
 
-.froala-editor.f-rtl .froala-popup div.f-popup-line button {
+.marsdl-editor.f-rtl .marsdl-popup div.f-popup-line button {
 	float: left!important
 }
 
-.froala-editor.f-rtl .froala-popup div.f-popup-line button.f-ok {
+.marsdl-editor.f-rtl .marsdl-popup div.f-popup-line button.f-ok {
 	margin-right: 5px
 }
 
-.froala-editor.f-rtl .froala-popup div.f-popup-line button.fr-bttn {
+.marsdl-editor.f-rtl .marsdl-popup div.f-popup-line button.fr-bttn {
 	float: right!important
 }
 
-.froala-editor.f-rtl .froala-popup div.f-popup-line button.f-browse {
+.marsdl-editor.f-rtl .marsdl-popup div.f-popup-line button.f-browse {
 	float: right!important;
 	margin: 0 -1px 0 0
 }
 
-.froala-editor.f-rtl .froala-popup div.f-popup-line input[type=text] {
+.marsdl-editor.f-rtl .marsdl-popup div.f-popup-line input[type=text] {
 	margin-left: 0!important
 }
 
-.froala-editor.f-rtl .froala-popup h4 {
+.marsdl-editor.f-rtl .marsdl-popup h4 {
 	direction: rtl!important
 }
 
-.froala-editor.f-rtl .froala-popup h4 span {
+.marsdl-editor.f-rtl .marsdl-popup h4 span {
 	float: right
 }
 
-.froala-editor.f-rtl .froala-popup h4 .f-external-link {
+.marsdl-editor.f-rtl .marsdl-popup h4 .f-external-link {
 	float: right
 }
 
-.froala-editor.f-rtl .froala-popup h4 .f-external-link i {
+.marsdl-editor.f-rtl .marsdl-popup h4 .f-external-link i {
 	margin-right: 5px;
 	margin-left: 1px
 }
 
-.froala-editor.f-rtl .froala-popup h4 i {
+.marsdl-editor.f-rtl .marsdl-popup h4 i {
 	float: left!important
 }
 
-.froala-modal.f-rtl .f-modal-wrapper {
+.marsdl-modal.f-rtl .f-modal-wrapper {
 	direction: rtl;
 	text-align: right
 }
 
-.froala-modal.f-rtl .f-modal-wrapper h4 span {
+.marsdl-modal.f-rtl .f-modal-wrapper h4 span {
 	float: right!important
 }
 
-.froala-modal.f-rtl .f-modal-wrapper h4 i {
+.marsdl-modal.f-rtl .f-modal-wrapper h4 i {
 	float: left!important
 }
 
-.froala-modal.f-rtl .f-modal-wrapper a.f-delete-img {
+.marsdl-modal.f-rtl .f-modal-wrapper a.f-delete-img {
 	left: auto!important;
 	right: 0
 }
 
-.froala-element.f-rtl {
+.marsdl-element.f-rtl {
 	direction: rtl;
 	text-align: right
 }
 
-.froala-element.f-rtl.f-placeholder:before {
+.marsdl-element.f-rtl.f-placeholder:before {
 	left: auto;
 	right: 10px
 }
 
-.froala-editor.f-basic {
+.marsdl-editor.f-basic {
     position: fixed;
 	padding: 0;
 	z-index: 999;
@@ -1688,22 +1688,22 @@ button {
 	box-sizing: border-box
 }
 
-.froala-editor.f-basic:before {
+.marsdl-editor.f-basic:before {
 	display: none
 }
 
-.froala-editor.f-basic:after {
+.marsdl-editor.f-basic:after {
 	content: "";
 	display: block;
 	clear: both
 }
 
-.froala-editor.f-basic .fr-bttn {
+.marsdl-editor.f-basic .fr-bttn {
 	margin: 0;
 	float: left
 }
 
-.froala-editor.f-basic.f-scroll {
+.marsdl-editor.f-basic.f-scroll {
 	position: absolute;
 	left: 0;
 	right: 0;
@@ -1712,47 +1712,47 @@ button {
 	border-bottom-color: inherit
 }
 
-.froala-editor.f-basic hr {
+.marsdl-editor.f-basic hr {
 	display: none
 }
 
-.froala-element.f-basic {
+.marsdl-element.f-basic {
 	/*border: solid 1px #252525;*/
 	padding: 10px;
     top: 30px;
 }
 
-.froala-element.f-basic span.f-img-editor {
+.marsdl-element.f-basic span.f-img-editor {
 	left: 0;
 	right: 0
 }
 
-.ie8 .froala-popup.froala-image-popup div.f-popup-line.drop-upload div.f-upload {
+.ie8 .marsdl-popup.marsdl-image-popup div.f-popup-line.drop-upload div.f-upload {
 	min-width: 350px
 }
 
-.ie8 .froala-popup.froala-image-editor-popup div.f-popup-line+div.f-popup-line {
+.ie8 .marsdl-popup.marsdl-image-editor-popup div.f-popup-line+div.f-popup-line {
 	min-width: 250px
 }
 
-.froala-element.ie8.f-placeholder:before {
+.marsdl-element.ie8.f-placeholder:before {
 	display: none
 }
 
-.froala-editor.ie8 button.fr-bttn,
-.froala-editor.ie8 button.fr-trigger {
+.marsdl-editor.ie8 button.fr-bttn,
+.marsdl-editor.ie8 button.fr-trigger {
 	zoom: 1;
 	position: relative
 }
 
-.froala-editor.ie8 button.fr-bttn:hover,
-.froala-editor.ie8 button.fr-trigger:hover {
+.marsdl-editor.ie8 button.fr-bttn:hover,
+.marsdl-editor.ie8 button.fr-trigger:hover {
 	background: #2c82c9;
 	color: #fff
 }
 
-.froala-editor.ie8 button.fr-bttn:hover:after,
-.froala-editor.ie8 button.fr-trigger:hover:after {
+.marsdl-editor.ie8 button.fr-bttn:hover:after,
+.marsdl-editor.ie8 button.fr-trigger:hover:after {
 	border-top-color: #fff;
 	z-index: 3
 }
