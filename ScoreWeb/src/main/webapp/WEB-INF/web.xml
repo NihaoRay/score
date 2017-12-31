@@ -86,6 +86,13 @@
         <url-pattern>/</url-pattern>
     </servlet-mapping>
 
+    <!--防止内存泄露-->
+    <listener>
+        <listener-class>
+            org.springframework.web.util.IntrospectorCleanupListener
+        </listener-class>
+    </listener>
+
     <!--页面条件-->
     <error-page>
         <error-code>404</error-code>

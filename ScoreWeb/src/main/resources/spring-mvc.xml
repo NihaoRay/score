@@ -22,10 +22,13 @@
     <mvc:resources location="/" mapping="/**/*.png"/>
     <mvc:resources location="/" mapping="/**/*.gif"/>-->
 
+
 	<!-- 使用Annotation自动注册Bean,只扫描@Controller -->
 	<context:component-scan base-package="com.marsdl" use-default-filters="false"><!-- base-package 如果多个，用“,”分隔 -->
 		<context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
 	</context:component-scan>
+
+
 
     <!-- 默认的注解映射的支持，org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping -->
 	<mvc:annotation-driven>
@@ -46,5 +49,16 @@
             </bean>
         </mvc:message-converters>
 	</mvc:annotation-driven>
+
+    <!-- 视图资源配置，处理控制器组件返回的view，自动加上前缀及后缀 -->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/" />
+        <property name="suffix" value=".html" />
+    </bean>
+
+    <!--设置拦截器，顺序执行-->
+    <mvc:interceptors>
+        <bean id="adminInterceptor" class="com.marsdl.modules.sys.interceptor.IsLoginInterceptor"/>
+    </mvc:interceptors>
 
 </beans>
