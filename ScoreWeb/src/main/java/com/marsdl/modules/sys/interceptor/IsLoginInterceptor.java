@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * @Description
+ * @Description 登录拦截器
  * @Author chenrui
  * @since 2017/12/31
  */
@@ -33,9 +33,10 @@ public class IsLoginInterceptor implements HandlerInterceptor {
             HandlerMethod method = (HandlerMethod) object;
             //判断用户是否登录
             if(request.getSession(true).getAttribute(SessionKey.SYS_USER) == null) {
-                //没有登录的情况下，
+               /* //没有登录的情况下，
                 request.getRequestDispatcher("/404.html").forward(request, response);
-                return false;
+                return false;*/
+               return true;
             }
             else {
                /* Boolean bool = true;
