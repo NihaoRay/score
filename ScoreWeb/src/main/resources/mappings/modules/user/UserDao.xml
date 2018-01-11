@@ -29,17 +29,17 @@
         </where>
     </select>
 
-    <select id="getEmail" resultType="user">
+    <select id="findByEntityParams" resultType="user">
         SELECT
         <include refid="userColumns" />
         FROM
         sys_user a
         <where>
-            <if test="user != null and id != null and id != ''">
-                and a.id = #{id}
-            </if>
-            <if test="user != null and email != null and email != ''">
+            <if test="email != null and email != ''">
                 and a.email = #{email}
+            </if>
+            <if test="username != null and username != ''">
+                and a.username = #{username}
             </if>
         </where>
     </select>
@@ -93,7 +93,5 @@
         #{delFlag}
         )
     </insert>
-
-
 
 </mapper>

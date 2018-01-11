@@ -2,14 +2,22 @@ package com.marsdl.modules.sys.web;
 
 import com.marsdl.common.persistence.ActionResult;
 import com.marsdl.common.util.ImgCode;
+import com.marsdl.common.util.MD5;
+import com.marsdl.common.util.RetCode;
+import com.marsdl.common.util.SessionKey;
+import com.marsdl.modules.sys.dao.UserDao;
 import com.marsdl.modules.sys.entity.User;
+import com.marsdl.modules.sys.service.UserService;
 import org.apache.commons.lang.StringUtils;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 
 /**
  * @Description
@@ -21,6 +29,8 @@ import javax.servlet.http.HttpServletResponse;
 @RequestMapping("/user/")
 public class LoginController {
 
+    @Autowired
+    private UserService userService;
 
     /**
      * 登录
@@ -36,13 +46,44 @@ public class LoginController {
     public ActionResult login(User user, String logincode, HttpServletRequest request, HttpServletResponse response) throws Exception {
 
         ActionResult result = new ActionResult();
+
+        //根据用户名或者邮箱获得用户列表
+        List<User> userList = userService.findByEntityParams(user);
         //校验验证码
         String loginCodeInsession = (String) request.getSession().getAttribute("RANDOMVALIDATECODEKEY");
+        //判断验证码是否正确
+        boolean isCode = false;
         if(loginCodeInsession.equals(logincode)) {
-            result.setMessage("成功");
+            isCode = true;
+        }
+        //验证码输入正确
+        if(isCode) {
+            if(!userList.isEmpty()) {
+                //获取当前用户
+                User currentUser = userList.get(0);
+                MD5 md5 = new MD5();
+                //下面是验证用户输入的密码与库中的密码是否一致 md5.getMD5ofStr(user.getPassword())
+                if(user.getPassword().equals(currentUser.getPassword())) {
+                    user = currentUser;
+                    request.getSession(true).setAttribute(SessionKey.SYS_USER, user);
+                   /* request.getSession(true).setAttribute(SessionKey.SYS_ROLE, sysUserRoles);
+                    request.getSession(true).setAttribute(SessionKey.SYS_USER_NAME, sysUser.getRealName());*/
+                   result.setSuccess(true);
+                   result.setMessage(RetCode.LOGIN_SUCCESS);
+                }
+                else {
+                    result.setSuccess(false);
+                    result.setMessage(RetCode.ERROR_PASSWORD);
+                }
+            }
+            else {
+                result.setSuccess(false);
+                result.setMessage(RetCode.NO_USER);
+            }
         }
         else {
-            result.setMessage("失败");
+            result.setSuccess(true);
+            result.setMessage(RetCode.ERRORCODE);
         }
         return result;
     }
@@ -57,6 +98,13 @@ public class LoginController {
     public void getCode(HttpServletResponse response, HttpServletRequest request) throws Exception {
         ImgCode imgCode = new ImgCode();
         imgCode.getRandCode(request, response);
+    }
+
+    @RequestMapping("loginOut")
+    public String loginOut(HttpServletRequest request) throws Exception {
+        request.getSession(true).removeAttribute(SessionKey.SYS_USER);
+        request.getSession(true).removeAttribute(SessionKey.SYS_ROLE);
+        return "/view/sign/login";
     }
 
 }

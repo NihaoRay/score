@@ -20,9 +20,13 @@ public class UserService {
     @Autowired
     private UserDao userDao;
 
-    public User get(String id) {
-        User user = userDao.get(id);
-        return user;
+    public User get(User user) {
+        User sysUser = userDao.get(user);
+        return sysUser;
+    }
+
+    public List<User> findByEntityParams(User user) {
+        return userDao.findByEntityParams(user);
     }
 
     @Transactional(readOnly = false)
@@ -48,13 +52,4 @@ public class UserService {
         return true;
     }
 
-    public List<User> getEmail(User user) {
-        try {
-            List<User> list = userDao.getEmail(user);
-            return list;
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
 }

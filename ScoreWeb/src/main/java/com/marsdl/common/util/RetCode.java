@@ -7,12 +7,20 @@ package com.marsdl.common.util;
  */
 public class RetCode {
 
-    public static String SUCCESS = "{\"code\":\"200\", \"data\":\"执行成功\"}";
+    public static final String SUCCESS = "执行成功";
 
-    public static String ERROR = "{\"code\":\"500\", \"data\":\"出现错误\"}";
+    public static final String ERROR = "出现错误";
 
-    public static String NOTHING = "{\"code\":\"400\", \"data\":\"没有\"}";
+    public static final String NOTHING = "没有";
 
-    public static String UNKONW = "{\"code\":\"404\", \"data\":\"出现未知数据\"}";
+    public static final String UNKONWN = "出现未知数据";
+
+    public static final String ERRORCODE = "验证码出现问题";
+
+    public static final String NO_USER = "不存在此用户";
+
+    public static final String ERROR_PASSWORD = "用户名或者密码出现错误";
+
+    public static  final String LOGIN_SUCCESS = "登录成功";
 
 }

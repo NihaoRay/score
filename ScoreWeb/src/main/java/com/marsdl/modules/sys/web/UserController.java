@@ -23,13 +23,10 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @ModelAttribute
-    public User get(@RequestParam(required=false) String id) {
-        if (StringUtils.isNotBlank(id)){
-            return userService.get(id);
-        }else{
-            return new User();
-        }
+    @RequestMapping("get")
+    public String get(User user) {
+        User sysUser = userService.get(user);
+        return null;
     }
 
     @RequestMapping(value = "save")
@@ -44,18 +41,4 @@ public class UserController {
         }
     }
 
-    @RequestMapping(value = "getEmail")
-    @ResponseBody
-    public String getEmail(User user, HttpServletRequest request) {
-        List<User> list = userService.getEmail(user);
-        if(list.size() == 0) {
-            return RetCode.NOTHING;
-        }
-        return RetCode.SUCCESS;
-    }
-
-    @RequestMapping("/loginForm")
-    public String loginForm(HttpServletRequest request, HttpServletResponse response) {
-        return "index";
-    }
 }

@@ -1,7 +1,7 @@
 package com.marsdl.modules.sys.interceptor;
 
 import com.marsdl.common.persistence.ActionResult;
-import com.marsdl.common.persistence.SessionKey;
+import com.marsdl.common.util.SessionKey;
 import com.marsdl.modules.sys.entity.User;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -16,7 +16,6 @@ import javax.servlet.http.HttpServletResponse;
  * @since 2017/12/31
  */
 public class IsLoginInterceptor implements HandlerInterceptor {
-
 
     /**
      * 登录拦截器，如果没有登录的情况返回首页或者登录页面，
@@ -33,10 +32,9 @@ public class IsLoginInterceptor implements HandlerInterceptor {
             HandlerMethod method = (HandlerMethod) object;
             //判断用户是否登录
             if(request.getSession(true).getAttribute(SessionKey.SYS_USER) == null) {
-               /* //没有登录的情况下，
-                request.getRequestDispatcher("/404.html").forward(request, response);
-                return false;*/
-               return true;
+                //没有登录的情况下，
+                request.getRequestDispatcher("/view/sign/login.html").forward(request, response);
+                return false;
             }
             else {
                /* Boolean bool = true;

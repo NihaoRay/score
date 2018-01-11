@@ -6,6 +6,18 @@
     <link rel="icon" href="/img/sys/icon.png" type=" image/png">
     <link rel="stylesheet" href="/css/index.css"/>
     <link rel="stylesheet" href="/css/login.css"/>
+    <style type="text/css">
+        #logincode {
+            display: inline-block;
+            vertical-align: top;
+            width: 120px;
+            /*border: none*/
+        }
+        #code {
+            display: inline-block;
+            vertical-align: top;
+        }
+    </style>
 </head>
 <body class="login-bg">
 <!--开头的页面-->
@@ -34,16 +46,17 @@
     <form id="inputForm">
         <ul>
             <li>
-                <input type="text" class="username" name="username" placeholder="昵称" onchange="check(this)"/>
+                <input type="text" class="username" v-model="username" placeholder="昵称" onchange="check(this)"/>
             </li>
             <li>
-                <input type="text" class="email" name="email" placeholder="邮箱" onchange="check(this)"/>
+                <input type="text" class="email" v-model="email" placeholder="邮箱" onchange="check(this)"/>
             </li>
             <li>
-                <input type="password" class="password" name="password" placeholder="设置密码" onchange="check(this)"/>
+                <input type="password" class="password" v-model="password" placeholder="设置密码" onchange="check(this)"/>
             </li>
             <li>
-                验证码
+                <input type="text" v-model="logincode" id="logincode" placeholder="输入验证码"/>
+                <a href="javascript:void(0);" @click="refreshCode" ><img id="code" alt="如果看不清，刷新图片" src="/user/getCode" /></a>
             </li>
         </ul>
         <div class="sign signup-button">注册</div>
@@ -52,11 +65,26 @@
 </body>
 </html>
 <script type="text/javascript" src="/js/jquery-1.12.0.min.js"></script>
+<script type="text/javascript" src="/js/vue/vue.min.js"></script>
 <script type="text/javascript" src="/js/jquery-ruirui.js"></script>
 <script type="text/javascript" src="/js/layer.js"></script>
 <script type="text/javascript">
+    var vm = new Vue({
+        el:"#inputForm",
+        data: {
+            username:"",
+            email:"",
+            password:"",
+            logincode:"",
+        },
+        methods: {
+            refreshCode:function () {
+                $("#code").attr("src", "/user/getCode?timestamp="+$.now());
+            }
+        }
+    });
+
     function check(obj) {
-        debugger;
         var formData = $(obj).val();
         if (!formData) {
             $(obj).css({"border": "1px solid red"});

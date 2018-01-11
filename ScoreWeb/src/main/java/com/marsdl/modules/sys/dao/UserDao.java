@@ -12,7 +12,7 @@ public interface UserDao {
 
     void insert(User user);
 
-    List<User> getEmail(User user);
+    List<User> findByEntityParams(User user);
 
-    User get(@Param(value="id")String id);
+    User get(User user);
 }

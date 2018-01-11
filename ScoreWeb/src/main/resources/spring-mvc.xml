@@ -29,7 +29,6 @@
 	</context:component-scan>
 
 
-
     <!-- 默认的注解映射的支持，org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping -->
 	<mvc:annotation-driven>
 		<mvc:message-converters register-defaults="true">
@@ -58,7 +57,11 @@
 
     <!--设置拦截器，顺序执行-->
     <mvc:interceptors>
-        <bean id="adminInterceptor" class="com.marsdl.modules.sys.interceptor.IsLoginInterceptor"/>
+            <mvc:interceptor>
+                <!--对添加文章功能进行拦截，只有登录情况下才能使用-->
+                <mvc:mapping path="/article/addArticle**"/>
+                <bean id="adminInterceptor" class="com.marsdl.modules.sys.interceptor.IsLoginInterceptor"/>
+            </mvc:interceptor>
     </mvc:interceptors>
 
 </beans>

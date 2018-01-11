@@ -25,6 +25,9 @@ public class User extends DataEntity<User> {
         super();
     }
 
+    public User(User user) {
+    }
+
     public String getArea() {
         return area;
     }
