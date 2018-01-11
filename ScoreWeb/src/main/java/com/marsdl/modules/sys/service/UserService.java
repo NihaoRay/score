@@ -1,11 +1,10 @@
 package com.marsdl.modules.sys.service;
 
-import com.marsdl.common.util.IPUtil;
 import com.marsdl.common.util.IdGen;
 import com.marsdl.common.util.SendMailUtil;
 import com.marsdl.modules.sys.dao.UserDao;
 import com.marsdl.modules.sys.entity.User;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

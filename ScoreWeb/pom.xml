@@ -16,7 +16,7 @@
 
     <properties>
         <!--spring-->
-        <spring.version>3.2.0.RELEASE</spring.version>
+        <spring.version>4.1.9.RELEASE</spring.version>
         <validator.version>5.2.4.Final</validator.version>
         <mybatis.version>3.2.8</mybatis.version>
         <mybatis-spring.version>1.2.3</mybatis-spring.version>
@@ -199,6 +199,25 @@
             <version>1.2</version>
             <type>jar</type>
         </dependency>
+
+        <!-- CACHE begin -->
+        <dependency>
+            <groupId>net.sf.ehcache</groupId>
+            <artifactId>ehcache-core</artifactId>
+            <version>${ehcache.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>net.sf.ehcache</groupId>
+            <artifactId>ehcache-web</artifactId>
+            <version>${ehcache-web.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>redis.clients</groupId>
+            <artifactId>jedis</artifactId>
+            <version>2.5.1</version>
+        </dependency>
+        <!-- CACHE end -->
+
 
         <!--SECURITY beging -->
         <dependency>
@@ -388,12 +407,16 @@
             <artifactId>javase</artifactId>
             <version>2.2</version>
         </dependency>
-       <!-- <dependency>
-            <groupId>com.jeesuite</groupId>
-            <artifactId>jeesuite-springboot-starter</artifactId>
-            <version>1.1.5</version>
-        </dependency>-->
-
+        <dependency>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.0.1</version>
+        </dependency>
+        <!-- <dependency>
+             <groupId>com.jeesuite</groupId>
+             <artifactId>jeesuite-springboot-starter</artifactId>
+             <version>1.1.5</version>
+         </dependency>-->
     </dependencies>
 
     <build>

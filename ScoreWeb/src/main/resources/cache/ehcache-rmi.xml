@@ -30,19 +30,19 @@
     </cache>
     
     <!-- 用户缓存 -->
-	<cache name="corpCache" maxEntriesLocalHeap="1000" eternal="true" overflowToDisk="true" statistics="true">
+	<!--<cache name="corpCache" maxEntriesLocalHeap="1000" eternal="true" overflowToDisk="true" statistics="true">
 		<cacheEventListenerFactory class="net.sf.ehcache.distribution.RMICacheReplicatorFactory"/>
-    </cache>
+    </cache>-->
     
 	<!-- 内容管理模块缓存 -->
-	<cache name="cmsCache" maxEntriesLocalHeap="100" eternal="true" overflowToDisk="true" statistics="true">
+	<!--<cache name="cmsCache" maxEntriesLocalHeap="100" eternal="true" overflowToDisk="true" statistics="true">
 		<cacheEventListenerFactory class="net.sf.ehcache.distribution.RMICacheReplicatorFactory"/>
-    </cache>
+    </cache>-->
 	
 	<!-- 工作流模块缓存 -->
-	<cache name="actCache" maxEntriesLocalHeap="100" eternal="true" overflowToDisk="true">
+	<!--<cache name="actCache" maxEntriesLocalHeap="100" eternal="true" overflowToDisk="true">
 		<cacheEventListenerFactory class="net.sf.ehcache.distribution.RMICacheReplicatorFactory"/>
-	</cache>
+	</cache>-->
 
     <!-- 简单页面缓存 -->
     <cache name="pageCachingFilter" maxEntriesLocalHeap="1000" eternal="false" timeToIdleSeconds="120"
