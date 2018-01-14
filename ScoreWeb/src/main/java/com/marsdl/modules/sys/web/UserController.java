@@ -1,5 +1,6 @@
 package com.marsdl.modules.sys.web;
 
+import com.marsdl.common.persistence.ActionResult;
 import com.marsdl.common.util.IPUtil;
 import com.marsdl.common.util.RetCode;
 import com.marsdl.modules.sys.entity.User;
@@ -10,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 @Controller
 @RequestMapping("/user")
@@ -36,4 +38,33 @@ public class UserController {
         }
     }
 
+    @RequestMapping(value = "findEntityByParams")
+    @ResponseBody
+    public ActionResult findEntityByParams(User user, HttpServletRequest request, HttpServletResponse response) {
+        ActionResult actionResult = new ActionResult();
+        userService.findByEntityParams(user);
+
+        actionResult.setMessage("你好，我是陈瑞");
+
+        return actionResult;
+    }
+
+
+    @RequestMapping(value = "delete")
+    @ResponseBody
+    public ActionResult delete(User user, HttpServletRequest request, HttpServletResponse response) {
+        ActionResult actionResult = new ActionResult();
+        userService.delete(user);
+        actionResult.setMessage(RetCode.SUCCESS);
+        return actionResult;
+    }
+
+    @RequestMapping(value="update")
+    @ResponseBody
+    public ActionResult update(User user, HttpServletRequest request, HttpServletResponse response) {
+        ActionResult actionResult = new ActionResult();
+        userService.update(user);
+        actionResult.setMessage(RetCode.SUCCESS);
+        return actionResult;
+    }
 }

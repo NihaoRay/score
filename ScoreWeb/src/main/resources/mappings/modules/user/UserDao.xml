@@ -19,16 +19,7 @@
         a.del_flag as "delFlag"
     </sql>
 
-    <select id="findList" resultType="user">
-      SELECT
-        <include refid="userColumns" />
-      FROM
-        sys_user a
-        <where>
-          a.id = #{id}
-        </where>
-    </select>
-
+    <!--根据email或者username查询用户-->
     <select id="findByEntityParams" resultType="user">
         SELECT
         <include refid="userColumns" />
@@ -44,7 +35,8 @@
         </where>
     </select>
 
-    <select id="get" resultType="user">
+    <!--根据id查询用户-->
+    <select id="queryObject" resultType="user">
         SELECT
         <include refid="userColumns" />
         FROM
@@ -56,7 +48,8 @@
         </where>
     </select>
 
-    <insert id="insert">
+    <!--增加用户-->
+    <insert id="save">
         INSERT INTO sys_user(
         id,
         login_name,
@@ -93,5 +86,31 @@
         #{delFlag}
         )
     </insert>
+
+    <!-- 更新用户 -->
+    <update id="update">
+      UPDATE sys_user
+        <set>
+            <if test="loginName != null and loginName != ''">login_name=#{loginName},</if>
+            <if test="password != null and password != ''">password=#{password},</if>
+            <if test="no != null and no != ''">no=#{no},</if>
+            <if test="username != null and username != ''">no=#{username}</if>
+            <if test="email != null and email != ''">email=#{email}</if>
+            <if test="phone != null and phone != ''">phone=#{phone}</if>
+            <if test="mobile != null and mobile != ''">mobile=#{mobile}</if>
+            <if test="userType != null and userType != ''">user_type=#{userType}</if>
+            <if test="photo != null and photo != ''">photo=#{photo}</if>
+        </set>
+      WHERE id = #{id}
+    </update>
+
+    <!--删除-->
+    <delete id="delete" parameterType="User">
+        UPDATE sys_user a
+        <set>
+          a.del_flag = #{DEL_FLAG_DELETE}
+        </set>
+        WHERE a.id = #{id}
+    </delete>
 
 </mapper>

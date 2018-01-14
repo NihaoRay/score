@@ -32,7 +32,6 @@ public class LoginController {
     /**
      * 登录
      * @param user
-     * @param logincode
      * @param request
      * @param response
      * @return
@@ -40,48 +39,12 @@ public class LoginController {
      */
     @RequestMapping(value="login")
     @ResponseBody
-    public ActionResult login(User user, String logincode, HttpServletRequest request, HttpServletResponse response) throws Exception {
+    public ActionResult login(User user, HttpServletRequest request, HttpServletResponse response) throws Exception {
 
         ActionResult result = new ActionResult();
 
-        //根据用户名或者邮箱获得用户列表
-        List<User> userList = userService.findByEntityParams(user);
-        //校验验证码
-        String loginCodeInsession = (String) request.getSession().getAttribute("RANDOMVALIDATECODEKEY");
-        //判断验证码是否正确
-        boolean isCode = false;
-        if(loginCodeInsession.equals(logincode)) {
-            isCode = true;
-        }
-        //验证码输入正确
-        if(isCode) {
-            if(!userList.isEmpty()) {
-                //获取当前用户
-                User currentUser = userList.get(0);
-                MD5 md5 = new MD5();
-                //下面是验证用户输入的密码与库中的密码是否一致 md5.getMD5ofStr(user.getPassword())
-                if(user.getPassword().equals(currentUser.getPassword())) {
-                    user = currentUser;
-                    request.getSession(true).setAttribute(SessionKey.SYS_USER, user);
-                   /* request.getSession(true).setAttribute(SessionKey.SYS_ROLE, sysUserRoles);
-                    request.getSession(true).setAttribute(SessionKey.SYS_USER_NAME, sysUser.getRealName());*/
-                   result.setSuccess(true);
-                   result.setMessage(RetCode.LOGIN_SUCCESS);
-                }
-                else {
-                    result.setSuccess(false);
-                    result.setMessage(RetCode.ERROR_PASSWORD);
-                }
-            }
-            else {
-                result.setSuccess(false);
-                result.setMessage(RetCode.NO_USER);
-            }
-        }
-        else {
-            result.setSuccess(true);
-            result.setMessage(RetCode.ERRORCODE);
-        }
+
+
         return result;
     }
 

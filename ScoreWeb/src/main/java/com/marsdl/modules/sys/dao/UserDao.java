@@ -8,11 +8,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.util.List;
 
 @MyBatisDao
-public interface UserDao {
-
-    void insert(User user);
+public interface UserDao extends BaseDao<User>{
 
     List<User> findByEntityParams(User user);
 
-    User get(User user);
 }

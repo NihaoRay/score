@@ -14,7 +14,8 @@
 	<bean name="shiroFilterChainDefinitions" class="java.lang.String">
 		<constructor-arg>
 			<value>
-                /article/** = anon
+                <!--/** = anon-->
+                <!--/** = authc-->
 				<!--/static/** = anon
 				${adminPath}/cas = cas
 				${adminPath}/login = authc
