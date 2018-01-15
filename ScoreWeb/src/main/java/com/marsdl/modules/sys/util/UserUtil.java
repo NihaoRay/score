@@ -48,6 +48,30 @@ public class UserUtil {
        return user;
     }
 
+
+    /**
+     * 根据登录名获取用户
+     * 先从缓存取得，如果缓存为空，再从数据库取
+     * @param loginName
+     * @return
+     */
+    public static User getByUsername(String loginName) {
+        User param = new User();
+        param.setUsername(loginName);
+
+        User user = (User) CacheUtil.get(USER_CACHE, USER_CACHE_LOGIN_NAME_ + loginName);
+        if(user == null) {
+            user = userDao.findByEntityParams(param).get(0);
+            if(user == null) {
+                return null;
+            }
+            //数据库中取得数据放入缓存中
+            CacheUtil.put(USER_CACHE, USER_CACHE_ID_ + user.getId(), user);
+            CacheUtil.put(USER_CACHE, USER_CACHE_LOGIN_NAME_ + user.getLoginName(), user);
+        }
+        return user;
+    }
+
     /**
      * 获取当前用户
      * @return
