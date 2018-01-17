@@ -5,6 +5,9 @@ import org.apache.shiro.cache.CacheManager;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.util.Iterator;
+import java.util.Set;
+
 /**
  * <p>titile  cache工具类</p>
  * <p>@description </p>
@@ -82,5 +85,35 @@ public class CacheUtil {
             throw new RuntimeException("当前系统中没有定义“" + cacheName + "”这个缓存");
         }
         return cache;
+    }
+
+    /**
+     * 从SYS_CACHE缓存中移除
+     * @param key
+     */
+    public static void remove(String key) {
+        remove(SYS_CACHE, key);
+    }
+
+    /**
+     * 从缓存中移除
+     * @param cacheName
+     * @param key
+     */
+    public static void remove(String cacheName, String key) {
+        getCache(cacheName).remove(key);
+    }
+
+    /**
+     * 从缓存中移除所有
+     * @param cacheName
+     */
+    public static void removeAll(String cacheName) {
+        Cache<String, Object> cache = getCache(cacheName);
+        Set<String> keys = cache.keys();
+        for(Iterator<String> it = keys.iterator(); it.hasNext();) {
+            cache.remove(it.next());
+        }
+        logger.info("清理缓存：{} => {}", cacheName, keys);
     }
 }

@@ -12,4 +12,6 @@ public interface UserDao extends BaseDao<User>{
 
     List<User> findByEntityParams(User user);
 
+    User queryObjectByLoginName(@Param("loginName") String LoginName);
+
 }

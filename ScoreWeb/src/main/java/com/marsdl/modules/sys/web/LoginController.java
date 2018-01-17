@@ -2,8 +2,6 @@ package com.marsdl.modules.sys.web;
 
 import com.marsdl.common.persistence.ActionResult;
 import com.marsdl.common.util.ImgCode;
-import com.marsdl.common.util.MD5;
-import com.marsdl.common.util.RetCode;
 import com.marsdl.common.util.SessionKey;
 import com.marsdl.modules.sys.entity.User;
 import com.marsdl.modules.sys.service.UserService;
@@ -14,7 +12,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.List;
 
 /**
  * @Description
@@ -23,7 +20,7 @@ import java.util.List;
  */
 
 @Controller
-@RequestMapping("/user/")
+@RequestMapping("/sys/")
 public class LoginController {
 
     @Autowired
@@ -38,14 +35,11 @@ public class LoginController {
      * @throws Exception
      */
     @RequestMapping(value="login")
-    @ResponseBody
-    public ActionResult login(User user, HttpServletRequest request, HttpServletResponse response) throws Exception {
+    public String login(User user, HttpServletRequest request, HttpServletResponse response) throws Exception {
 
-        ActionResult result = new ActionResult();
+        String failure = (String) request.getAttribute("shiroLoginFailure");
 
-
-
-        return result;
+        return "/view/sign/login";
     }
 
     /**

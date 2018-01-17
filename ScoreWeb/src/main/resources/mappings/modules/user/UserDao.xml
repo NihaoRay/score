@@ -36,7 +36,7 @@
     </select>
 
     <!--根据id查询用户-->
-    <select id="queryObject" resultType="user">
+    <select id="queryObject" resultType="user" parameterType="String">
         SELECT
         <include refid="userColumns" />
         FROM
@@ -44,6 +44,19 @@
         <where>
             <if test="id != null and id != ''">
                 and a.id = #{id}
+            </if>
+        </where>
+    </select>
+
+    <!--根据loginName查询用户-->
+    <select id="queryObjectByLoginName" resultType="user">
+        SELECT
+        <include refid="userColumns" />
+        FROM
+        sys_user a
+        <where>
+            <if test="loginName != null and loginName != ''">
+                and a.login_name = #{loginName}
             </if>
         </where>
     </select>

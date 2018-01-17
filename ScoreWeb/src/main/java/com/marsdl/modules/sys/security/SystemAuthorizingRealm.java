@@ -1,36 +1,72 @@
 package com.marsdl.modules.sys.security;
 
+import com.marsdl.modules.sys.dao.UserDao;
 import com.marsdl.modules.sys.entity.User;
 import com.marsdl.modules.sys.util.UserUtil;
-import org.apache.shiro.authc.AuthenticationException;
-import org.apache.shiro.authc.AuthenticationInfo;
-import org.apache.shiro.authc.AuthenticationToken;
+import org.apache.shiro.authc.*;
 import org.apache.shiro.authz.AuthorizationInfo;
-import org.apache.shiro.cache.Cache;
 import org.apache.shiro.realm.AuthorizingRealm;
 import org.apache.shiro.subject.PrincipalCollection;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.springframework.stereotype.Service;
+import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.Serializable;
 
 /**
- * @Description
- * @Author chenrui
- * @since 2018/1/11
+ *  <p>description 此类应该spring-context-shiro.xml已经注入到spring中管理</p>
+ * @author chenrui
+ * @since 2018/1/16
  */
-@Service
 public class SystemAuthorizingRealm extends AuthorizingRealm {
 
-    private Logger logger = LoggerFactory.getLogger(getClass());
+    @Autowired
+    private UserDao userDao;
 
-    protected AuthorizationInfo doGetAuthorizationInfo(PrincipalCollection principals) {
-
-        return null;
+    //支持UsernamePasswordToken
+    @Override
+    public boolean supports(AuthenticationToken token) {
+        return token instanceof UsernamePasswordToken;
     }
 
-    protected AuthenticationInfo doGetAuthenticationInfo(AuthenticationToken token) throws AuthenticationException {
+    //认证
+    @Override
+    protected AuthenticationInfo doGetAuthenticationInfo(
+            AuthenticationToken token) throws AuthenticationException {
+
+        //从token中 获取用户身份信息
+        String username = (String) token.getPrincipal();
+        //拿username从数据库中查询
+        //....
+        //如果查询不到则返回null
+        User userParam = new User();
+        userParam.setUsername(username);
+        /*
+        //验证用户名
+        if(!username.equals("admin")){
+            return null;
+        }*/
+        User user = userDao.queryObjectByLoginName(username);
+        if(user != null) {
+            return new SimpleAuthenticationInfo(new Principal(user), user.getPassword(), getName());
+        } else {
+            throw new UnknownAccountException("账号或者密码不正确");
+            /*return null;*/
+        }
+        //获取从数据库查询出来的用户密码
+       /* String password = "123";//这里使用静态数据模拟。。*/
+
+        //返回认证信息由父类AuthenticatingRealm进行认证
+      /*  SimpleAuthenticationInfo simpleAuthenticationInfo = new SimpleAuthenticationInfo(
+                username, password, getName());*/
+
+       /* return info;*/
+    }
+
+    //授权
+    @Override
+    protected AuthorizationInfo doGetAuthorizationInfo(
+            PrincipalCollection principals) {
+        // TODO Auto-generated method stub
+        System.out.println("nihao");
         return null;
     }
 
@@ -38,10 +74,11 @@ public class SystemAuthorizingRealm extends AuthorizingRealm {
      * 授权用户信息
      */
     public static class Principal implements Serializable {
+        private static final long serialVersionUID = 1L;
 
         private String id;  //编号
-        private String loginName;   //登录名
-        private String username;    //用户名
+        private String loginName;//登录名
+        private String username;    //姓名
         private String email;
 
         public Principal(User user) {
@@ -51,15 +88,8 @@ public class SystemAuthorizingRealm extends AuthorizingRealm {
             this.email = user.getEmail();
         }
 
-        /**
-         * 获取SESSIONID
-         */
-        public String getSessionid() {
-            try{
-                return (String) UserUtil.getSession().getId();
-            } catch (Exception e) {
-                return "";
-            }
+        public static long getSerialVersionUID() {
+            return serialVersionUID;
         }
 
         public String getId() {
@@ -93,6 +123,21 @@ public class SystemAuthorizingRealm extends AuthorizingRealm {
         public void setEmail(String email) {
             this.email = email;
         }
-    }
 
+        /**
+         * 获取SESSIONID
+         */
+        public String getSessionid() {
+            try{
+                return (String) UserUtil.getSession().getId();
+            }catch (Exception e) {
+                return "";
+            }
+        }
+
+        @Override
+        public String toString() {
+            return id;
+        }
+    }
 }

@@ -2,6 +2,7 @@ package com.marsdl.modules.sys.dao;
 
 import com.marsdl.common.annotation.MyBatisDao;
 import com.marsdl.modules.sys.entity.User;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 import java.util.Map;
@@ -29,7 +30,7 @@ public interface BaseDao<T> {
 
     int delete(Object[] id);
 
-    T queryObject(Object id);
+    T queryObject(@Param("id") Object id);
 
     List<T> queryList(Map<String, Object> map);
 

@@ -75,7 +75,7 @@ public class SpringContextHolder implements ApplicationContextAware, DisposableB
      * @throws BeansException
      */
     public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-
+        SpringContextHolder.applicationContext = applicationContext;
     }
 
     /**

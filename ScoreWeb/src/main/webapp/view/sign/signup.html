@@ -54,10 +54,10 @@
             <li>
                 <input type="password" class="password" v-model="password" placeholder="设置密码" onchange="check(this)"/>
             </li>
-            <li>
+         <!--   <li>
                 <input type="text" v-model="logincode" id="logincode" placeholder="输入验证码"/>
                 <a href="javascript:void(0);" @click="refreshCode" ><img id="code" alt="如果看不清，刷新图片" src="/user/getCode" /></a>
-            </li>
+            </li>-->
         </ul>
         <div class="sign signup-button">注册</div>
     </form>
@@ -74,16 +74,15 @@
         data: {
             username:"",
             email:"",
-            password:"",
-            logincode:"",
+            password:""
         },
         methods: {
-            refreshCode:function () {
+            /*refreshCode:function () {
                 $("#code").attr("src", "/user/getCode?timestamp="+$.now());
-            }
+            }*/
         }
     });
-
+/*
     function check(obj) {
         var formData = $(obj).val();
         if (!formData) {
@@ -102,13 +101,13 @@
             }
         }
         return true;
-    }
-
+    }*/
+/*
     window.onload = function () {
         //进行非空验证，校验
         $("#inputForm").find(".username").change(function () {
-            /*$(this).css("border", "solid 1px #c8c8c8");*/
-            /*$(this).css({"border":"1px solid red", "color":"red"})*/
+            /!*$(this).css("border", "solid 1px #c8c8c8");*!/
+            /!*$(this).css({"border":"1px solid red", "color":"red"})*!/
         });
 
         $("#inputForm").find(".password").change(function () {
@@ -145,11 +144,11 @@
                     layer.close(index);
                 }
             });
-            /*$("#inputForm").serializeJSON();
-             $("#inputForm").serialize();*/
-            /*var detail = $("#inputForm").serializeJSON();*/
-            /*String jsonString = JSON.stringify(detail);*/
-            /*var jsonString = JSON.stringify(detail);*/
+            /!*$("#inputForm").serializeJSON();
+             $("#inputForm").serialize();*!/
+            /!*var detail = $("#inputForm").serializeJSON();*!/
+            /!*String jsonString = JSON.stringify(detail);*!/
+            /!*var jsonString = JSON.stringify(detail);*!/
         })
-    };
+    };*/
 </script>

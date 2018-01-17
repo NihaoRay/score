@@ -12,9 +12,12 @@ import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
 
 import com.marsdl.modules.sys.security.SystemAuthorizingRealm.Principal;
+
+
 /**
- * @Description
- * @Author chenrui
+ * <p>titile 用户工具类</p>
+ * <p>description  </p>
+ * @author chenrui
  * @since 2018/1/12
  */
 public class UserUtil {
@@ -31,10 +34,14 @@ public class UserUtil {
 
     /**
      * 根据id获取用户
+     * @param id
+     * @return
      */
     public static User get(String id) {
-       User user = (User) CacheUtil.get(USER_CACHE, USER_CACHE_ID_ + id);
-       if(user == null) {
+        //从缓存中获得数据
+        User user = (User) CacheUtil.get(USER_CACHE, USER_CACHE_ID_ + id);
+        if(user == null) {
+           //从库中获得数据
            user = userDao.queryObject(id);
            if(user == null) {
                return null;
@@ -44,10 +51,9 @@ public class UserUtil {
            //将用户信息存入缓存
            CacheUtil.put(USER_CACHE, USER_CACHE_ID_ + user.getId(), user);
            CacheUtil.put(USER_CACHE, USER_CACHE_LOGIN_NAME_ + user.getLoginName(), user);
-       }
-       return user;
+        }
+        return user;
     }
-
 
     /**
      * 根据登录名获取用户
@@ -57,7 +63,7 @@ public class UserUtil {
      */
     public static User getByUsername(String loginName) {
         User param = new User();
-        param.setUsername(loginName);
+        param.setLoginName(loginName);
 
         User user = (User) CacheUtil.get(USER_CACHE, USER_CACHE_LOGIN_NAME_ + loginName);
         if(user == null) {
@@ -71,6 +77,7 @@ public class UserUtil {
         }
         return user;
     }
+
 
     /**
      * 获取当前用户
@@ -90,6 +97,7 @@ public class UserUtil {
 
     /**
      * 获得主要对象
+     * @return
      */
     public static Subject getSubject() {
         return SecurityUtils.getSubject();
@@ -97,6 +105,7 @@ public class UserUtil {
 
     /**
      * 获取当前登录者对象
+     * @return
      */
     public static Principal getPrincipal() {
         try {
@@ -112,6 +121,7 @@ public class UserUtil {
         }
         return null;
     }
+
 
     /**
      * 获得shiro管理的session
@@ -155,5 +165,21 @@ public class UserUtil {
 
     public static void removeCache(String key) {
         getSession().removeAttribute(key);
+    }
+
+    /**
+     *清除指定用户缓存
+     *@param user
+     */
+    public static void clearCache(User user) {
+        CacheUtil.remove(USER_CACHE, USER_CACHE_ID_+user.getId());
+        CacheUtil.remove(USER_CACHE, USER_CACHE_LOGIN_NAME_+user.getLoginName());
+    }
+
+    /**
+     * 清除当前用户缓存
+     */
+    public static void clearCache() {
+        removeCache(CACHE_AUTH_INFO);
     }
 }

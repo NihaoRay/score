@@ -1,5 +1,9 @@
 package com.marsdl.common.persistence;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.marsdl.modules.sys.entity.User;
+import com.marsdl.modules.sys.util.UserUtil;
+
 import java.io.Serializable;
 
 /**
@@ -16,7 +20,25 @@ public class BaseEntity<T> implements Serializable {
      */
     protected String id;
 
-    public BaseEntity() {}
+    /**
+     * 当前用户
+     */
+    protected User currentUser;
+
+    @JsonIgnore
+    public User getCurrentUser() {
+        if(currentUser == null){
+            currentUser = UserUtil.getUser();
+        }
+        return currentUser;
+    }
+    public void setCurrentUser(User currentUser) {
+        this.currentUser = currentUser;
+    }
+
+    public BaseEntity() {
+
+    }
 
     public BaseEntity(String id) {
         this();

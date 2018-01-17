@@ -1,5 +1,7 @@
 package com.marsdl.modules.article.web;
 
+import com.marsdl.modules.sys.entity.User;
+import com.marsdl.modules.sys.util.UserUtil;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -16,9 +18,9 @@ import javax.servlet.http.HttpServletResponse;
 public class ArticleController {
 
     @RequestMapping(value = "addArticle")
-    public String addArtilce(HttpServletRequest request, HttpServletResponse response) {
-
+    public String addArtilce(User user, HttpServletRequest request, HttpServletResponse response) {
+        User currentUser = UserUtil.getUser();
+        String a = "100";
         return "/WEB-INF/view/article/add-article";
     }
-
 }

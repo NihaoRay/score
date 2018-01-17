@@ -52,10 +52,10 @@
                     <li>
                         <input type="password" class="password" v-model="password" placeholder="密码"/>
                     </li>
-                    <li>
+                    <!--<li>
                         <input type="text" v-model="logincode" id="logincode" placeholder="输入验证码"/>
                         <a href="javascript:void(0);" @click="refreshCode" ><img id="code" alt="如果看不清，刷新图片" src="/user/getCode" /></a>
-                    </li>
+                    </li>-->
                 </ul>
                 <div class="sign signin-button" @click="login">登录</div>
             </form>
@@ -71,20 +71,18 @@
         var vm = new Vue({
             el:"#inputForm",
             data:{
-                username: "",
-                password: "123",
-                logincode:"",
+                username: "admin",
+                password: "123"
             },
             methods:{
-                refreshCode: function () {
+                /*refreshCode: function () {
                     $("#code").attr("src", "/user/getCode?timestamp="+$.now());
-                },
+                },*/
                 login:function (event) {
-                    debugger;
-                    var data = "username=" + vm.username + "&password="+vm.password+"&logincode="+vm.logincode;
+                    var data = "username=" + vm.username + "&password="+vm.password;
                     $.ajax({
                         type: "POST",
-                        url: "/user/login",
+                        url: "/sys/login",
                         data: data,
                         dataType: "json",
                         success: function (result) {
