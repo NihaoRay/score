@@ -5,6 +5,7 @@ import com.marsdl.common.util.IPUtil;
 import com.marsdl.common.util.RetCode;
 import com.marsdl.modules.sys.entity.User;
 import com.marsdl.modules.sys.service.UserService;
+import com.marsdl.modules.sys.util.UserUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -49,7 +50,6 @@ public class UserController {
         return actionResult;
     }
 
-
     @RequestMapping(value = "delete")
     @ResponseBody
     public ActionResult delete(User user, HttpServletRequest request, HttpServletResponse response) {
@@ -62,8 +62,16 @@ public class UserController {
     @RequestMapping(value="update")
     @ResponseBody
     public ActionResult update(User user, HttpServletRequest request, HttpServletResponse response) {
+        User currentUser = UserUtil.getUser();
+        User userparam = user.getCurrentUser();
+        UserUtil.get("1");
+      /*  UserUtil.clearCache(userparam);*/
+
+        User nochache = UserUtil.getUser();
+        User userparamcache = user.getCurrentUser();
+
         ActionResult actionResult = new ActionResult();
-        userService.update(user);
+        /*userService.update(user);*/
         actionResult.setMessage(RetCode.SUCCESS);
         return actionResult;
     }

@@ -26,7 +26,7 @@ public class UserUtil {
 
     public static final String USER_CACHE = "userCache";
     public static final String USER_CACHE_ID_ = "id_";
-    public static final String USER_CACHE_LOGIN_NAME_ = "ln";
+    public static final String USER_CACHE_USERNAME_ = "ln";
     public static final String USER_CACHE_LIST_BY_OFFICE_ID_ = "oid_";
 
     public static final String CACHE_AUTH_INFO = "authInfo";
@@ -50,30 +50,27 @@ public class UserUtil {
 
            //将用户信息存入缓存
            CacheUtil.put(USER_CACHE, USER_CACHE_ID_ + user.getId(), user);
-           CacheUtil.put(USER_CACHE, USER_CACHE_LOGIN_NAME_ + user.getLoginName(), user);
+           CacheUtil.put(USER_CACHE, USER_CACHE_USERNAME_ + user.getLoginName(), user);
         }
         return user;
     }
 
     /**
-     * 根据登录名获取用户
+     * 根据用户名名获取用户
      * 先从缓存取得，如果缓存为空，再从数据库取
-     * @param loginName
+     * @param username
      * @return
      */
-    public static User getByUsername(String loginName) {
-        User param = new User();
-        param.setLoginName(loginName);
-
-        User user = (User) CacheUtil.get(USER_CACHE, USER_CACHE_LOGIN_NAME_ + loginName);
+    public static User getByUsername(String username) {
+        User user = (User) CacheUtil.get(USER_CACHE, USER_CACHE_USERNAME_ + username);
         if(user == null) {
-            user = userDao.findByEntityParams(param).get(0);
+            user = userDao.queryObjectByUsername(username);
             if(user == null) {
                 return null;
             }
             //数据库中取得数据放入缓存中
             CacheUtil.put(USER_CACHE, USER_CACHE_ID_ + user.getId(), user);
-            CacheUtil.put(USER_CACHE, USER_CACHE_LOGIN_NAME_ + user.getLoginName(), user);
+            CacheUtil.put(USER_CACHE, USER_CACHE_USERNAME_ + user.getLoginName(), user);
         }
         return user;
     }
@@ -173,7 +170,7 @@ public class UserUtil {
      */
     public static void clearCache(User user) {
         CacheUtil.remove(USER_CACHE, USER_CACHE_ID_+user.getId());
-        CacheUtil.remove(USER_CACHE, USER_CACHE_LOGIN_NAME_+user.getLoginName());
+        CacheUtil.remove(USER_CACHE, USER_CACHE_USERNAME_+user.getLoginName());
     }
 
     /**

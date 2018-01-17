@@ -23,11 +23,12 @@
                 /404.html=anon
                 /500.html=anon
 
-                <!--退出系统-->
-                /logout=logout
+                <!--退出系统，自己定义清除用户缓存-->
+                <!--/sys/logout=logout-->
 
-                <!--特定的url不拦截-->
+                <!--特定的模块和功能不拦截-->
                 /user/update**=anon
+                /sys/**=anon
 
                 <!--所有请求拦截认证-->
                 /** = authc
@@ -38,7 +39,7 @@
 	<!-- 安全认证过滤器 -->
 	<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
        <property name="securityManager" ref="securityManager" />
-        <property name="loginUrl" value="/sys/login" />
+        <property name="loginUrl" value="/view/sign/login.html" />
 		<property name="filterChainDefinitions">
             <ref bean="shiroFilterChainDefinitions" />
 		</property>

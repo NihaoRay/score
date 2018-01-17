@@ -30,21 +30,19 @@ public class SystemAuthorizingRealm extends AuthorizingRealm {
     //认证
     @Override
     protected AuthenticationInfo doGetAuthenticationInfo(
-            AuthenticationToken token) throws AuthenticationException {
+            AuthenticationToken authcToken) throws AuthenticationException {
 
         //从token中 获取用户身份信息
-        String username = (String) token.getPrincipal();
+        UsernamePasswordToken token = (UsernamePasswordToken)authcToken;
         //拿username从数据库中查询
         //....
         //如果查询不到则返回null
-        User userParam = new User();
-        userParam.setUsername(username);
         /*
         //验证用户名
         if(!username.equals("admin")){
             return null;
         }*/
-        User user = userDao.queryObjectByLoginName(username);
+        User user = userDao.queryObjectByUsername(token.getUsername());
         if(user != null) {
             return new SimpleAuthenticationInfo(new Principal(user), user.getPassword(), getName());
         } else {

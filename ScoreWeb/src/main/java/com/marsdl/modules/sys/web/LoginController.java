@@ -2,9 +2,14 @@ package com.marsdl.modules.sys.web;
 
 import com.marsdl.common.persistence.ActionResult;
 import com.marsdl.common.util.ImgCode;
+import com.marsdl.common.util.RetCode;
 import com.marsdl.common.util.SessionKey;
 import com.marsdl.modules.sys.entity.User;
 import com.marsdl.modules.sys.service.UserService;
+import com.marsdl.modules.sys.util.UserUtil;
+import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.*;
+import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,18 +33,29 @@ public class LoginController {
 
     /**
      * 登录
-     * @param user
      * @param request
      * @param response
      * @return
      * @throws Exception
      */
     @RequestMapping(value="login")
-    public String login(User user, HttpServletRequest request, HttpServletResponse response) throws Exception {
+    @ResponseBody
+    public ActionResult login(String username, String password, HttpServletRequest request, HttpServletResponse response) throws Exception {
+        ActionResult result = new ActionResult();
+        try{
+            Subject subject = UserUtil.getSubject();
+            UsernamePasswordToken token = new UsernamePasswordToken(username, password);
+            subject.login(token);
+            result.setMessage(RetCode.SUCCESS);
+        } catch (UnknownAccountException e) {
+            result.setMessage(RetCode.NO_USER);
+        } catch (IncorrectCredentialsException e) {
+            result.setMessage(RetCode.ERROR_PASSWORD);
+        } catch (AuthenticationException e) {
+            result.setMessage(RetCode.ERROR);
+        }
 
-        String failure = (String) request.getAttribute("shiroLoginFailure");
-
-        return "/view/sign/login";
+        return result;
     }
 
     /**
@@ -54,11 +70,16 @@ public class LoginController {
         imgCode.getRandCode(request, response);
     }
 
-    @RequestMapping("loginOut")
-    public String loginOut(HttpServletRequest request) throws Exception {
-        request.getSession(true).removeAttribute(SessionKey.SYS_USER);
-        request.getSession(true).removeAttribute(SessionKey.SYS_ROLE);
-        return "/view/sign/login";
+
+    @RequestMapping(value="logout")
+    public String logout() {
+        //首先清除当前用户信息缓存
+        UserUtil.clearCache(UserUtil.getUser());
+        //然后清除shiro系统的缓存
+        UserUtil.clearCache();
+
+        SecurityUtils.getSubject().logout();
+        return "redirect: /view/sign/login.html";
     }
 
 }

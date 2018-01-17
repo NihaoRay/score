@@ -48,15 +48,15 @@
         </where>
     </select>
 
-    <!--根据loginName查询用户-->
-    <select id="queryObjectByLoginName" resultType="user">
+    <!--根据username查询用户-->
+    <select id="queryObjectByUsername" resultType="user">
         SELECT
         <include refid="userColumns" />
         FROM
         sys_user a
         <where>
-            <if test="loginName != null and loginName != ''">
-                and a.login_name = #{loginName}
+            <if test="username != null and username != ''">
+                and a.username = #{username}
             </if>
         </where>
     </select>
