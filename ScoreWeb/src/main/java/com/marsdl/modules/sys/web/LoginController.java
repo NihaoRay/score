@@ -46,7 +46,7 @@ public class LoginController {
             Subject subject = UserUtil.getSubject();
             UsernamePasswordToken token = new UsernamePasswordToken(username, password);
             subject.login(token);
-            result.setMessage(RetCode.SUCCESS);
+            result.setMessage(RetCode.LOGIN_SUCCESS);
         } catch (UnknownAccountException e) {
             result.setMessage(RetCode.NO_USER);
         } catch (IncorrectCredentialsException e) {
@@ -54,7 +54,6 @@ public class LoginController {
         } catch (AuthenticationException e) {
             result.setMessage(RetCode.ERROR);
         }
-
         return result;
     }
 
@@ -70,16 +69,15 @@ public class LoginController {
         imgCode.getRandCode(request, response);
     }
 
-
     @RequestMapping(value="logout")
     public String logout() {
         //首先清除当前用户信息缓存
-        UserUtil.clearCache(UserUtil.getUser());
+        /*UserUtil.clearCache(UserUtil.getUser());*/
         //然后清除shiro系统的缓存
-        UserUtil.clearCache();
+        /*UserUtil.clearCache();*/
 
         SecurityUtils.getSubject().logout();
-        return "redirect: /view/sign/login.html";
+        return "redirect: /index.html";
     }
 
 }

@@ -5,8 +5,6 @@
  @License：MIT
     
  */
- 
- 
 layui.define('jquery', function(exports){
   "use strict";
   

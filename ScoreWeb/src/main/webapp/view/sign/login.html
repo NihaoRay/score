@@ -86,10 +86,12 @@
                         data: data,
                         dataType: "json",
                         success: function (result) {
-                            /*if (result.code == 0) {//登录成功*/
+                            if (result.code == 0) {//登录成功
                                 layer.msg(result.message,{time: 2500, icon:6, height:40+"px"});
-                            /*} else {
-                            }*/
+                                window.href="/index.html";
+                            } else {
+
+                            }
                         }
                     });
                 }

@@ -8,6 +8,7 @@
         <link rel="stylesheet" href="/css/article.css" />
         <link rel="stylesheet" href="/js/font-edit/font-awesome.min.css" />
         <link rel="stylesheet" href="/js/font-edit/froala_editor.min.css" />
+        <link rel="stylesheet" href="/js/css/layui.css" />
 	</head>
 	<body >
     <!--开头的页面-->
@@ -18,7 +19,7 @@
             </a>
 
             <div class="login-btn">
-                <a class="btn add-artile" href="#">
+                <a class="btn add-artile">
                     发布
                 </a>
             </div>
@@ -32,12 +33,28 @@
 	</body>
 </html>
 <script type="text/javascript" src="/js/jquery-1.12.0.min.js" ></script>
+<script type="text/javascript" src="/js/vue/vue.min.js"></script>
 <script type="text/javascript" src="/js/font-edit/js/froala_editor.min.js" ></script>
 <script type="text/javascript" src="/js/font-edit/js/colors.min.js"></script>
 <script type="text/javascript" src="/js/font-edit/js/font_size.min.js"></script>
-<script>
+<script type="text/javascript" src="/js/layer.js"></script>
+<script type="text/javascript" src="/js/layui.js"></script>
+<script type="text/javascript">
+    layui.use('util', function() {
+        var util = layui.util,
+            $ = layui.$;
+        util.fixbar({
+            bar1: true,
+            bar2: true
+        });
+    });
+
     $(function(){
-        $('#edit').editable({inlineMode: false})
+        $('#edit').editable({inlineMode: false});
+
+        $(".add-artile").click(function () {
+            console.log($("#edit .marsdl-element").html());
+        });
     });
 </script>
 
