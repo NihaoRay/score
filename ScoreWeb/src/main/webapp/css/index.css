@@ -78,7 +78,7 @@ li {
 .nav-bar {
 	display: inline-block;
 	height: 58px;
-	width: 600px;
+	width: 400px;
 	/*background-color: #EAE4E4;*/
 }
 
@@ -126,6 +126,46 @@ li {
 	line-height: 58px;
 	position: absolute;
 	right: 23px;
+}
+
+nav .user {
+    width: 80px;
+    height: 58px;
+    /*background-color: #b5d6fd;*/
+    display: inline-block;
+    text-align: center;
+}
+
+nav .avater {
+    line-height: 58px;
+}
+
+nav .user:hover {
+    background-color:#f5f5f5;
+    cursor: pointer;
+}
+
+nav .dropdown-menu {
+    display: none;
+    position: absolute;
+    left: auto;
+    border-color: transparent;
+    box-shadow: 0 2px 8px rgba(0,0,0,.1);
+    float: left;
+    min-width: 160px;
+    margin: 1px 0 0;
+    list-style: none;
+    font-size: 14px;
+    text-align: left;
+    background-color: #fff;
+}
+
+nav .dropdown-menu:hover{
+    display: block;
+}
+
+nav .dropdown-menu li {
+    text-align: center;
 }
 
 nav .sign-up {

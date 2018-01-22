@@ -71,8 +71,8 @@
         var vm = new Vue({
             el:"#inputForm",
             data:{
-                username: "admin",
-                password: "123"
+                username: "",
+                password: ""
             },
             methods:{
                 /*refreshCode: function () {
@@ -86,11 +86,12 @@
                         data: data,
                         dataType: "json",
                         success: function (result) {
-                            if (result.code == 0) {//登录成功
-                                layer.msg(result.message,{time: 2500, icon:6, height:40+"px"});
-                                window.href="/index.html";
-                            } else {
-
+                            debugger;
+                            if (result.code == 202) {//登录成功
+                                location.href="/index.html";
+                            }
+                            else {
+                                layer.msg(result.message, {time: 2500, icon:6, height:40+"px"});
                             }
                         }
                     });

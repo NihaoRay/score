@@ -28,13 +28,21 @@
 				</div>
 				
 				<div class="login-btn">
-					<a class="btn log-in" href="/view/sign/login.html" target="_blank">
-						登录
-					</a>
-					<a class="btn sign-up" href="/view/sign/signup.html" target="_blank">
-						注册
-					</a>
-                    <a class="btn add-artile" target="_blank" href="/article/addArticle">
+                    <div class="user">
+                        <a href="/view/profile/profile.html" class="avater" target="_blank">
+                            <img src="/img/profile/chenrui.png" />
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a href="/sys/logout">退出</a></li>
+                        </ul>
+                    </div>
+                    <a class="btn log-in" style="display: none" href="/view/sign/login.html" target="_blank">
+                        登录
+                    </a>
+                    <a class="btn sign-up" style="display: none" href="/view/sign/signup.html" target="_blank">
+                        注册
+                    </a>
+                    <a class="btn add-artile"  target="_blank" href="/authview/article/add-article.html">
                         添加信息
                     </a>
 				</div>
@@ -46,7 +54,7 @@
 			<!--<div id="container-banner">
 			</div>-->
             <div id="content-flag">
-                <span>下面那三个老火星在不断开发，很快将会看见一个神奇的小火星！</span>
+                <span>让您久等了，部分服务在局域网内测试了,年后v1.0能够上线 ！</span>
             </div>
 
 			<div class="container-div">
@@ -146,17 +154,8 @@
 	</body>
 </html>
 <script type="text/javascript" src="/js/jquery-1.12.0.min.js" ></script>
+<script type="text/javascript" src="/js/vue/vue.min.js"></script>
 <script type="text/javascript" src="/js/jquery-ruirui.js" ></script>
 <script type="text/javascript" src="/js/layer.js"></script>
 <script type="text/javascript" src="/js/layui.js"></script>
-
-<script type="text/javascript">
-    layui.use('util', function() {
-        var util = layui.util,
-            $ = layui.$;
-        util.fixbar({
-            bar1: true,
-            bar2: true
-        });
-    });
-</script>
+<script type="text/javascript" src="/js/view/index.js"></script>

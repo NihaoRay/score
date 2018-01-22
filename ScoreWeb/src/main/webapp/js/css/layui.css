@@ -3802,7 +3802,7 @@ body .layui-table-tips .layui-layer-content {
 .layui-fixbar {
 	position: fixed;
 	right: 15px;
-	bottom: 15px;
+	bottom: 64px;
 	z-index: 9999;
 }
 

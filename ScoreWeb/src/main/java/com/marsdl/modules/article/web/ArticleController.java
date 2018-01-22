@@ -23,4 +23,5 @@ public class ArticleController {
         String a = "100";
         return "/WEB-INF/view/article/add-article";
     }
+
 }

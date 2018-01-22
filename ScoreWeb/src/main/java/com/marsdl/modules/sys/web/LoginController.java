@@ -19,8 +19,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * @Description
- * @Author chenrui
+ * <p>titile  返回数据</p>
+ * <p>@description </p>
+ *
+ * @author chenrui
  * @since 2017/12/31
  */
 
@@ -46,13 +48,21 @@ public class LoginController {
             Subject subject = UserUtil.getSubject();
             UsernamePasswordToken token = new UsernamePasswordToken(username, password);
             subject.login(token);
+            //封装返回的编码
             result.setMessage(RetCode.LOGIN_SUCCESS);
+            result.setCode(RetCode.LOGIN_SUCCESS_CODE);
         } catch (UnknownAccountException e) {
+
             result.setMessage(RetCode.NO_USER);
+            result.setCode(RetCode.NO_USER_CODE);
         } catch (IncorrectCredentialsException e) {
+
             result.setMessage(RetCode.ERROR_PASSWORD);
+            result.setCode(RetCode.ERROR_PASSWORD_CODE);
         } catch (AuthenticationException e) {
+
             result.setMessage(RetCode.ERROR);
+            result.setCode(RetCode.ERROR_CODE);
         }
         return result;
     }
@@ -75,7 +85,6 @@ public class LoginController {
         /*UserUtil.clearCache(UserUtil.getUser());*/
         //然后清除shiro系统的缓存
         /*UserUtil.clearCache();*/
-
         SecurityUtils.getSubject().logout();
         return "redirect: /index.html";
     }

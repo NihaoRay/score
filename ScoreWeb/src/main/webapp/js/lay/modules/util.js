@@ -14,7 +14,6 @@ layui.define('jquery', function (exports) {
         , util = {
             //固定块
             fixbar: function (options) {
-                debugger;
                 var ELEM = 'layui-fixbar', TOP_BAR = 'layui-fixbar-top'
                     , dom = $(document), body = $('body')
                     , is, timer;
@@ -23,15 +22,15 @@ layui.define('jquery', function (exports) {
                     showHeight: 200 //出现TOP的滚动条高度临界值
                 }, options);
 
-                /*options.bar1 = options.bar1 === true ? '&#xe606;' : options.bar1;
-                options.bar2 = options.bar2 === true ? '&#xe607;' : options.bar2;*/
+                options.bar1 = options.bar1 === true ? '&#xe606;' : options.bar1;
+                options.bar2 = options.bar2 === true ? '&#xe607;' : options.bar2;
                 options.bgcolor = options.bgcolor ? ('background-color:' + options.bgcolor) : '';
 
                 //图标：信息、问号、TOP
                 var icon = [options.bar1, options.bar2, '&#xe604;'],
                     elem = $(['<ul class="' + ELEM + '">'
-                    /*, options.bar1 ? '<li class="layui-icon" lay-type="bar1" style="' + options.bgcolor + '">' + icon[0] + '</li>' : ''
-                    , options.bar2 ? '<li class="layui-icon" lay-type="bar2" style="' + options.bgcolor + '">' + icon[1] + '</li>' : ''*/
+                    , options.bar1 ? '<li class="layui-icon" lay-type="bar1" style="' + options.bgcolor + '">' + icon[0] + '</li>' : ''
+                    , options.bar2 ? '<li class="layui-icon" lay-type="bar2" style="' + options.bgcolor + '">' + icon[1] + '</li>' : ''
                     , '<li class="layui-icon ' + TOP_BAR + '" lay-type="top" style="' + options.bgcolor + '">' + icon[2] + '</li>'
                     , '</ul>'].join(''))
                     , topBar = elem.find('.' + TOP_BAR)
