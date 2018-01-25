@@ -9,8 +9,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
- * @Description
- * @Author chenrui
+ * <p>@description 文章模块</p>
+ * @author chenrui
  * @since 2018/1/4
  */
 @Controller
@@ -19,9 +19,8 @@ public class ArticleController {
 
     @RequestMapping(value = "addArticle")
     public String addArtilce(User user, HttpServletRequest request, HttpServletResponse response) {
-        User currentUser = UserUtil.getUser();
-        String a = "100";
-        return "/WEB-INF/view/article/add-article";
+
+        return null;
     }
 
 }

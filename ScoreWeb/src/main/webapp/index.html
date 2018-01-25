@@ -28,18 +28,18 @@
 				</div>
 				
 				<div class="login-btn">
-                    <div class="user">
+                    <div class="user" id="nav_user" style="display: none">
                         <a href="/view/profile/profile.html" class="avater" target="_blank">
-                            <img src="/img/profile/chenrui.png" />
+                            <img :src="photo" />
                         </a>
                         <ul class="dropdown-menu">
                             <li><a href="/sys/logout">退出</a></li>
                         </ul>
                     </div>
-                    <a class="btn log-in" style="display: none" href="/view/sign/login.html" target="_blank">
+                    <a class="btn log-in"  href="/view/sign/login.html" target="_blank">
                         登录
                     </a>
-                    <a class="btn sign-up" style="display: none" href="/view/sign/signup.html" target="_blank">
+                    <a class="btn sign-up"  href="/view/sign/signup.html" target="_blank">
                         注册
                     </a>
                     <a class="btn add-artile"  target="_blank" href="/authview/article/add-article.html">
@@ -153,9 +153,10 @@
 		</div>
 	</body>
 </html>
+
 <script type="text/javascript" src="/js/jquery-1.12.0.min.js" ></script>
 <script type="text/javascript" src="/js/vue/vue.min.js"></script>
 <script type="text/javascript" src="/js/jquery-ruirui.js" ></script>
 <script type="text/javascript" src="/js/layer.js"></script>
 <script type="text/javascript" src="/js/layui.js"></script>
-<script type="text/javascript" src="/js/view/index.js"></script>
+<script type="text/javascript" src="/js/view/index/index.js"></script>

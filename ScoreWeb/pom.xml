@@ -40,6 +40,7 @@
         <xstream.version>1.4.7</xstream.version>
         <dozer.version>5.5.1</dozer.version>
         <poi.version>3.9</poi.version>
+        <aliyun-oss-version>2.5.0</aliyun-oss-version>
 
         <!--jdbc-->
         <mysql.driver.version>5.1.30</mysql.driver.version>
@@ -407,6 +408,12 @@
             <groupId>com.drewnoakes</groupId>
             <artifactId>metadata-extractor</artifactId>
             <version>2.6.2</version>
+        </dependency>
+        <!--阿里云存储-->
+        <dependency>
+            <groupId>com.aliyun.oss</groupId>
+            <artifactId>aliyun-sdk-oss</artifactId>
+            <version>${aliyun-oss-version}</version>
         </dependency>
 
         <!-- 条形码、二维码生成  -->

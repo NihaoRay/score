@@ -86,7 +86,7 @@ public class LoginController {
         //然后清除shiro系统的缓存
         /*UserUtil.clearCache();*/
         SecurityUtils.getSubject().logout();
-        return "redirect: /index.html";
+        return "redirect:/index.html";
     }
 
 }

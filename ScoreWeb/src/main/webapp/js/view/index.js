@@ -19,10 +19,8 @@ $(document).ready(function(){
     });
 })
 
-
 //后台数据交互和json数据渲染
 var vm = new Vue({
-
 
 
 });
