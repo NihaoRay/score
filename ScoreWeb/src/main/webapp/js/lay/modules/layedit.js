@@ -141,7 +141,6 @@ layui.define(['layer', 'form'], function(exports){
 
   //iframe初始化
   var setIframe = function(editor, textArea, set){
-      debugger;
     var that = this, iframe = editor.find('iframe');
 
     iframe.css({
@@ -389,19 +388,23 @@ layui.define(['layer', 'form'], function(exports){
         layui.use('upload', function(upload){
           var uploadImage = set.uploadImage || {};
           upload.render({
-            url: uploadImage.url
-            ,method: uploadImage.type
-            ,elem: $(that).find('input')[0]
-            ,done: function(res){
-              if(res.code == 0){
-                res.data = res.data || {};
+            url: uploadImage.url,
+            method: uploadImage.type,
+            elem: $(that).find('input')[0],
+            done: function(res){
+                debugger;
+                //res.data = res.data || {};
                 insertInline.call(iframeWin, 'img', {
-                  src: res.data.src
-                  ,alt: res.data.title
+                    src: res.message,//res.data.src,
+                    alt: "你好"//res.data.title
                 }, range);
-              } else {
-                layer.msg(res.msg||'上传失败');
-              }
+
+                //上传成功后回显
+                /*if(res.code == 0){
+
+                } else {
+                    layer.msg(res.msg||'上传失败');
+                }*/
             }
           });
         });

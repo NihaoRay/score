@@ -33,7 +33,7 @@ var vm = new Vue({
         /**获得当前用户*/
         getUser:function () {
             /*$.getJSON("")*/
-            var flag = 1;
+            var flag = 0;
             userCenterCtrl(flag);
         },
         //初始化加载的方法

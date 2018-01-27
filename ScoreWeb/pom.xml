@@ -41,6 +41,7 @@
         <dozer.version>5.5.1</dozer.version>
         <poi.version>3.9</poi.version>
         <aliyun-oss-version>2.5.0</aliyun-oss-version>
+        <dom4j-version>1.6.1</dom4j-version>
 
         <!--jdbc-->
         <mysql.driver.version>5.1.30</mysql.driver.version>
@@ -359,7 +360,11 @@
             <artifactId>xstream</artifactId>
             <version>${xstream.version}</version>
         </dependency>
-
+        <dependency>
+            <groupId>dom4j</groupId>
+            <artifactId>dom4j</artifactId>
+            <version>${dom4j-version}</version>
+        </dependency>
         <!-- pojo copy -->
         <dependency>
             <groupId>net.sf.dozer</groupId>

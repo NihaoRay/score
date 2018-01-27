@@ -1,0 +1,48 @@
+﻿<?xml version="1.0" ?>
+    <glossarylist>
+      <glossary type="1">
+        <ident>2</ident>
+        <filename xml:space="preserve">WH-贴标开料语料.txt</filename>
+        <level>1</level>
+        <process>0</process>
+        <static>0</static>
+        <srclang>0</srclang>
+        <trglang>0</trglang>
+        <comments></comments>
+        <removedupes>1</removedupes>
+        <newtranslations>0</newtranslations>
+        <swapsourcetarget>0</swapsourcetarget>
+        <keyterms>0</keyterms>
+        <autorefresh>0</autorefresh>
+      </glossary>
+      <glossary type="1">
+        <ident>3</ident>
+        <filename xml:space="preserve">WH-数控术语.txt</filename>
+        <level>1</level>
+        <process>0</process>
+        <static>0</static>
+        <srclang>0</srclang>
+        <trglang>0</trglang>
+        <comments></comments>
+        <removedupes>1</removedupes>
+        <newtranslations>0</newtranslations>
+        <swapsourcetarget>0</swapsourcetarget>
+        <keyterms>0</keyterms>
+        <autorefresh>0</autorefresh>
+      </glossary>
+      <glossary type="1">
+        <ident>4</ident>
+        <filename xml:space="preserve">WH-驱动器术语.txt</filename>
+        <level>1</level>
+        <process>0</process>
+        <static>0</static>
+        <srclang>0</srclang>
+        <trglang>0</trglang>
+        <comments></comments>
+        <removedupes>1</removedupes>
+        <newtranslations>0</newtranslations>
+        <swapsourcetarget>0</swapsourcetarget>
+        <keyterms>0</keyterms>
+        <autorefresh>0</autorefresh>
+      </glossary>
+    </glossarylist>
