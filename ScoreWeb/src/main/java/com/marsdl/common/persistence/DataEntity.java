@@ -6,8 +6,8 @@ import com.marsdl.modules.sys.entity.User;
 import java.util.Date;
 
 /**
- * @Description
- * @Author chenrui
+ * <p>@description </p>
+ * @author chenrui
  * @since 2017/10/21
  */
 public class DataEntity<T> extends BaseEntity<T>{

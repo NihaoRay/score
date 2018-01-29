@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.marsdl.modules.article.dao.ArticleTextDao">
+
+    <!--数据库映射字段-->
+    <sql id="articleTextColumns">
+        a.id as "id",
+        a.content as "content"
+    </sql>
+
+    <select id="queryObject" resultType="articleText" parameterType="String">
+        SELECT
+        <include refid="articleTextColumns" />
+        FROM
+        cms_article_text a
+        <where>
+            <if test="id != null and id != ''">
+                and a.id = #{id}
+            </if>
+        </where>
+    </select>
+
+    <!--增加用户-->
+    <insert id="save">
+        INSERT INTO cms_article_text(
+        id,
+        content,
+        delFlag
+        ) VALUES (
+        #{id},
+        #{content},
+        #{DEL_FLAG_NORMAL}
+        )
+    </insert>
+
+    <update id="update">
+      UPDATE cms_article_text SET
+			content = #{content}
+		WHERE id = #{id}
+    </update>
+
+    <update id="delete">
+        UPDATE cms_article_text SET
+          del_flag = #{DEL_FLAG_DELETE}
+        WHERE id = #{id}
+    </update>
+</mapper>

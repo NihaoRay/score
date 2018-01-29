@@ -107,11 +107,11 @@
             <if test="loginName != null and loginName != ''">login_name=#{loginName},</if>
             <if test="password != null and password != ''">password=#{password},</if>
             <if test="no != null and no != ''">no=#{no},</if>
-            <if test="username != null and username != ''">no=#{username}</if>
-            <if test="email != null and email != ''">email=#{email}</if>
-            <if test="phone != null and phone != ''">phone=#{phone}</if>
-            <if test="mobile != null and mobile != ''">mobile=#{mobile}</if>
-            <if test="userType != null and userType != ''">user_type=#{userType}</if>
+            <if test="username != null and username != ''">no=#{username},</if>
+            <if test="email != null and email != ''">email=#{email},</if>
+            <if test="phone != null and phone != ''">phone=#{phone},</if>
+            <if test="mobile != null and mobile != ''">mobile=#{mobile},</if>
+            <if test="userType != null and userType != ''">user_type=#{userType},</if>
             <if test="photo != null and photo != ''">photo=#{photo}</if>
         </set>
       WHERE id = #{id}

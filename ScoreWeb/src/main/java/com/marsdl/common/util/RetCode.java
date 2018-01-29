@@ -1,14 +1,14 @@
 package com.marsdl.common.util;
 
 /**
- * @Description 返回json串时候
- * @Author chenrui
+ * <p>@description 返回json串时候 </p>
+ * @author chenrui
  * @since 2017/10/16
  */
 public class RetCode {
 
-    public static final String SUCCESS = "执行成功";
-    public static final Integer SUCCESS_CODE = 200;
+    public static final String SUCCESS = "成功";
+    public static final Integer SUCCESS_CODE = 0;
 
     public static final String ERROR = "出现错误";
     public static final Integer ERROR_CODE = 500;

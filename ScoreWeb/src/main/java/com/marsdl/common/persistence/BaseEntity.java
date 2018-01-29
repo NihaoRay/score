@@ -60,4 +60,10 @@ public class BaseEntity<T> implements Serializable {
     public static final String DEL_FLAG_DELETE = "1";
     public static final String DEL_FLAG_AUDIT = "2";
 
+    /**
+     * 是否发布文章
+     */
+    public static final String NOT_PUBLISH = "0";
+    public static final String YES_PUBLISH = "1";
+
 }

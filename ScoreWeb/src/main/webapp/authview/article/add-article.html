@@ -10,7 +10,26 @@
         <link rel="stylesheet" href="/js/font-edit/marsdl_editor.min.css" />
         <link rel="stylesheet" href="/js/css/layui.css" />
         <style type="text/css">
-            .marsdl-editor.f-basic {top:59px;}
+            #content-flag{width: 800px;border-bottom: 1px solid #d8d4d4;}
+            .article-title {
+                width: 100%;
+                padding: 6px 2px ;
+                margin-bottom: 0;
+                border: none;
+                font-size: 30px;
+                font-weight: 400;
+                line-height: 30px;
+                -webkit-box-shadow: none;
+                box-shadow: none;
+                color: #595959;
+                background-color: transparent;
+                outline: none;
+                border-radius: 0;
+                overflow: hidden;
+                -o-text-overflow: ellipsis;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+            }
         </style>
 	</head>
 	<body >
@@ -20,7 +39,6 @@
             <a href="/index.html" class="logo">
                 <img src="/img/sys/logon.png" alt="logo"/>
             </a>
-
             <div class="login-btn">
                 <a class="btn add-artile">
                     发布
@@ -28,36 +46,26 @@
             </div>
         </div>
     </nav>
-    <section class="note" style="background-color: #f9f9f9; min-height: 60px;">
-        <div id='edit' style="margin-top: 1px">
+    <div style="width: 800px; " class="container">
+        <form class="layui-form">
+            <div id="content-flag">
+                <input type="text" class="article-title" value="无标题文章"/>
+            </div>
 
-        </div>
-    </section>
+            <div class="layui-form-item">
+              <textarea name="demo" id="demo" class="layui-hide">
+
+              </textarea>
+            </div>
+            <a class="layui-btn" id="save">保存</a>
+            <a class="layui-btn" id="getChoose">获取选中内容</a>
+        </form>
+    </div>
 	</body>
 </html>
 <script type="text/javascript" src="/js/jquery-1.12.0.min.js" ></script>
 <script type="text/javascript" src="/js/vue/vue.min.js"></script>
-<script type="text/javascript" src="/js/font-edit/js/froala_editor.min.js" ></script>
-<script type="text/javascript" src="/js/font-edit/js/colors.min.js"></script>
-<script type="text/javascript" src="/js/font-edit/js/font_size.min.js"></script>
 <script type="text/javascript" src="/js/layer.js"></script>
 <script type="text/javascript" src="/js/layui.js"></script>
-<script type="text/javascript">
-    layui.use('util', function() {
-        var util = layui.util,
-            $ = layui.$;
-        util.fixbar({
-            bar1: true,
-            bar2: true
-        });
-    });
-
-    $(function(){
-        $('#edit').editable({inlineMode: false});
-
-        $(".add-artile").click(function () {
-            console.log($("#edit .marsdl-element").html());
-        });
-    });
-</script>
+<script type="text/javascript" src="/js/view/article/addArticle.js"></script>
 

@@ -32,7 +32,7 @@ layui.define(['layer', 'form'], function(exports){
         ,'link', 'unlink', 'face', 'image'
       ]
       ,hideTool: []
-      ,height: 400
+      ,height: 420
     };
   };
   
@@ -73,7 +73,7 @@ layui.define(['layer', 'form'], function(exports){
       return node.join('');
     }()
  
-    
+
     ,editor = $(['<div class="'+ ELEM +'">'
       ,'<div class="layui-unselect layui-layedit-tool">'+ tool +'</div>'
       ,'<div class="layui-layedit-iframe">'
@@ -163,10 +163,8 @@ layui.define(['layer', 'form'], function(exports){
       body.attr('contenteditable', 'true').css({
         'min-height': set.height
       }).html(textArea.value||'');
-
       hotkey.apply(that, [iframeWin, iframe, textArea, set]); //快捷键处理
       toolActive.call(that, iframeWin, editor, set); //触发工具
-
     });
   }
   
@@ -392,20 +390,22 @@ layui.define(['layer', 'form'], function(exports){
             method: uploadImage.type,
             elem: $(that).find('input')[0],
             done: function(res){
-                debugger;
-                //res.data = res.data || {};
-                insertInline.call(iframeWin, 'img', {
-                    src: res.message,//res.data.src,
-                    alt: "你好"//res.data.title
-                }, range);
-
-                //上传成功后回显
-                /*if(res.code == 0){
-
-                } else {
-                    layer.msg(res.msg||'上传失败');
-                }*/
-            }
+                //上传成功后
+                if(res.code == 0){
+                    //res.data = res.data || {};
+                    //insertInline.call(iframeWin, 'img', {
+                    //    src: res.data.src,
+                    //    alt: res.data.title
+                    //}, range);
+                        //图片上传成功后返回图片地址
+                        insertInline.call(iframeWin, 'img', {
+                            src: res.result,
+                            alt: ''
+                        }, range);
+                    } else {
+                        layer.msg(res.msg||'上传失败');
+                    }
+                }
           });
         });
       }

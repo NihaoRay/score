@@ -39,8 +39,8 @@ public class ArticleController {
 
         String suffix = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf("."));
         String url = "/img/sys/logon.png";
-        result.setCode(0);
-        result.setMessage(url);
+        result.setCode(RetCode.SUCCESS_CODE);
+        result.setResult(url);
 
         return result;
     }

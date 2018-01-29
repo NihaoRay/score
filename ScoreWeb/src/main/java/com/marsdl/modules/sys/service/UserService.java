@@ -1,16 +1,11 @@
 package com.marsdl.modules.sys.service;
 
-import com.marsdl.common.util.IdGen;
 import com.marsdl.modules.sys.dao.UserDao;
 import com.marsdl.modules.sys.entity.User;
-import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.util.Date;
 import java.util.List;
 
 @Service
@@ -26,7 +21,14 @@ public class UserService {
     }
 
     public List<User> findByEntityParams(User user) {
-        return userDao.findByEntityParams(user);
+        List<User> list = null;
+        try{
+            list = userDao.findByEntityParams(user);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+        return list;
     }
 
     @Transactional(readOnly = false)

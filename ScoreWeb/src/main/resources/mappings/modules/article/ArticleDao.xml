@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.marsdl.modules.article.dao.ArticleDao">
+
+    <!--主表映射字段-->
+    <sql id="articleColumns">
+        a.id as "id",
+        a.title as "title",
+        a.link as "link",
+        a.color as "color",
+        a.title_image as "titleImage",
+        a.keywords as "keywords",
+        a.weight as "weight",
+        a.posid as "posid",
+        a.is_publish as "isPublish",
+        a.update_date as "updateDate",
+        a.create_date as "createDate",
+        a.remarks as "remarks",
+        a.del_flag as "delFlag"
+    </sql>
+
+    <!--根据id获得文章信息-->
+    <select id="queryObject" resultType="Article" parameterType="String">
+        SELECT
+        <include refid="articleColumns" />
+        FROM
+        cms_article a
+        <where>
+            AND a.is_publish=#{YES_PUBLISH} AND a.del_flag=#{DEL_FLAG_NORMAL}
+            <if test="id != null and id != ''">
+                and a.id = #{id}
+            </if>
+        </where>
+    </select>
+
+    <!--根据id获得文章信息和内容-->
+    <select id="queryObjectContent" resultType="Article" parameterType="String">
+        SELECT
+        cat.content as "textId.content",
+        <include refid="articleColumns" />
+        FROM
+        cms_article a
+        LEFT JOIN cms_article_text cat ON a.id = cat.id
+        <where>
+            AND a.is_publish=#{YES_PUBLISH} AND a.del_flag=#{DEL_FLAG_NORMAL}
+            <if test="id != null and id != ''">
+                and a.id = #{id}
+            </if>
+        </where>
+    </select>
+
+    <!--增加用户-->
+    <insert id="save">
+        INSERT INTO cms_article(
+        id,
+        title,
+        link,
+        color,
+        title_image,
+        keywords,
+        #{weight},
+        #{posid},
+        #{is_publish},
+        create_by,
+        create_date,
+        update_by,
+        update_date,
+        remarks,
+        del_flag
+        ) VALUES (
+        #{id},
+        #{title},
+        #{link},
+        #{color},
+        #{titleImage},
+        #{keywords},
+        #{weight},
+        #{posid},
+        #{NOT_PUBLISH},
+        #{createBy.id},
+        #{createDate},
+        #{updateBy.id},
+        #{updateDate},
+        #{remarks},
+        #{DEL_FLAG_NORMAL}
+        )
+    </insert>
+
+    <!--修改文章基本信息-->
+    <update id="update">
+        UPDATE cms_article
+        <set>
+            <if test="title != null and title != ''">title=#{title},</if>
+            <if test="link != null and link != ''">link=#{link},</if>
+            <if test="color != null and color != ''">color=#{color},</if>
+            <if test="titleImage != null and titleImage != ''">title_image=#{titleImage},</if>
+            <if test="keywords != null and keywords != ''">keywords=#{keywords},</if>
+            <if test="weight != null and weight != ''">weight=#{weight},</if>
+            <if test="posid != null and posid != ''">posid=#{posid},</if>
+            <if test="updateDate != null and updateDate != ''">updateDate=#{updateDate},</if>
+            <if test="remarks != null and remarks != ''">remarks=#{remarks}</if>
+        </set>
+        WHERE id = #{id}
+    </update>
+
+    <!--发布文章-->
+    <update id="publishArticle" parameterType="String">
+        UPDATE cms_article SET
+          is_publish = #{YES_PUBLISH}
+        WHERE id = #{id}
+    </update>
+
+    <!--删除-->
+    <update id="delete" parameterType="String">
+      UPDATE cms_article SET
+        del_flag = #{DEL_FLAG_DELETE}
+      WHERE id = #{id}
+    </update>
+
+</mapper>
