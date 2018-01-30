@@ -6,6 +6,7 @@
         <link rel="icon" href="/img/sys/icon.png" type=" image/png" >
 		<link rel="stylesheet" href="/css/index.css" />
 		<link rel="stylesheet" href="/css/login.css" />
+        <link rel="stylesheet" href="/js/css/layui.css" />
         <style type="text/css">
             #logincode {
                 display: inline-block;
@@ -13,11 +14,23 @@
                 width: 120px;
                 /*border: none*/
             }
-
             #code {
                 display: inline-block;
                 vertical-align: top;
             }
+            .erro-tips{
+                margin: 20px auto;
+                outline: none;
+                width: 320px;
+                height: 40px;
+                line-height: 40px;
+                border-radius: 2px;
+                font-size: 15px;
+                padding-left: 8px;
+                text-align: center;
+                color: #e43d3d;
+            }
+
         </style>
 	</head>
 	<body class="login-bg">
@@ -58,6 +71,9 @@
                     </li>-->
                 </ul>
                 <div class="sign signin-button" @click="login">登录</div>
+                <div class="erro-tips">
+                    {{error}}
+                </div>
             </form>
         </div>
 	</body>
@@ -72,34 +88,40 @@
             el:"#inputForm",
             data:{
                 username: "",
-                password: ""
+                password: "",
+                error:""
             },
             methods:{
                 /*refreshCode: function () {
                     $("#code").attr("src", "/user/getCode?timestamp="+$.now());
                 },*/
                 login:function (event) {
+
                     var data = "username=" + vm.username + "&password="+vm.password;
+                    //加载loading
+                    var index = layer.load(1, {
+                        shade: [0.1,'#fff'] //0.1透明度的白色背景
+                    });
+
                     $.ajax({
                         type: "POST",
                         url: "/sys/login",
                         data: data,
                         dataType: "json",
                         success: function (result) {
-                            debugger;
+                            //关闭loading层
+                            layer.close(index);
                             if (result.code == 202) {//登录成功
-                                location.href="/index.html";
+                                location.href=result.result;
                             }
                             else {
-                                layer.msg(result.message, {time: 2500, icon:6, height:40+"px"});
+                                vm.error = result.message;
                             }
                         }
                     });
                 }
             }
         });
-
-
 		/*window.onload = function() {
 			//进行非空验证，校验
 			$("#inputForm").find(".username").change(function() {

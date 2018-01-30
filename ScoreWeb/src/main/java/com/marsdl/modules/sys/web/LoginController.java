@@ -10,6 +10,7 @@ import com.marsdl.modules.sys.util.UserUtil;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.subject.Subject;
+import org.apache.shiro.web.util.WebUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -48,9 +49,13 @@ public class LoginController {
             Subject subject = UserUtil.getSubject();
             UsernamePasswordToken token = new UsernamePasswordToken(username, password);
             subject.login(token);
+            //获得shiro访问栈顶的url
+            String url = WebUtils.getSavedRequest(request).getRequestUrl();
+
             //封装返回的编码
             result.setMessage(RetCode.LOGIN_SUCCESS);
             result.setCode(RetCode.LOGIN_SUCCESS_CODE);
+            result.setResult(url);
         } catch (UnknownAccountException e) {
 
             result.setMessage(RetCode.NO_USER);
