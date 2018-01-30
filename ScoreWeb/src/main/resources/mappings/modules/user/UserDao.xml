@@ -4,9 +4,6 @@
 
     <sql id="userColumns">
         a.id as "id",
-        a.login_name as "loginName",
-        a.password as "password",
-        a.no as "no",
         a.username as "username",
         a.email as "email",
         a.phone as "phone",
@@ -36,7 +33,7 @@
     </select>
 
     <!--根据id查询用户-->
-    <select id="queryObject" resultType="user" parameterType="String">
+    <select id="queryObject" resultType="user">
         SELECT
         <include refid="userColumns" />
         FROM
@@ -51,6 +48,7 @@
     <!--根据username查询用户-->
     <select id="queryObjectByUsername" resultType="user">
         SELECT
+        a.password as "password",
         <include refid="userColumns" />
         FROM
         sys_user a

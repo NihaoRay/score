@@ -30,8 +30,8 @@
 
 				<div class="login-btn">
                     <div class="user" style="display: none" id="nav_user">
-                        <a href="/view/profile/profile.html" class="avater" target="_blank">
-                            <img src="/img/profile/chenrui.png" />
+                        <a :href="url" class="avater" target="_blank">
+                            <img :src="user.photo" />
                         </a>
                         <ul class="dropdown-menu">
                             <li><a href="/sys/logout">退出</a></li>
@@ -40,9 +40,9 @@
                     <a class="btn log-in" style="display: none" href="/view/sign/login.html" target="_blank">
                         登录
                     </a>
-                    <a class="btn sign-up" style="display: none" href="/view/sign/signup.html" target="_blank">
+                   <!-- <a class="btn sign-up" style="display: none" href="/view/sign/signup.html" target="_blank">
                         注册
-                    </a>
+                    </a>-->
 				</div>
 			</div>
 		</nav>

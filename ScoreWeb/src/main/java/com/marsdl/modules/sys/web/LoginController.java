@@ -7,6 +7,7 @@ import com.marsdl.common.util.SessionKey;
 import com.marsdl.modules.sys.entity.User;
 import com.marsdl.modules.sys.service.UserService;
 import com.marsdl.modules.sys.util.UserUtil;
+import org.apache.commons.lang.StringUtils;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.apache.shiro.subject.Subject;
@@ -50,12 +51,20 @@ public class LoginController {
             UsernamePasswordToken token = new UsernamePasswordToken(username, password);
             subject.login(token);
             //获得shiro访问栈顶的url
-            String url = WebUtils.getSavedRequest(request).getRequestUrl();
-
+            String url = null;
+            //获得栈顶的url可能会出现异常
+            try{
+                //获得shiro访问栈顶的url
+                url = WebUtils.getSavedRequest(request).getRequestUrl();
+            } catch (Exception e) {
+                url = null;
+            }
+            if(StringUtils.isNotBlank(url)) {
+                result.setResult(url);
+            }
             //封装返回的编码
             result.setMessage(RetCode.LOGIN_SUCCESS);
             result.setCode(RetCode.LOGIN_SUCCESS_CODE);
-            result.setResult(url);
         } catch (UnknownAccountException e) {
 
             result.setMessage(RetCode.NO_USER);
@@ -69,6 +78,26 @@ public class LoginController {
             result.setMessage(RetCode.ERROR);
             result.setCode(RetCode.ERROR_CODE);
         }
+        return result;
+    }
+
+    /**
+     * 获取当前的用户，从缓存中调用，不经过数据库
+     * @param request
+     * @param response
+     * @return
+     */
+    @RequestMapping("getCurrentUser")
+    @ResponseBody
+    public ActionResult getCurrentUser(HttpServletRequest request, HttpServletResponse response) {
+        ActionResult result = new ActionResult();
+        User sysUser = UserUtil.getUser();
+        if(sysUser.getUsername() != null) {
+            result.setResult(sysUser);
+            return result;
+        }
+        result.setMessage(RetCode.NO_USER);
+        result.setCode(RetCode.NO_USER_CODE);
         return result;
     }
 
@@ -87,9 +116,9 @@ public class LoginController {
     @RequestMapping(value="logout")
     public String logout() {
         //首先清除当前用户信息缓存
-        /*UserUtil.clearCache(UserUtil.getUser());*/
+        UserUtil.clearCache(UserUtil.getUser());
         //然后清除shiro系统的缓存
-        /*UserUtil.clearCache();*/
+        UserUtil.clearCache();
         SecurityUtils.getSubject().logout();
         return "redirect:/index.html";
     }

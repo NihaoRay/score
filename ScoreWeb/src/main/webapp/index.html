@@ -29,8 +29,8 @@
 				
 				<div class="login-btn">
                     <div class="user" id="nav_user" style="display: none">
-                        <a href="/view/profile/profile.html" class="avater" target="_blank">
-                            <img :src="photo" />
+                        <a :href="url" class="avater" target="_blank">
+                            <img :src="user.photo" />
                         </a>
                         <ul class="dropdown-menu">
                             <li><a href="/sys/logout">退出</a></li>
@@ -39,9 +39,9 @@
                     <a class="btn log-in"  href="/view/sign/login.html" target="_blank">
                         登录
                     </a>
-                    <a class="btn sign-up"  href="/view/sign/signup.html" target="_blank">
+                    <!--<a class="btn sign-up"  href="/view/sign/signup.html" target="_blank">
                         注册
-                    </a>
+                    </a>-->
                     <a class="btn add-artile"  target="_blank" href="/authview/article/add-article.html">
                         添加信息
                     </a>

@@ -1,5 +1,6 @@
 package com.marsdl.modules.sys.service;
 
+import com.marsdl.common.service.CrudService;
 import com.marsdl.modules.sys.dao.UserDao;
 import com.marsdl.modules.sys.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,15 +11,10 @@ import java.util.List;
 
 @Service
 @Transactional(readOnly = true)
-public class UserService {
+public class UserService extends CrudService<UserDao, User> {
 
     @Autowired
     private UserDao userDao;
-
-    public User get(User user) {
-        User sysUser = userDao.queryObject(user);
-        return sysUser;
-    }
 
     public List<User> findByEntityParams(User user) {
         List<User> list = null;

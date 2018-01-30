@@ -42,12 +42,12 @@
             </a>
 
             <div class="login-btn">
-                <a class="btn log-in" href="#">
+                <!--<a class="btn log-in" href="#">
                     登录
-                </a>
-                <a class="btn sign-up" href="/view/sign/signup.html">
+                </a>-->
+                <!--<a class="btn sign-up" href="/view/sign/signup.html">
                     注册
-                </a>
+                </a>-->
             </div>
         </div>
     </nav>
@@ -65,6 +65,7 @@
                     <li>
                         <input type="password" class="password" v-model="password" placeholder="密码"/>
                     </li>
+                    <!--验证码部分，暂时不用-->
                     <!--<li>
                         <input type="text" v-model="logincode" id="logincode" placeholder="输入验证码"/>
                         <a href="javascript:void(0);" @click="refreshCode" ><img id="code" alt="如果看不清，刷新图片" src="/user/getCode" /></a>
@@ -82,71 +83,4 @@
 <script type="text/javascript" src="/js/vue/vue.min.js"></script>
 <script type="text/javascript" src="/js/jquery-ruirui.js" ></script>
 <script type="text/javascript" src="/js/layer.js"></script>
-
-<script type="text/javascript">
-        var vm = new Vue({
-            el:"#inputForm",
-            data:{
-                username: "",
-                password: "",
-                error:""
-            },
-            methods:{
-                /*refreshCode: function () {
-                    $("#code").attr("src", "/user/getCode?timestamp="+$.now());
-                },*/
-                login:function (event) {
-
-                    var data = "username=" + vm.username + "&password="+vm.password;
-                    //加载loading
-                    var index = layer.load(1, {
-                        shade: [0.1,'#fff'] //0.1透明度的白色背景
-                    });
-
-                    $.ajax({
-                        type: "POST",
-                        url: "/sys/login",
-                        data: data,
-                        dataType: "json",
-                        success: function (result) {
-                            //关闭loading层
-                            layer.close(index);
-                            if (result.code == 202) {//登录成功
-                                location.href=result.result;
-                            }
-                            else {
-                                vm.error = result.message;
-                            }
-                        }
-                    });
-                }
-            }
-        });
-		/*window.onload = function() {
-			//进行非空验证，校验
-			$("#inputForm").find(".username").change(function() {
-				/!*$(this).css("border", "solid 1px #c8c8c8");*!/
-				/!*$(this).css({"border":"1px solid red", "color":"red"})*!/
-			});
-
-			$("#inputForm").find(".password").change(function() {
-
-			});
-
-			$(".sign").click(function() {
-				debugger;
-				var formSer = $("#inputForm").serializeArray();
-				$("#inputForm").serializeJSON();
-				$("#inputForm").serialize();
-				var detail = $("#inputForm").serializeJSON();
-				/!*String jsonString = JSON.stringify(detail);*!/
-				var jsonString = JSON.stringify(detail);
-                layer.msg("后台正在更新中，尽情期待！",{time: 2500, icon:6});
-			})
-		};
-
-		$(function() {
-           $(".search-border").animateLength(380, 400);
-		  $(".search-input").animateLength(345, 400);
-		})*/
-</script>
+<script type="text/javascript" src="/js/view/sign/login.js"></script>
