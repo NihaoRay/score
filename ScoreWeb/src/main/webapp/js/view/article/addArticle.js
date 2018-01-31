@@ -40,7 +40,9 @@ var articleVm = new Vue({
             //添加文本内容
             //layedit.setContent(index, "", false);
             var content=layedit.getContent(index);
-
+            //回显id判断是否是新增还是修改
+            var hiddenArticleId = $("#hiddenArticleId").val();
+            var hiddenArticleTextId = $("#hiddenArticleTextId").val();
             articleVm.titleImage=$.cookie('titleImage');
             if($.cookie('titleImage') == "null") {
                 articleVm.titleImage="/img/sys/logon.png";
@@ -49,12 +51,15 @@ var articleVm = new Vue({
                 type: "POST",
                 url: "/article/save",
                 data: {
-                    content:content,
-                    title:articleVm.title,
-                    titleImage:articleVm.titleImage
+                    "id":hiddenArticleId,
+                    "textId.id":hiddenArticleTextId,
+                    "textId.content":content,
+                    "title":articleVm.title,
+                    "titleImage":articleVm.titleImage
                 },
                 dataType: "json",
                 success: function (result) {
+                    debugger;
                     //清除刚刚保存的cookie
                     $.cookie("titleImage",null);
                     //回显提示数据
@@ -63,6 +68,10 @@ var articleVm = new Vue({
                          tips: [1, '#d49532'],
                          time: 4000
                          });
+                         //在回显域中添加id
+                        console.log(result.result);
+                        $("#hiddenArticleId").val(result.result.id);
+                        $("#hiddenArticleTextId").val(result.result.textId.id);
                         return true;
                     }
                     else {

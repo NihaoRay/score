@@ -6,6 +6,7 @@ import com.marsdl.modules.article.dao.ArticleDao;
 import com.marsdl.modules.article.dao.ArticleTextDao;
 import com.marsdl.modules.article.entity.Article;
 import com.marsdl.modules.article.entity.ArticleText;
+import com.marsdl.modules.article.form.ArticleForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -32,11 +33,8 @@ public class ArticleService extends CrudService<ArticleDao, Article>{
     private ArticleTextService articleTextService;
 
     @Transactional(readOnly = false)
-    public boolean saveArticle(Article article, String content, HttpServletRequest request, HttpServletResponse response) {
-        ArticleText articleText = new ArticleText();
-        articleText.setContent(content);
-        articleTextService.save(articleText);
-        article.setTextId(articleText);
+    public boolean saveArticle(Article article, HttpServletRequest request, HttpServletResponse response) {
+        articleTextService.save(article.getTextId());
         super.save(article);
         return true;
     }

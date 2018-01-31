@@ -99,7 +99,7 @@
             <if test="keywords != null and keywords != ''">keywords=#{keywords},</if>
             <if test="weight != null and weight != ''">weight=#{weight},</if>
             <if test="posid != null and posid != ''">posid=#{posid},</if>
-            <if test="updateDate != null and updateDate != ''">updateDate=#{updateDate},</if>
+            <if test="updateDate != null and updateDate != ''">update_date=#{updateDate},</if>
             <if test="remarks != null and remarks != ''">remarks=#{remarks}</if>
         </set>
         WHERE id = #{id}

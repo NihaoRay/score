@@ -3,6 +3,7 @@ package com.marsdl.modules.article.web;
 import com.marsdl.common.persistence.ActionResult;
 import com.marsdl.common.util.RetCode;
 import com.marsdl.modules.article.entity.Article;
+import com.marsdl.modules.article.form.ArticleForm;
 import com.marsdl.modules.article.service.ArticleService;
 import com.marsdl.modules.sys.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,11 +36,12 @@ public class ArticleController {
 
     @RequestMapping("/save")
     @ResponseBody
-    public ActionResult save(Article article, @RequestParam("content") String content, HttpServletRequest request, HttpServletResponse response) {
+    public ActionResult save(Article article, HttpServletRequest request, HttpServletResponse response) {
         ActionResult result = new ActionResult();
-        articleService.saveArticle(article, content, request, response);
+        articleService.saveArticle(article, request, response);
         result.setCode(RetCode.SUCCESS_CODE);
         result.setMessage(RetCode.SUCCESS);
+        result.setResult(article);
         return result;
     }
 
