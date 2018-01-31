@@ -3,6 +3,7 @@ package com.marsdl.common.service;
 import com.marsdl.common.persistence.DataEntity;
 import com.marsdl.modules.sys.dao.BaseDao;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -47,6 +48,7 @@ public abstract class CrudService<D extends BaseDao<T>, T extends DataEntity<T>>
     /**
      * 根据id删除
      */
+    @Transactional(readOnly = false)
     public void delete(String id) {
         dao.delete(id);
     }
@@ -55,6 +57,7 @@ public abstract class CrudService<D extends BaseDao<T>, T extends DataEntity<T>>
      * 增加和修改对象，放在了一起。
      * getIsNewRecord方法以id为标志判断此数据是否为新数据
      */
+    @Transactional(readOnly = false)
     public void save(T entity) {
         if(entity.getIsNewRecord()) {
             entity.preInsert();

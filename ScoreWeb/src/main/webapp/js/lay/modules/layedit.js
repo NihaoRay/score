@@ -100,6 +100,13 @@ layui.define(['layer', 'form'], function(exports){
     if(!iframeWin[0]) return;
     return toLower(iframeWin[0].document.body.innerHTML);
   };
+
+  //向编辑器中插入html代码
+ /* Edit.prototype.setContent=function(index, innerValHTML) {
+      var iframwWin=getWin(index);
+      if(!iframeWin[0]) return;
+      iframeWin[0].document.body.innerHTML=innerValHTML;
+  };*/
   
   //获得编辑器中纯文本内容
   Edit.prototype.getText = function(index){
@@ -397,11 +404,16 @@ layui.define(['layer', 'form'], function(exports){
                     //    src: res.data.src,
                     //    alt: res.data.title
                     //}, range);
-                        //图片上传成功后返回图片地址
+                        //图片上传成功后返回图片地址@author:chenrui
                         insertInline.call(iframeWin, 'img', {
                             src: res.result,
                             alt: ''
                         }, range);
+
+                        //将第一个图片地址放入cookie中，在保存后就会销毁@author:chenrui
+                        if($.cookie('titleImage') == "null") {
+                            $.cookie('titleImage', res.result);
+                        }
                     } else {
                         layer.msg(res.msg||'上传失败');
                     }

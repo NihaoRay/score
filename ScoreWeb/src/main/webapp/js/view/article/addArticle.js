@@ -1,12 +1,15 @@
 /**
   @author chenrui on 2018/1/20.
  */
+//生成的标题的全局变量
+    var index=null;
+    var layedit=null;
+
 $(document).ready(function(){
     //添加layer组件
     layui.use('layedit', function () {
-        var layedit = layui.layedit;
-
-        var index = layedit.build('demo', {
+        layedit = layui.layedit;
+        index = layedit.build('demo', {
             //hideTool: ['image']
             uploadImage: {
                 url: '/article/upload' ,
@@ -15,17 +18,6 @@ $(document).ready(function(){
             //,tool: []
             //,height: 100
         });
-        save.onclick = function () {
-            //alert(layedit.getContent(index));
-            debugger;
-            layedit.sync(index);
-            var text = layedit.getContent(index);
-            if(!text.trim()) {
-                layer.msg("请输入文章内容",{icon: 7});
-                return;
-            }
-            var textTitle = $("#content-flag").find(".article-title").val();
-        };
 
         getChoose.onclick = function () {
             //layer.alert(layedit.getContent(index));
@@ -35,4 +27,53 @@ $(document).ready(function(){
     });
 });
 
+//后台数据渲染
+var articleVm = new Vue({
+    el : "#container",
+    data : {
+        title:"请输入标题",
+        titleImage:""
+    },
+    methods:{
+        save:function (event) {
+            debugger;
+            //添加文本内容
+            //layedit.setContent(index, "", false);
+            var content=layedit.getContent(index);
 
+            articleVm.titleImage=$.cookie('titleImage');
+            if($.cookie('titleImage') == "null") {
+                articleVm.titleImage="/img/sys/logon.png";
+            }
+            $.ajax({
+                type: "POST",
+                url: "/article/save",
+                data: {
+                    content:content,
+                    title:articleVm.title,
+                    titleImage:articleVm.titleImage
+                },
+                dataType: "json",
+                success: function (result) {
+                    //清除刚刚保存的cookie
+                    $.cookie("titleImage",null);
+                    //回显提示数据
+                    if (parseInt(result.code) == 0) {//登录成功
+                         layer.tips('保存成功，继续编辑不会丢啦', '#layui-btn', {
+                         tips: [1, '#d49532'],
+                         time: 4000
+                         });
+                        return true;
+                    }
+                    else {
+                        layer.tips('后台抽风了，等下再试试', '#layui-btn', {
+                            tips: [1, '#d49532'],
+                            time: 4000
+                        });
+                        return true;
+                    }
+                }
+            });
+        }
+    }
+});

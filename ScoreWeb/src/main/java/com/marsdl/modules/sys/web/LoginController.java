@@ -3,7 +3,6 @@ package com.marsdl.modules.sys.web;
 import com.marsdl.common.persistence.ActionResult;
 import com.marsdl.common.util.ImgCode;
 import com.marsdl.common.util.RetCode;
-import com.marsdl.common.util.SessionKey;
 import com.marsdl.modules.sys.entity.User;
 import com.marsdl.modules.sys.service.UserService;
 import com.marsdl.modules.sys.util.UserUtil;

@@ -44,18 +44,16 @@
             </div>
         </div>
     </nav>
-    <div style="width: 800px; " class="container">
+    <div style="width: 800px; " class="container" id="container">
         <form class="layui-form">
             <div id="content-flag">
-                <input type="text" class="article-title" value="请输入标题"/>
+                <input type="text" class="article-title" v-model="title"/>
             </div>
-
             <div class="layui-form-item">
               <textarea name="demo" id="demo" class="layui-hide">
-
               </textarea>
             </div>
-            <a class="layui-btn" id="save">保存</a>
+            <a class="layui-btn" @click="save" id="layui-btn">保存</a>
             <a class="layui-btn" id="getChoose">获取选中内容</a>
         </form>
     </div>
@@ -65,5 +63,6 @@
 <script type="text/javascript" src="/js/vue/vue.min.js"></script>
 <script type="text/javascript" src="/js/layer.js"></script>
 <script type="text/javascript" src="/js/layui.js"></script>
+<script type="text/javascript" src="/js/jquery.cookie.js" ></script>
 <script type="text/javascript" src="/js/view/article/addArticle.js"></script>
 

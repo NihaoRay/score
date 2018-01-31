@@ -13,21 +13,6 @@ import java.util.Date;
  */
 public class Article extends DataEntity<Article>{
 
-    /**
-     *  a.id as "id",
-     a.title as "title",
-     a.link as "link",
-     a.color as "color",
-     a.title_image as "titleImage",
-     a.keywords as "keywords",
-     a.weight as "weight",
-     a.posid as "posid",
-     a.is_publish as "isPublish",
-     a.update_date as "updateDate",
-     a.create_date as "createDate",
-     a.remarks as "remarks",
-     a.del_flag as "delFlag"
-     */
     private String title;   //文章标题
     private String link;    //链接
     private String color;   //颜色
