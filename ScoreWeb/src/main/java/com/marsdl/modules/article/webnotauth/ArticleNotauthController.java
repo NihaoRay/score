@@ -1,9 +1,8 @@
-package com.marsdl.modules.article.web;
+package com.marsdl.modules.article.webnotauth;
 
 import com.marsdl.common.persistence.ActionResult;
 import com.marsdl.common.util.RetCode;
 import com.marsdl.modules.article.entity.Article;
-import com.marsdl.modules.article.form.ArticleForm;
 import com.marsdl.modules.article.service.ArticleService;
 import com.marsdl.modules.sys.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +14,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 
 /**
  * <p>@description 文章模块</p>
@@ -22,42 +22,28 @@ import javax.servlet.http.HttpServletResponse;
  * @since 2018/1/4
  */
 @Controller
-@RequestMapping("/article/")
-public class ArticleController {
+@RequestMapping("/notauth/article/")
+public class ArticleNotauthController {
 
     @Autowired
     private ArticleService articleService;
 
-    @RequestMapping(value = "addArticle")
-    public String addArtilce(User user, HttpServletRequest request, HttpServletResponse response) {
-
-        return null;
-    }
-
-    @RequestMapping("/save")
+    @RequestMapping(value = "getArticle")
     @ResponseBody
-    public ActionResult save(Article article, HttpServletRequest request, HttpServletResponse response) {
+    public ActionResult addArtilce(Article article, HttpServletRequest request, HttpServletResponse response) {
         ActionResult result = new ActionResult();
-        articleService.saveArticle(article, request, response);
+        Article articleText = articleService.getArticleContent(article);
+        result.setResult(articleText);
         result.setCode(RetCode.SUCCESS_CODE);
-        result.setMessage(RetCode.SUCCESS);
-        result.setResult(article);
         return result;
     }
 
-    @RequestMapping("/upload")
+    @RequestMapping(value = "queryList")
     @ResponseBody
-    public ActionResult upload (@RequestParam("file") MultipartFile file) {
-        /*if(file.isEmpty()) {
-
-        }*/
+    public ActionResult queryList(Article article, HttpServletRequest request, HttpServletResponse response) {
         ActionResult result = new ActionResult();
-
-        String suffix = file.getOriginalFilename().substring(file.getOriginalFilename().lastIndexOf("."));
-        String url = "/img/profile/chenrui2.png";
-        result.setCode(RetCode.SUCCESS_CODE);
-        result.setResult(url);
-
+        List<Article> list = articleService.queryList(article);
+        result.setResult(list);
         return result;
     }
 

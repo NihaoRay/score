@@ -23,8 +23,8 @@ public interface ArticleDao extends BaseDao<Article> {
 
     /**
      * 根据id获得文章信息和内容
-     * @param id
+     * @param article
      * @return
      */
-    public Article queryObjectContent(@Param("id")String id);
+    public Article queryObjectContent(Article article);
 }

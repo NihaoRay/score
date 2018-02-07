@@ -14,6 +14,7 @@ import java.util.Date;
 public class Article extends DataEntity<Article>{
 
     private String title;   //文章标题
+    private String description;//文本
     private String link;    //链接
     private String color;   //颜色
     private String titleImage;  //标题图片
@@ -102,5 +103,13 @@ public class Article extends DataEntity<Article>{
 
     public void setTextId(ArticleText textId) {
         this.textId = textId;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

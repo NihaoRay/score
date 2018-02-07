@@ -29,6 +29,7 @@
                 <!--特定的模块和功能不拦截-->
                 /user/update**=anon
                 /sys/**=anon
+                /notauth/article/**=anon
 
                 <!--所有请求拦截认证-->
                 /** = authc
@@ -56,23 +57,22 @@
     <!--自定义realm-->
     <bean id="systemAuthorizingRealm" class="com.marsdl.modules.sys.security.SystemAuthorizingRealm"/>
 
-
     <!-- 会话管理器 -->
     <bean id="sessionManager" class="org.apache.shiro.web.session.mgt.DefaultWebSessionManager">
         <!-- 会话超时时间，单位：毫秒  -->
         <property name="globalSessionTimeout" value="${session.sessionTimeout}"/>
         <!-- 定时清理失效会话, 清理用户直接关闭浏览器造成的孤立会话   -->
         <property name="sessionValidationInterval" value="${session.sessionTimeoutClean}"/>
-
         <property name="sessionValidationSchedulerEnabled" value="true"/>
-        <property name="sessionIdCookie" ref="sessionIdCookie"/>
-        <property name="sessionIdCookieEnabled" value="true"/>
+        <!--<property name="sessionIdCookieEnabled" value="true"/>-->
+        <property name="sessionIdCookie" ref="simpleCookie"/>
     </bean>
 
     <!-- 指定本系统SESSIONID, 默认为: JSESSIONID 问题: 与SERVLET容器名冲突, 如JETTY, TOMCAT 等默认JSESSIONID,
     当跳出SHIRO SERVLET时如ERROR-PAGE容器会为JSESSIONID重新分配值导致登录会话丢失! -->
-    <bean id="sessionIdCookie" class="org.apache.shiro.web.servlet.SimpleCookie">
+    <bean id="simpleCookie" class="org.apache.shiro.web.servlet.SimpleCookie">
         <constructor-arg name="name" value="shiro.sesssion"/>
+        <property name="path" value="/"/>
     </bean>
 
     <!-- 自定义系统缓存管理器-->

@@ -6,6 +6,7 @@
     <sql id="articleColumns">
         a.id as "id",
         a.title as "title",
+        a.description as "description",
         a.link as "link",
         a.color as "color",
         a.title_image as "titleImage",
@@ -18,6 +19,22 @@
         a.remarks as "remarks",
         a.del_flag as "delFlag"
     </sql>
+
+    <!--获得所有文章信息-->
+    <select id="queryList" resultType="Article">
+        SELECT
+        su.id as "createBy.id",
+        su.username as "createBy.username",
+        su.photo as "createBy.photo",
+        <include refid="articleColumns" />
+        FROM
+        cms_article a
+        LEFT JOIN sys_user su ON a.create_by = su.id
+        <where>
+            <!--AND a.is_publish=#{YES_PUBLISH}-->
+            AND a.del_flag=#{DEL_FLAG_NORMAL}
+        </where>
+    </select>
 
     <!--根据id获得文章信息-->
     <select id="queryObject" resultType="Article" parameterType="String">
@@ -34,15 +51,20 @@
     </select>
 
     <!--根据id获得文章信息和内容-->
-    <select id="queryObjectContent" resultType="Article" parameterType="String">
+    <select id="queryObjectContent" resultType="Article">
         SELECT
-        cat.content as "textId.content",
+            cat.content as "textId.content",
+            su.id as "createBy.id",
+            su.username as "createBy.username",
+            su.photo as "createBy.photo",
         <include refid="articleColumns" />
         FROM
         cms_article a
-        LEFT JOIN cms_article_text cat ON a.id = cat.id
+        LEFT JOIN cms_article_text cat ON a.text_id = cat.id
+        LEFT JOIN sys_user su ON a.create_by = su.id
         <where>
-            AND a.is_publish=#{YES_PUBLISH} AND a.del_flag=#{DEL_FLAG_NORMAL}
+            <!--AND a.is_publish=#{YES_PUBLISH} -->
+            AND a.del_flag=#{DEL_FLAG_NORMAL}
             <if test="id != null and id != ''">
                 and a.id = #{id}
             </if>
@@ -54,6 +76,7 @@
         INSERT INTO cms_article(
         id,
         title,
+        description,
         link,
         color,
         title_image,
@@ -71,6 +94,7 @@
         ) VALUES (
         #{id},
         #{title},
+        #{description},
         #{link},
         #{color},
         #{titleImage},
@@ -93,6 +117,7 @@
         UPDATE cms_article
         <set>
             <if test="title != null and title != ''">title=#{title},</if>
+            <if test="description != null and description != ''">description=#{description},</if>
             <if test="link != null and link != ''">link=#{link},</if>
             <if test="color != null and color != ''">color=#{color},</if>
             <if test="titleImage != null and titleImage != ''">title_image=#{titleImage},</if>

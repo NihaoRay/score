@@ -243,6 +243,13 @@ nav .add-artile:hover {
     border-bottom: 1px solid #d8d4d4;
 }
 
+.container-list{
+    margin-top: 5px;
+    height: 140px;
+    width:572px;
+    /*background-color: #c8c8c8;*/
+}
+
 .content-content {
 	display: inline-block;
 	vertical-align: top;
@@ -250,7 +257,7 @@ nav .add-artile:hover {
 	width: 463px;
 	padding-top: 2px;
 	padding-left: 2px;
-	margin-top: 5px;
+	/*margin-top: 5px;*/
 	border:1px solid #eae4e4;
     position: relative;
 	/*background-color: saddlebrown;*/
@@ -350,7 +357,7 @@ nav .add-artile:hover {
 }
 
 .content-img {
-	margin-top: 5px;
+	/*margin-top: 5px;*/
 	display: inline-block;
 	vertical-align: top;
 	height: 136px;
@@ -366,7 +373,8 @@ nav .add-artile:hover {
 }
 
 .board {
-	display: inline-block;
+    position: fixed;
+    display: inline-block;
 	vertical-align: top;
     margin: 5px 20px;
 	height: 284px;

@@ -57,86 +57,94 @@
                 <span>让您久等了，部分服务在局域网内测试了,年后v1.0能够上线 ！</span>
             </div>
 
-			<div class="container-div">
-				<div class="content-content">
-					<div class="author">
-						<a href="/view/profile/profile.html" class="avater" target="_blank">
-							<img src="/img/profile/chenrui.png" />
-						</a>
-						<div class="name">
-							<a href="/view/profile/profile.html?id=chenrui" class="blue-link" target="_blank">chenrui</a>
-                            <span class="blue-link time">2017-10-04</span>
-						</div>
-					</div> 
-					<a class="title" href="/view/article/article.html">
-						后台开发
-					</a>
-					<p class="abstract">
-						世界因为技术而变的更美好
-					</p>
-                    <div class="meta">
-                        <span>作者</span>
-                        <span>开发者</span>
-                        <span>金额</span>
+			<div class="container-div" id="queryList">
+                <div class="container-list">
+                    <div class="content-content">
+                        <div class="author">
+                            <a href="/view/profile/profile.html" class="avater" target="_blank">
+                                <img src="/img/profile/chenrui.png" />
+                            </a>
+                            <div class="name">
+                                <a href="/view/profile/profile.html?id=chenrui" class="blue-link" target="_blank">chenrui</a>
+                                <span class="blue-link time">2017-10-04</span>
+                            </div>
+                        </div>
+                        <a class="title" href="/view/article/article.html?q=53f8bc018e9d4ea2977d8d8b32cf75f4">
+                            后台开发
+                        </a>
+                        <p class="abstract">
+                            世界因为技术而变的更美好
+                        </p>
+                        <div class="meta">
+                            <span>作者</span>
+                            <span>开发者</span>
+                            <span>金额</span>
+                        </div>
                     </div>
-				</div>
-				<div class="content-img" >
-					<img src="/img/profile/chenrui2.png" />
-				</div>
-				
-				<div class="content-content">
-					<div class="author">
-						<a href="/view/profile/profile.html" class="avater" target="_blank">
-							<img src="/img/profile/sun.png" />
-						</a>
-						<div class="name">
-							<a href="/view/profile/profile.html" class="blue-link" target="_blank">Yeqing Sun</a>
-                            <span class="blue-link time">2017-10-04</span>
-						</div>
-					</div> 
-					<a class="title" href="/view/article/article.html">
-						Web - UI
-					</a>
-					<p class="abstract">
-						自信，独立，坚强			
-					</p>
-                    <div class="meta">
-                        <span>作者</span>
-                        <span>开发者</span>
-                        <span>金额</span>
+                    <div class="content-img" >
+                        <img src="/img/profile/chenrui2.png" />
                     </div>
-				</div>
-				<div class="content-img">
-					<img src="/img/profile/sun.png" />
-				</div>
-				
-				<div class="content-content">
-					<div class="author">
-						<a href="/view/profile/profile.html" class="avater" target="_blank">
-							<img src="/img/profile/yuan.png" />
-						</a>
-						<div class="name">
-							<a href="/view/profile/profile.html" class="blue-link" target="_blank">Zaiyang Yuan</a>
-                            <span class="blue-link time">2017-10-04</span>
-						</div>
-					</div> 
-					<a class="title" href="/view/article/article.html">
-						后台服务器架构师
-					</a>
-					<p class="abstract">
-						好好学习，天天向上！
-					</p>
-                    <div class="meta">
-                        <span>作者</span>
-                        <span>开发者</span>
-                        <span>金额</span>
+                </div>
+
+                <div class="container-list">
+                    <div class="content-content">
+                        <div class="author">
+                            <a href="/view/profile/profile.html" class="avater" target="_blank">
+                                <img src="/img/profile/sun.png" />
+                            </a>
+                            <div class="name">
+                                <a href="/view/profile/profile.html" class="blue-link" target="_blank">Yeqing Sun</a>
+                                <span class="blue-link time">2017-10-04</span>
+                            </div>
+                        </div>
+                        <a class="title" href="/view/article/article.html">
+                            Web - UI
+                        </a>
+                        <p class="abstract">
+                            自信，独立，坚强
+                        </p>
+                        <div class="meta">
+                            <span>作者</span>
+                            <span>开发者</span>
+                            <span>金额</span>
+                        </div>
                     </div>
-				</div>
-				<div class="content-img">
-					<img src="/img/profile/yuan1.png" />
-				</div>
-			</div>
-			
+                    <div class="content-img">
+                        <img src="/img/profile/sun.png" />
+                    </div>
+                </div>
+
+                <div class="container-list"  v-for="article in list"  v-for="article in list">
+
+                    <div class="content-content">
+                        <div class="author">
+                            <a href="/view/profile/profile.html" class="avater" target="_blank">
+                                <img :src="article.createBy.photo" />
+                            </a>
+                            <div class="name">
+                                <a href="/view/profile/profile.html" class="blue-link" target="_blank">{{article.createBy.username}}</a>
+                                <span class="blue-link time">{{article.createDate}}</span>
+                            </div>
+                        </div>
+                        <a class="title" :href="'/view/article/article.html?q='+article.id">
+                            {{article.title}}
+                        </a>
+                        <p class="abstract">
+                            好好学习，天天向上！
+                        </p>
+                        <div class="meta">
+                            <span>作者</span>
+                            <span>开发者</span>
+                            <span>金额</span>
+                        </div>
+                    </div>
+
+                    <div class="content-img">
+                        <img :src="article.titleImage" />
+                    </div>
+                </div>
+            </div>
+
 			<div class="board">
 				<a href="/view/video/video.html" >
 					<img src="/img/theme/brand_tap.png" />

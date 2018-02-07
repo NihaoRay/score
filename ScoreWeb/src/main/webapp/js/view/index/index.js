@@ -20,6 +20,7 @@ $(document).ready(function(){
 
     //页面初始化加载created方法
     vm.created();
+    listVm.created();
 });
 
 //后台数据交互和json数据渲染
@@ -68,3 +69,27 @@ function userCenterCtrl(flag) {
         /*$(".sign-up").hide();*/
     }
 }
+
+//后台数据交互和json数据渲染
+var listVm = new Vue({
+    el:"#queryList",
+    data:{
+        list:{}
+    },
+    methods: {
+        /**获得当前用户*/
+        queryList:function () {
+            /*$.getJSON("")*/
+            var flag = false;
+            $.getJSON("/notauth/article/queryList?_"+$.now(), function(result){
+                listVm.list = result.result;
+            });
+            //var listJson = {"success":false,"result":[{"id":"53f8bc018e9d4ea2977d8d8b32cf75f4","createBy":{"id":"1","delFlag":"0","isNewRecord":false,"username":"admin","photo":"/img/profile/chenrui.png"},"createDate":"2018-02-01 11:32:45","updateDate":"2018-02-01 11:35:04","delFlag":"0","isNewRecord":false,"title":"陈瑞，测试，你好","titleImage":"/img/profile/chenrui2.png","isPublish":"0"},{"id":"c34afec19cac4eeb9136b31d1515d14b","createBy":{"id":"1","delFlag":"0","isNewRecord":false,"username":"admin","photo":"/img/profile/chenrui.png"},"createDate":"2018-02-01 11:46:07","updateDate":"2018-02-01 11:46:07","delFlag":"0","isNewRecord":false,"title":"开发者","titleImage":"/img/profile/chenrui2.png","isPublish":"0"},{"id":"9ed10086cfda4f6795e47672acc1c83d","createBy":{"id":"1","delFlag":"0","isNewRecord":false,"username":"admin","photo":"/img/profile/chenrui.png"},"createDate":"2018-02-01 20:56:17","updateDate":"2018-02-01 20:59:04","delFlag":"0","isNewRecord":false,"title":"I love sun yet qing","titleImage":"/img/profile/chenrui2.png","isPublish":"0"},{"id":"62c5555a74b44ed6835a4bbb2d0df6bf","createBy":{"id":"1","delFlag":"0","isNewRecord":false,"username":"admin","photo":"/img/profile/chenrui.png"},"createDate":"2018-02-01 21:08:42","updateDate":"2018-02-01 21:09:01","delFlag":"0","isNewRecord":false,"title":"请输入标题","titleImage":"/img/profile/chenrui2.png","isPublish":"0"}],"code":0};
+            //listVm.list = listJson.result;
+        },
+        //初始化加载的方法
+        created: function(){
+            this.queryList();
+        }
+    }
+});

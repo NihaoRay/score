@@ -19,11 +19,12 @@ $(document).ready(function(){
     });
 
     //页面初始化加载created方法
-    vm.created();
+    navVm.created();
+    articleVm.created();
 });
 
 //后台数据交互和json数据渲染
-var vm = new Vue({
+var navVm = new Vue({
     el:"#nav_user",
     data:{
         user:{},
@@ -43,9 +44,9 @@ var vm = new Vue({
                 else {
                     flag = false;
                     userCenterCtrl(flag);
-                    vm.user=result.result;
+                    navVm.user=result.result;
                     //拼接url携带id
-                    vm.url=vm.url+"?id="+vm.user.id;
+                    navVm.url=navVm.url+"?id="+navVm.user.id;
                 }
             });
         },
@@ -68,3 +69,51 @@ function userCenterCtrl(flag) {
         /*$(".sign-up").hide();*/
     }
 }
+
+/*获取url中的param参数*/
+function getUrlParam(param){
+    var reg = new RegExp("(^|&)" + param + "=([^&]*)(&|$)");
+    var regGet = window.location.search.substr(1).match(reg);
+    if(regGet != null && regGet[2].toString().length > 0){
+        return decodeURI(regGet[2]);
+    }
+}
+
+/**设计思路：截取url中的article的id获得对应的文章id*/
+var articleVm = new Vue({
+    el:"#_note",
+    data:{
+        createDate:"",
+        id:"",
+        isPublish:"",
+        title:"",
+        titleImage:"",
+        user:{},
+        content:{}
+    },
+    methods:{
+        getAricle:function (event) {
+            $.getJSON("/notauth/article/getArticle?id="+event, function(result){
+                if(parseInt(result.code) == 0) {
+                    articleVm.createDate = result.result.createDate;
+                    articleVm.id = result.result.id;
+                    articleVm.isPublish = result.result.isPublish;
+                    articleVm.title = result.result.title;
+                    articleVm.user = result.result.createBy;
+                    /*articleVm.user.photo=articleVm.user.photo+"?id="+articleVm.user.id;*/
+                    articleVm.content = result.result.textId;
+                    $(".show-content").html(''+articleVm.content.content+'');
+                }
+                else {
+                    //拼接url携带id
+                }
+            });
+        },
+        created:function () {
+            var event = getUrlParam("q");
+            if(event) {
+                this.getAricle(event);
+            }
+        }
+    }
+});

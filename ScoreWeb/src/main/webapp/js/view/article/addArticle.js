@@ -2,9 +2,8 @@
   @author chenrui on 2018/1/20.
  */
 //生成的标题的全局变量
-    var index=null;
-    var layedit=null;
-
+var index=null;
+var layedit=null;
 $(document).ready(function(){
     //添加layer组件
     layui.use('layedit', function () {
@@ -15,14 +14,9 @@ $(document).ready(function(){
                 url: '/article/upload' ,
                 type: 'post'
             }
-            //,tool: []
-            //,height: 100
         });
-
         getChoose.onclick = function () {
-            //layer.alert(layedit.getContent(index));
-            //alert(layedit.getContent(index));
-            //layedit.getContent(index);
+            alert(layedit.getContent(index));
         };
     });
 });
@@ -35,16 +29,20 @@ var articleVm = new Vue({
         titleImage:""
     },
     methods:{
+        /**保存*/
         save:function (event) {
-            debugger;
             //添加文本内容
             //layedit.setContent(index, "", false);
             var content=layedit.getContent(index);
+            if(!content) {
+                layer.msg("请添加文章内容", {icon:7, time:3000});
+                return false;
+            }
             //回显id判断是否是新增还是修改
             var hiddenArticleId = $("#hiddenArticleId").val();
             var hiddenArticleTextId = $("#hiddenArticleTextId").val();
             articleVm.titleImage=$.cookie('titleImage');
-            if($.cookie('titleImage') == "null") {
+            if($.cookie('titleImage') == "null" || !$.cookie('titleImage')) {
                 articleVm.titleImage="/img/sys/logon.png";
             }
             $.ajax({
@@ -65,7 +63,7 @@ var articleVm = new Vue({
                     //回显提示数据
                     if (parseInt(result.code) == 0) {//登录成功
                          layer.tips('保存成功，继续编辑不会丢啦', '#layui-btn', {
-                         tips: [1, '#d49532'],
+                         tips: [1, '#2FD41F'],
                          time: 4000
                          });
                          //在回显域中添加id

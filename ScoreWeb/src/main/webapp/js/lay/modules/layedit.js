@@ -101,13 +101,7 @@ layui.define(['layer', 'form'], function(exports){
     return toLower(iframeWin[0].document.body.innerHTML);
   };
 
-  //向编辑器中插入html代码
- /* Edit.prototype.setContent=function(index, innerValHTML) {
-      var iframwWin=getWin(index);
-      if(!iframeWin[0]) return;
-      iframeWin[0].document.body.innerHTML=innerValHTML;
-  };*/
-  
+
   //获得编辑器中纯文本内容
   Edit.prototype.getText = function(index){
     var iframeWin = getWin(index);
@@ -411,7 +405,7 @@ layui.define(['layer', 'form'], function(exports){
                         }, range);
 
                         //将第一个图片地址放入cookie中，在保存后就会销毁@author:chenrui
-                        if($.cookie('titleImage') == "null") {
+                        if($.cookie('titleImage') == "null" || !$.cookie('titleImage')) {
                             $.cookie('titleImage', res.result);
                         }
                     } else {

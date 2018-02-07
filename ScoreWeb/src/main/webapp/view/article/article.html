@@ -15,8 +15,6 @@
         <a href="/index.html" class="logo">
             <img src="/img/sys/logon.png" alt="logo"/>
         </a>
-
-
         <div class="login-btn">
             <div class="user" style="display: none" id="nav_user">
                 <a :href="url" class="avater" target="_blank">
@@ -40,44 +38,31 @@
 </nav>
 
 <!--文章列表-->
-<div class="note">
+<div class="note" id="_note">
     <div class="post">
         <div class="atrtile">
             <h1 class="atrtile-title">
-                目前是静态页面
+                {{title}}
             </h1>
             <div class="author">
                 <a href="/view/profile/profile.html" class="avater" target="_blank">
-                    <img src="/img/profile/chenrui2.png" />
+                    <img :src="user.photo" />
                 </a>
                 <div class="info">
-                            <span class="name">
-                                <a href="/view/profile/profile.html">chenrui</a>
-                                <span class="blue-link time">2018-01-19</span>
-                                <span class="blue-link">很快就好</span>
-                            </span>
+                    <span class="name">
+                        <a href="/view/profile/profile.html">{{user.username}}</a>
+                        <span class="blue-link time">{{createDate}}</span>
+                    </span>
                 </div>
             </div>
-
-            <!--文章内容-->
             <div class="show-content">
-                <p style="margin: 0px; padding: 0px; font-size: 17px; color: rgb(0, 0, 0); font-family: -apple-system, &quot;SF UI Text&quot;, Arial, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial; text-align: center;"><strong>开发者</strong></p>
-
-                <p style="margin: 0px; padding: 0px; font-size: 17px; color: rgb(0, 0, 0); font-family: -apple-system, &quot;SF UI Text&quot;, Arial, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial; text-align: left;">作为一个程序员，非常荣幸能够担任此站的开发。<span style="color: rgb(0, 0, 0); font-family: &quot; Helvetica Neue&quot;, Helvetica, &quot;PingFang SC&quot;, 微软雅黑, Tahoma, Arial, sans-serif; font-size: 17px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;">让您久等了，部分服务在局域网内测试了,年后v1.0能够上线 ！</span></p>
-
-                <p style="margin: 0px; padding: 0px; font-size: 17px; color: rgb(0, 0, 0); font-family: -apple-system, &quot;SF UI Text&quot;, Arial, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial; text-align: left;"><span style="color: rgb(0, 0, 0); font-family: &quot; Helvetica Neue&quot;, Helvetica, &quot;PingFang SC&quot;, 微软雅黑, Tahoma, Arial, sans-serif; font-size: 17px; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-align: start; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial; display: inline !important; float: none;"><br></span></p>
-
-                <p style="margin: 0px; padding: 0px; font-size: 17px; color: rgb(0, 0, 0); font-family: -apple-system, &quot;SF UI Text&quot;, Arial, &quot;PingFang SC&quot;, &quot;Hiragino Sans GB&quot;, &quot;Microsoft YaHei&quot;, &quot;WenQuanYi Micro Hei&quot;, sans-serif; font-style: normal; font-variant-ligatures: normal; font-variant-caps: normal; font-weight: 400; letter-spacing: normal; orphans: 2; text-indent: 0px; text-transform: none; white-space: normal; widows: 2; word-spacing: 0px; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial; text-align: left;">如果您在访问这个页面遇到任何问题，可以联系我的个人账号<em><span>chenrui@marsdl.com</span></em>, 我将会尽力回答您的问题。</p>
             </div>
         </div>
     </div>
 </div>
-
 <!--底边设置-->
 <div class="pulllog-box">
-
 </div>
-
 </body>
 </html>
 <script type="text/javascript" src="/js/jquery-1.12.0.min.js" ></script>

@@ -1,12 +1,9 @@
 package com.marsdl.modules.article.service;
 
-import com.marsdl.common.persistence.ActionResult;
 import com.marsdl.common.service.CrudService;
 import com.marsdl.modules.article.dao.ArticleDao;
 import com.marsdl.modules.article.dao.ArticleTextDao;
 import com.marsdl.modules.article.entity.Article;
-import com.marsdl.modules.article.entity.ArticleText;
-import com.marsdl.modules.article.form.ArticleForm;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -37,6 +34,12 @@ public class ArticleService extends CrudService<ArticleDao, Article>{
         articleTextService.save(article.getTextId());
         super.save(article);
         return true;
+    }
+
+    @Transactional(readOnly = true)
+    public Article getArticleContent(Article article) {
+        Article articleText = articleDao.queryObjectContent(article);
+        return articleText;
     }
 
 }

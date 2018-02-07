@@ -91,7 +91,7 @@ public class LoginController {
     public ActionResult getCurrentUser(HttpServletRequest request, HttpServletResponse response) {
         ActionResult result = new ActionResult();
         User sysUser = UserUtil.getUser();
-        if(sysUser.getUsername() != null) {
+        if(StringUtils.isNotBlank(sysUser.getUsername())) {
             result.setResult(sysUser);
             return result;
         }
