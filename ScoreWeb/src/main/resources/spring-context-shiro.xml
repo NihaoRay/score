@@ -27,7 +27,7 @@
                 <!--/sys/logout=logout-->
 
                 <!--特定的模块和功能不拦截-->
-                /user/update**=anon
+                /user/save**=anon
                 /sys/**=anon
                 /notauth/article/**=anon
 

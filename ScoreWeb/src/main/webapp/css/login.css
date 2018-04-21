@@ -123,3 +123,15 @@ body{
 	display: inline-block;
 }
 
+.erro-tips{
+    margin: 10px auto;
+    outline: none;
+    width: 320px;
+    height: 40px;
+    line-height: 40px;
+    border-radius: 2px;
+    font-size: 15px;
+    padding-left: 8px;
+    text-align: center;
+    color: #e43d3d;
+}

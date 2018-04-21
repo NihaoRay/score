@@ -65,7 +65,6 @@ public class LoginController {
             result.setMessage(RetCode.LOGIN_SUCCESS);
             result.setCode(RetCode.LOGIN_SUCCESS_CODE);
         } catch (UnknownAccountException e) {
-
             result.setMessage(RetCode.NO_USER);
             result.setCode(RetCode.NO_USER_CODE);
         } catch (IncorrectCredentialsException e) {

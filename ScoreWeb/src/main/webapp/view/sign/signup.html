@@ -46,20 +46,23 @@
     <form id="inputForm">
         <ul>
             <li>
-                <input type="text" class="username" v-model="username" placeholder="昵称" onchange="check(this)"/>
+                <input type="text" class="username" v-model="username" placeholder="昵称" />
             </li>
             <li>
-                <input type="text" class="email" v-model="email" placeholder="邮箱" onchange="check(this)"/>
+                <input type="text" class="email" v-model="email" placeholder="邮箱" />
             </li>
             <li>
-                <input type="password" class="password" v-model="password" placeholder="设置密码" onchange="check(this)"/>
+                <input type="password" class="password" v-model="password" placeholder="设置密码"/>
             </li>
          <!--   <li>
                 <input type="text" v-model="logincode" id="logincode" placeholder="输入验证码"/>
                 <a href="javascript:void(0);" @click="refreshCode" ><img id="code" alt="如果看不清，刷新图片" src="/user/getCode" /></a>
             </li>-->
         </ul>
-        <div class="sign signup-button">注册</div>
+        <div class="sign signup-button" @click="signup">注册</div>
+        <div class="erro-tips">
+            {{error}}
+        </div>
     </form>
 </div>
 </body>
@@ -68,18 +71,4 @@
 <script type="text/javascript" src="/js/vue/vue.min.js"></script>
 <script type="text/javascript" src="/js/jquery-ruirui.js"></script>
 <script type="text/javascript" src="/js/layer.js"></script>
-<script type="text/javascript">
-    var vm = new Vue({
-        el:"#inputForm",
-        data: {
-            username:"",
-            email:"",
-            password:""
-        },
-        methods: {
-            /*refreshCode:function () {
-                $("#code").attr("src", "/user/getCode?timestamp="+$.now());
-            }*/
-        }
-    });
-</script>
+<script type="text/javascript" src="/js/view/sign/signup.js"></script>

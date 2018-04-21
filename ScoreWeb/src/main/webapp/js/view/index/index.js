@@ -62,11 +62,11 @@ function userCenterCtrl(flag) {
     if(flag) {
         $("#nav_user").hide();
         $(".log-in").show();
-        /*$(".sign-up").show();*/
+        $(".sign-up").show();
     } else {
         $("#nav_user").show();
         $(".log-in").hide();
-        /*$(".sign-up").hide();*/
+        $(".sign-up").hide();
     }
 }
 

@@ -4,27 +4,30 @@
 //后台数据交互和json数据渲染
 var vm = new Vue({
     el:"#inputForm",
-    data:{
-        username: "",
-        password: "",
+    data: {
+        username:"",
+        email:"",
+        password:"",
         error:""
     },
-    methods:{
-        /*refreshCode: function () {
-         $("#code").attr("src", "/user/getCode?timestamp="+$.now());
-         },*/
-        login:function (event) {
+    methods: {
+        signup:function (event) {
+            debugger;
             if(!vm.username) {
-                vm.error = "请输入用户名"
+                vm.error = "请输入首次登陆昵称"
                 return false;
             }
             if(!vm.password) {
-                vm.error = "请输入密码"
+                vm.error = "请输入首次使用密码"
                 return false;
             }
-            vm.error = "";
-            //封装请求数据
-            var data = "username=" + vm.username + "&password="+vm.password;
+            if(!vm.email) {
+                vm.error = "请输入邮箱"
+                return false;
+            }
+            vm.error="";
+            //封装数据
+            var data = "username=" + vm.username + "&password="+vm.password+"&email="+vm.email;
             //加载loading
             var index = layer.load(1, {
                 shade: [0.1,'#fff'] //0.1透明度的白色背景
@@ -32,15 +35,15 @@ var vm = new Vue({
 
             $.ajax({
                 type: "POST",
-                url: "/sys/login",
+                url: "/user/save",
                 data: data,
                 dataType: "json",
                 success: function (result) {
                     //关闭loading层
                     layer.close(index);
-                    if (parseInt(result.code) == 202) {//登录成功
+                    if (parseInt(result.code) == 202) {//注册成功跳转到登陆页面
                         if(!result.result) {
-                            location.href="/index.html";
+                            location.href="/";
                             return true;
                         }
                         location.href=result.result;
@@ -54,4 +57,3 @@ var vm = new Vue({
         }
     }
 });
-

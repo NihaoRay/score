@@ -8,12 +8,12 @@ import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
-
 /**
  * @Description
  * @Author chenrui
  * @since 2017/10/25
  */
+
 public class IPAdress {
 
     private static String url = "";

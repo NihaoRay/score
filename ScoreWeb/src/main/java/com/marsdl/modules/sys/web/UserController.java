@@ -16,6 +16,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.List;
 
 @Controller
 @RequestMapping("/user")
@@ -54,14 +55,25 @@ public class UserController {
 
     @RequestMapping(value = "save")
     @ResponseBody
-    public String save(User user, HttpServletRequest request) {
+    public ActionResult save(User user, HttpServletRequest request) {
         user.setRemarks(IPUtil.getIp(request));
-        boolean isSuccess =  userService.insert(user);
-        if(isSuccess) {
-            return RetCode.SUCCESS;
-        } else {
-            return RetCode.ERROR;
+        ActionResult result = new ActionResult();
+        try {
+            User userObject = userService.findUserByUsername(user.getUsername());
+            if(!org.springframework.util.StringUtils.isEmpty(userObject)) {
+                result.setMessage("存在用户名");
+                return result;
+            }
+            userService.save(user);
+        } catch (Exception e) {
+            e.printStackTrace();
+            result.setMessage(RetCode.ERROR);
+            result.setCode(RetCode.ERROR_CODE);
         }
+        //封装返回的编码
+        result.setMessage(RetCode.LOGIN_SUCCESS);
+        result.setCode(RetCode.LOGIN_SUCCESS_CODE);
+        return result;
     }
 
     @RequestMapping(value = "findEntityByParams")
@@ -72,6 +84,7 @@ public class UserController {
         actionResult.setMessage("你好，我是陈瑞");
         return actionResult;
     }
+
 
     @RequestMapping(value = "delete")
     @ResponseBody

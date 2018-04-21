@@ -27,11 +27,26 @@ public class UserService extends CrudService<UserDao, User> {
         return list;
     }
 
-    @Transactional(readOnly = false)
-    public boolean insert(User user) {
-        userDao.save(user);
-        return true;
+    public User findUserByUsername(String username) {
+        User user = null;
+        try{
+            user = userDao.queryObjectByUsername(username);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+        return user;
     }
+    /*@Transactional(readOnly = false)
+    public boolean insert(User user) {
+        try {
+            userDao.save(user);
+        } catch (Exception e) {
+            e.printStackTrace();
+            return false;
+        }
+        return true;
+    }*/
 
     /**
      * 删除
