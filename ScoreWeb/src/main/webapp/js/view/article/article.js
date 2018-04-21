@@ -89,7 +89,8 @@ var articleVm = new Vue({
         title:"",
         titleImage:"",
         user:{},
-        content:{}
+        content:{},
+        imgsrc:""
     },
     methods:{
         getAricle:function (event) {
@@ -102,6 +103,7 @@ var articleVm = new Vue({
                     articleVm.user = result.result.createBy;
                     /*articleVm.user.photo=articleVm.user.photo+"?id="+articleVm.user.id;*/
                     articleVm.content = result.result.textId;
+                    articleVm.imgsrc=result.result.description;
                     $(".show-content").html(''+articleVm.content.content+'');
                 }
                 else {

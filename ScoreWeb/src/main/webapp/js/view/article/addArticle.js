@@ -26,7 +26,8 @@ var articleVm = new Vue({
     el : "#container",
     data : {
         title:"请输入标题",
-        titleImage:""
+        titleImage:"",
+        description:""
     },
     methods:{
         /**保存*/
@@ -53,11 +54,11 @@ var articleVm = new Vue({
                     "textId.id":hiddenArticleTextId,
                     "textId.content":content,
                     "title":articleVm.title,
-                    "titleImage":articleVm.titleImage
+                    "titleImage":articleVm.titleImage,
+                    "description":articleVm.description
                 },
                 dataType: "json",
                 success: function (result) {
-                    debugger;
                     //清除刚刚保存的cookie
                     $.cookie("titleImage",null);
                     //回显提示数据

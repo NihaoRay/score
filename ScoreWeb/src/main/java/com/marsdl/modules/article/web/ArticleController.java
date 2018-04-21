@@ -38,7 +38,13 @@ public class ArticleController {
     @ResponseBody
     public ActionResult save(Article article, HttpServletRequest request, HttpServletResponse response) {
         ActionResult result = new ActionResult();
-        articleService.saveArticle(article, request, response);
+        try{
+            articleService.saveArticle(article, request, response);
+        } catch (Exception e) {
+            e.printStackTrace();
+            result.setMessage(RetCode.ERROR);
+            return result;
+        }
         result.setCode(RetCode.SUCCESS_CODE);
         result.setMessage(RetCode.SUCCESS);
         result.setResult(article);

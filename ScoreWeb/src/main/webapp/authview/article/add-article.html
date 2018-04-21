@@ -37,10 +37,16 @@
               <textarea name="demo" id="demo" class="layui-hide">
               </textarea>
             </div>
+
+            <div style="margin-top: 5px; margin-bottom: 8px">
+                <input type="tel" class="layui-input" v-model="description" placeholder="输入公网二维码图片地址">
+            </div>
+
             <a class="layui-btn" @click="save" id="layui-btn">保存</a>
             <a class="layui-btn" id="getChoose">获取内容和代码</a>
         </form>
     </div>
+
     <input type="hidden" style="display: none" id="hiddenArticleId" />
     <input type="hidden" style="display: none" id="hiddenArticleTextId" />
 	</body>

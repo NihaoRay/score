@@ -56,12 +56,19 @@
                 </div>
             </div>
             <div class="show-content">
+
             </div>
         </div>
     </div>
+    <!--<input style="display: none" id="imgsrc" v-model="imgsrc" />-->
+    <img v-bind:src="imgsrc" id="imgsrc" style="display: none; height: 516px; width: 516px" />
 </div>
+
 <!--底边设置-->
 <div class="pulllog-box">
+    <div style="height:40px; width:80px; margin:10px auto " >
+        <button class="layui-btn layui-btn-normal" id="imgsrcbutton">显示价格二维码</button>
+    </div>
 </div>
 </body>
 </html>
@@ -71,3 +78,19 @@
 <script type="text/javascript" src="/js/layer.js"></script>
 <script type="text/javascript" src="/js/layui.js"></script>
 <script type="text/javascript" src="/js/view/article/article.js"></script>
+<script type="text/javascript">
+    $(document).ready(function(){
+        $("#imgsrcbutton").click(function () {
+            var imgsrc = $("#imgsrc").val();
+            layer.open({
+                type: 1,
+                title: false,
+                closeBtn: 0,
+                area: '516px',
+                skin: 'layui-layer-nobg', //没有背景色
+                shadeClose: true,
+                content: $("#imgsrc")
+            });
+        })
+    })
+</script>
